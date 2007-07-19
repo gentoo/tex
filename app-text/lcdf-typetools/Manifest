@@ -1,0 +1,8 @@
+DIST lcdf-typetools-2.63.tar.gz 501716 RMD160 be3ad115ab78bf2ec7816584e69c7e46b26e105f SHA1 32c464745a91cfd65d14ced1ab322c81fe9a2090 SHA256 8af4db81ca183efae223abe5871902dabf06e3d4bc088229c64cbd7f1b374b9c
+EBUILD lcdf-typetools-2.63.ebuild 446 RMD160 cdc6460cc45a786f990286dbdee1f610cee824e7 SHA1 c44a1b3aca74f58853bf6aebb0d86dfd65dd43f9 SHA256 37e16642e5a996a5efc3619c4ae0caa974e4e2f8ea76b2f6df5076488d7c0b4a
+MD5 d637403e2e7a9e11a5fe3e288dad480d lcdf-typetools-2.63.ebuild 446
+RMD160 cdc6460cc45a786f990286dbdee1f610cee824e7 lcdf-typetools-2.63.ebuild 446
+SHA256 37e16642e5a996a5efc3619c4ae0caa974e4e2f8ea76b2f6df5076488d7c0b4a lcdf-typetools-2.63.ebuild 446
+MD5 25179ea709836a3121ef5cf4d6e7d140 files/digest-lcdf-typetools-2.63 259
+RMD160 8426794c1a193578ac8f14980c1429e158f5c7d5 files/digest-lcdf-typetools-2.63 259
+SHA256 cca066415bf6890cc67a29b156d24f773dd79c70254dc18c54a9659a48926545 files/digest-lcdf-typetools-2.63 259

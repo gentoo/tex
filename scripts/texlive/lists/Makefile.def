@@ -1,0 +1,37 @@
+
+
+DESC = texlive-basic texlive-bibtexextra \
+       texlive-binextra texlive-context texlive-documentation-base \
+       texlive-documentation-bulgarian texlive-documentation-chinese texlive-documentation-czechslovak \
+       texlive-documentation-dutch texlive-documentation-english texlive-documentation-finnish \
+       texlive-documentation-french texlive-documentation-german texlive-documentation-greek \
+       texlive-documentation-italian texlive-documentation-japanese texlive-documentation-korean \
+       texlive-documentation-mongolian texlive-documentation-polish texlive-documentation-portuguese \
+       texlive-documentation-russian texlive-documentation-spanish texlive-documentation-thai texlive-documentation-turkish texlive-documentation-ukrainian \
+       texlive-documentation-vietnamese \
+       texlive-fontbin texlive-fontsextra texlive-fontsrecommended \
+       texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
+       texlive-graphicstools texlive-htmlxml texlive-humanities \
+       texlive-langafrican texlive-langarab texlive-langarmenian \
+       texlive-langcjk texlive-langcroatian texlive-langcyrillic \
+       texlive-langczechslovak texlive-langdanish texlive-langdutch \
+       texlive-langfinnish texlive-langfrench texlive-langgerman \
+       texlive-langgreek texlive-langhebrew texlive-langhungarian \
+       texlive-langindic texlive-langitalian texlive-langlatin \
+       texlive-langmanju texlive-langmongolian texlive-langnorwegian \
+       texlive-langother texlive-langpolish texlive-langportuguese \
+       texlive-langspanish texlive-langswedish texlive-langtibetan \
+       texlive-langukenglish texlive-langvietnamese texlive-latex3 \
+       texlive-latex texlive-latexextra texlive-latexrecommended \
+       texlive-mathextra texlive-metapost texlive-music texlive-omega \
+       texlive-perl texlive-pictures texlive-plainextra \
+       texlive-pstricks texlive-psutils texlive-publishers \
+       texlive-science texlive-texinfo texlive-ttfutils texlive-xetex \
+       texlive-basicbin 
+
+# those ones are provided by texlive & friends
+       
+       
+# Only for windows
+# texlive-wintools 
+

@@ -1,0 +1,15 @@
+
+MKDIRP=mkdir -p
+
+CPF=cp -f
+
+ARCHIVE_DIR=http://www.tug.org/texlive/Contents/inst/archive/
+
+%.zip:
+	wget $(@:archive/%=$(ARCHIVE_DIR)%) -O $@
+	
+%.tar.bz2: $(ZIP:%=archive/%.zip)
+	$(MKDIRP) $(@:%.tar.bz2=%)
+	$(CPF) $(ZIP:%=archive/%.zip) $(@:%.tar.bz2=%)
+	tar cjf $@ $(@:%.tar.bz2=%)
+

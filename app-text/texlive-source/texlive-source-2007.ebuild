@@ -12,7 +12,7 @@ SLOT="0"
 LICENSE="GPL-2"
 
 SRC_URI="mirror://gentoo/${P}.tar.bz2
-	mirror://gentoo/${PN/-bin/}-basicbin-${PV}.tar.bz2"
+	mirror://gentoo/${PN/-source/}-basicbin-${PV}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
 IUSE="lesstif motif neXt X Xaw3d doc"
@@ -71,7 +71,7 @@ src_unpack() {
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed"
 
-	for i in ${PN/-bin/}-basicbin-${PV}/*zip; do
+	for i in ${PN/-source/}-basicbin-${PV}/*zip; do
 		einfo "Unpacking ${i}"
 		unzip -q ${i}
 	done

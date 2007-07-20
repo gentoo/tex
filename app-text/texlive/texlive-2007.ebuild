@@ -35,7 +35,7 @@ BLOCKS="!dev-tex/memoir
 	!dev-tex/extsizes"
 
 DEPEND=""
-RDEPEND=">=app-text/texlive-bin-2007
+RDEPEND=">=app-text/texlive-source-2007
 	${BLOCKS}
 	app-text/psutils
 	${TEXLIVE_CAT}/texlive-psutils

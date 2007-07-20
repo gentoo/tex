@@ -1,12 +1,12 @@
 # Copyright 1999-2004 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/eclass/gst-plugins-good.eclass,v 1.12 2007/01/25 16:47:56 lack Exp $
+# $Header: $
 
 
 HOMEPAGE="http://www.tug.org/texlive/"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
-COMMON_DEPEND=">=app-text/texlive-bin-${PV}"
+COMMON_DEPEND=">=app-text/texlive-source-${PV}"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
 	${TEXLIVE_MODULES_DEPS}"

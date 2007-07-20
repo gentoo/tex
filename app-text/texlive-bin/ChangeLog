@@ -1,5 +1,0 @@
-# ChangeLog for app-text/texlive
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
-
-  09 March 2007; Fabian Wolf <fabian.wolf@informatik.uni-ulm.de> texlive-2007.ebuild:
-  texlive-2007 initial ebuild, based on the texlive-2005 ebuild.

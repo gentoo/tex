@@ -3,9 +3,10 @@ include /etc/make.conf
 
 TEXLIVE_VERSION=2007
 
-TEXLIVE_OVERLAY_LOCATION=/share/texlive/
+TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay/
 
-TEXLIVE_LIVE_MOUNTPOINT=/home/alexis/gentoo_workdir/texlive/live/
+TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live/
+TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst/
 
 MKDIRP=mkdir -p
 RMF=rm -f
@@ -52,8 +53,9 @@ clean:
 	$(RMF) $(DESC:%=%.base)
 	$(RMF) genlist
 
-%.tar.bz2: 
-	echo -n "ZIP=" > dist/Makefile
+%.tar.bz2:
+	echo "TEXLIVE_INST_MOUNTPOINT=$(TEXLIVE_INST_MOUNTPOINT)" > dist/Makefile
+	echo -n "ZIP=" >> dist/Makefile
 	cat $(@:dist/%-$(TEXLIVE_VERSION).tar.bz2=%.list) >> dist/Makefile
 	echo "" >> dist/Makefile
 	echo "include ../Makefile-dist.ref" >> dist/Makefile

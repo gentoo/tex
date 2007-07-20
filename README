@@ -1,0 +1,25 @@
+You can find here the modular texlive ebuilds I'm working on.
+Unfortunately it is not yet possible to have an overlay that works out of the
+box, therefore you'll have to do a few things to be able to install texlive
+2007.
+
+
+First, download both live and inst isos of texlive from
+http://mirror.ctan.org/systems/texlive/Images/
+
+
+Then, mount the images : the default location is /mnt/texlive-inst for inst iso,
+and /mnt/texlive-live for live iso.
+
+Copy /mnt/texlive-live/source/source.tar.bz2 as texlive-source-2007.tar.bz2 in
+your distfiles dir.
+
+
+Once that done, you have to generate the ebuilds for the modular texmf tree, go
+to scripts/texlive/lists subdir and you'll find another README file :)
+
+
+
+Reporting bugs / improvements : Just contact me, aballier@gentoo.org, or on irc
+(freenode). Feedback, even if it's just to say "that just worked perfectly" will
+be very appreciated, so that I'll know how many people tested it, etc.

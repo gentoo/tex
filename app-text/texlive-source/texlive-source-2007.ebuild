@@ -142,6 +142,7 @@ src_compile() {
 		--with-system-icu \
 		--without-ttf2pk \
 		--without-xdvik --without-oxdvik \
+		--enable-shared \
 		$(use_with X x) \
 		${my_conf} || die "econf"
 

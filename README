@@ -17,6 +17,8 @@ your distfiles dir.
 
 Once that done, you have to generate the ebuilds for the modular texmf tree, go
 to scripts/texlive/lists subdir and you'll find another README file :)
+If you want a simpler approach, just go to scripts/texlive subdir and type make.
+It should do the right thing for you.
 
 
 

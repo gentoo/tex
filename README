@@ -20,6 +20,10 @@ to scripts/texlive/lists subdir and you'll find another README file :)
 
 
 
+If you've gone through all those steps, you're ready to install texlive !
+Just append texlive-overlay to your portage overlay and type "emerge texlive".
+
+
 Reporting bugs / improvements : Just contact me, aballier@gentoo.org, or on irc
 (freenode). Feedback, even if it's just to say "that just worked perfectly" will
 be very appreciated, so that I'll know how many people tested it, etc.

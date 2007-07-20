@@ -3,10 +3,8 @@ MKDIRP=mkdir -p
 
 CPF=cp -f
 
-ARCHIVE_DIR=http://www.tug.org/texlive/Contents/inst/archive/
-
 %.zip:
-	wget $(@:archive/%=$(ARCHIVE_DIR)%) -O $@
+	$(CPF) "$(TEXLIVE_INST_MOUNTPOINT)/$@" $@
 	
 %.tar.bz2: $(ZIP:%=archive/%.zip)
 	$(MKDIRP) $(@:%.tar.bz2=%)

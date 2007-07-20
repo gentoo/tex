@@ -3,11 +3,8 @@ MKDIRP=mkdir -p
 
 CPF=cp -f
 
-%.zip:
-	$(CPF) "$(TEXLIVE_INST_MOUNTPOINT)/$@" $@
-	
-%.tar.bz2: $(ZIP:%=archive/%.zip)
+%.tar.bz2: $(ZIP:%=$(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip)
 	$(MKDIRP) $(@:%.tar.bz2=%)
-	$(CPF) $(ZIP:%=archive/%.zip) $(@:%.tar.bz2=%)
+	$(CPF) $(ZIP:%=$(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip) $(@:%.tar.bz2=%)
 	tar cjf $@ $(@:%.tar.bz2=%)
 

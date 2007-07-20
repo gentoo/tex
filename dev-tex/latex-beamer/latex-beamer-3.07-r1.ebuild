@@ -16,7 +16,7 @@ IUSE="doc emacs lyx"
 
 DEPEND="emacs? ( app-emacs/auctex )
 	lyx? ( app-office/lyx )
-	|| ( >=app-text/tetex-3.0 app-text/texlive-bin )"
+	|| ( >=app-text/tetex-3.0 app-text/texlive-source )"
 
 src_compile() {
 	if use emacs ; then

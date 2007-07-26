@@ -46,7 +46,6 @@ RDEPEND="${DEPEND}
 	dev-util/dialog
 	app-text/lcdf-typetools
 	dev-tex/detex
-	>=app-text/dvipdfm-0.13.2d
 	png? ( app-text/dvipng )
 	X? ( app-text/xdvik )
 	${TEXLIVE_CAT}/texlive-binextra

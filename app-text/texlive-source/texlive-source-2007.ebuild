@@ -15,9 +15,12 @@ SRC_URI="mirror://gentoo/${P}.tar.bz2
 	mirror://gentoo/${PN/-source/}-basicbin-${PV}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="lesstif motif neXt X Xaw3d doc"
+#IUSE="lesstif motif neXt X Xaw3d doc"
+IUSE="X doc"
 
-# There's not yet a tex virtual - however: no virtual/tetex either
+# Not ideal, especially with the modularized way : some packages need only
+# texlive-source, ie, the binaries, some other use virtual/tetex to have
+# a fully working latex installation to compile some .tex files...
 PROVIDE="virtual/tetex"
 
 MODULAR_X_DEPEND="X? ( || ( (

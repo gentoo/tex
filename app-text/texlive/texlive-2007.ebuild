@@ -56,7 +56,6 @@ RDEPEND=">=app-text/texlive-source-2007
 	${TEXLIVE_CAT}/texlive-latex
 	${TEXLIVE_CAT}/texlive-latex3
 	${TEXLIVE_CAT}/texlive-latexrecommended
-	${TEXLIVE_CAT}/texlive-langother
 	>=dev-tex/xcolor-2.11
 	>=dev-tex/latex-beamer-3.06
 	${TEXLIVE_CAT}/texlive-metapost
@@ -137,3 +136,6 @@ RDEPEND=">=app-text/texlive-source-2007
 	linguas_en_GB? ( ${TEXLIVE_CAT}/texlive-langukenglish )
 	linguas_vi? ( ${TEXLIVE_CAT}/texlive-langvietnamese )
 "
+
+# What to do with those ?
+# ${TEXLIVE_CAT}/texlive-langother

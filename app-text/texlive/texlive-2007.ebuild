@@ -60,7 +60,7 @@ RDEPEND=">=app-text/texlive-source-2007
 	>=dev-tex/latex-beamer-3.06
 	${TEXLIVE_CAT}/texlive-metapost
 	${TEXLIVE_CAT}/texlive-genericrecommended
-	perl? ( ${TEXLIVE_CAT}/texlive-perl >=dev-lang/perl-5.2 )
+	perl? ( >=dev-lang/perl-5.2 )
 	extra? (
 		${TEXLIVE_CAT}/texlive-bibtexextra
 		${TEXLIVE_CAT}/texlive-fontsextra

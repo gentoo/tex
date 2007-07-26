@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Utility to update Gentoo teTeX distribution configuration files
+# Utility to update Gentoo TeXLive distribution configuration files
 #
 
 PATH=/bin:/usr/bin
@@ -40,6 +40,19 @@ for conf in texmf.cnf fmtutil.cnf updmap.cfg; do
 		cat /etc/texmf/${conf/.*/.d}/* > "/etc/texmf/web2c/${conf}"
 	fi
 done
+
+# Generate language.dat file, from texlive install-pkg.sh
+X=`kpsewhich language.dat`
+if test -n "$X"; then
+    echo "Generating language.dat file"
+    cd `dirname $X`
+    Z=`pwd`
+
+    Y=`kpsewhich language.us`
+    cd `dirname $Y`
+    cat language.us language.*.dat > $Z/language.dat
+fi
+
 
 # configure
 echo "Configuring TeXLive ..."

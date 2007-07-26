@@ -10,7 +10,7 @@ SRC_URI="http://www.ukern.de/tex/xcolor/ctan/${P//[.-]/}.zip"
 
 LICENSE="LPPL-1.2"
 SLOT="0"
-KEYWORDS="alpha amd64 ppc ~ppc-macos ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86"
 
 IUSE=""
 

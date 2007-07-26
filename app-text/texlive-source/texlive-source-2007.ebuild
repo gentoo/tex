@@ -70,6 +70,7 @@ src_unpack() {
 
 #	epatch "${FILESDIR}/${PV}/${P}-use-system-libtool.patch"
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
+	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"
 
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed"

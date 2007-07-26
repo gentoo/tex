@@ -1,0 +1,24 @@
+We assume that you have successfully setup the overlay, generated the distfiles
+and so on.
+This file will just be a quick guide on how to switch from tetex to texlive as a
+user.
+
+Remove tetex : 
+emerge -C tetex
+
+This might have left some files, I had a package collision against a file not
+owned by anything : /usr/bin/pdftex ...
+
+ls /usr/bin/pdftex -l
+lrwxrwxrwx 1 root root 7 2007-07-09 07:34 /usr/bin/pdftex -> pdfetex
+
+and... of course pdfetex has gone with tetex...
+
+Hey ! This one is useless, thus we can remove it safely : 
+# rm /usr/bin/pdftex
+
+
+# emerge texlive
+
+Go take a coffee.
+Tada ! Texlive 2007 should be installed on your system!

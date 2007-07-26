@@ -46,7 +46,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	media-libs/gd
 	app-arch/unzip
 	=media-libs/freetype-2*
-	=media-libs/freetype-1*
 	dev-libs/icu
 	>=net-libs/libwww-5.3.2-r1"
 	#X? ( motif? ( lesstif? ( x11-libs/lesstif )
@@ -55,6 +54,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	#	 !neXt? ( Xaw3d? ( x11-libs/Xaw3d ) ) )
 	#	 !app-text/xdvik
 	#)
+	#=media-libs/freetype-1*
 
 RDEPEND="${DEPEND}
 	dev-lang/ruby"
@@ -110,9 +110,7 @@ src_compile() {
 		--with-system-ncurses \
 		--with-system-freetype2 \
 		--with-freetype2-include=/usr/include \
-		--with-freetype-include=/usr/include/freetype \
 		--with-system-t1lib \
-		--with-system-freetype \
 		--with-system-gd \
 		--with-system-zlib \
 		--with-system-pnglib \

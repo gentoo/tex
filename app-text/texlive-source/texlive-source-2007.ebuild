@@ -41,6 +41,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	!app-text/cstetex
 	!app-text/tetex
 	!<app-text/texlive-2007
+	!app-text/dvipdfm
 	sys-apps/ed
 	sys-libs/zlib
 	>=media-libs/libpng-1.2.1
@@ -137,7 +138,7 @@ src_compile() {
 		--with-etex \
 		--without-xetex \
 		--without-dvipng \
-		--without-dvipdfm \
+		--with-dvipdfm \
 		--without-dvipdfmx \
 		--without-xdvipdfmx \
 		--without-lcdf-typetools \

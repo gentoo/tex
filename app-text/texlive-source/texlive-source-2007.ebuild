@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain-funcs versionator virtualx
+inherit eutils flag-o-matic toolchain-funcs versionator virtualx libtool
 
 TEXMF_PATH=/usr/share/texmf
 
@@ -78,6 +78,8 @@ src_unpack() {
 		einfo "Unpacking ${i}"
 		unzip -q ${i}
 	done
+
+	elibtoolize
 }
 
 src_compile() {

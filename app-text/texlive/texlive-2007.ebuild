@@ -45,6 +45,7 @@ RDEPEND="${DEPEND}
 	app-text/t1utils
 	dev-util/dialog
 	app-text/lcdf-typetools
+	=media-libs/freetype-1*
 	dev-tex/detex
 	png? ( app-text/dvipng )
 	X? ( app-text/xdvik )

@@ -90,8 +90,8 @@ src_compile() {
 	export LC_ALL=C
 	tc-export CC CXX
 
-	filter-flags "-fstack-protector" "-Os"
-	use amd64 && replace-flags "-O3" "-O2"
+	#filter-flags "-fstack-protector" "-Os"
+	#use amd64 && replace-flags "-O3" "-O2"
 
 #	if use X ; then
 #		my_conf="${my_conf} --with-xdvik --with-oxdvik"

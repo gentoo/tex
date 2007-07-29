@@ -6,7 +6,7 @@ inherit eutils flag-o-matic toolchain-funcs versionator virtualx libtool
 
 TEXMF_PATH=/usr/share/texmf
 
-DESCRIPTION="a complete TeX distribution"
+DESCRIPTION="A complete TeX distribution"
 HOMEPAGE="http://tug.org/texlive/"
 SLOT="0"
 LICENSE="GPL-2"
@@ -151,7 +151,7 @@ src_compile() {
 		$(use_with X x) \
 		${my_conf} || die "econf"
 
-	emake -j1 CC="$(tc-getCC)" CXX="$(tc-getCXX)" texmf=${TEXMF_PATH:-/usr/share/texmf} || die "make"
+	emake texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
 }
 
 src_test() {

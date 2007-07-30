@@ -53,6 +53,8 @@ if test -n "$X"; then
     cat language.us language.*.dat > $Z/language.dat
 fi
 
+# Sync maps with texmf tree
+updmap-sys --cnffile /etc/texmf/web2c/updmap.cfg --syncwithtrees &>/dev/null
 
 # configure
 echo "Configuring TeXLive ..."

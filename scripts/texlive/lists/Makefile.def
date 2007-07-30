@@ -26,7 +26,8 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-mathextra texlive-metapost texlive-music texlive-omega \
        texlive-pictures texlive-plainextra \
        texlive-pstricks texlive-psutils texlive-publishers \
-       texlive-science texlive-texinfo texlive-ttfutils texlive-xetex \
+       texlive-science texlive-texinfo \
+       texlive-xetex \
        texlive-basicbin 
 
 # those ones are provided by texlive & friends
@@ -38,3 +39,6 @@ DESC = texlive-basic texlive-bibtexextra \
 # It's a perl install... better
 # to depend on perl-related packages
 # texlive-perl
+       
+# freetype1 provides most of it
+# texlive-ttfutils 

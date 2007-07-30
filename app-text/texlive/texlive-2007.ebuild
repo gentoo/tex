@@ -71,8 +71,7 @@ RDEPEND="${DEPEND}
 		${TEXLIVE_CAT}/texlive-plainextra
 	)
 	xetex? ( ${TEXLIVE_CAT}/texlive-xetex )
-	graphics? ( ${TEXLIVE_CAT}/texlive-graphicstools
-		${TEXLIVE_CAT}/texlive-pictures
+	graphics? ( ${TEXLIVE_CAT}/texlive-pictures
 		>=dev-tex/pgf-1.18 )
 	science? ( ${TEXLIVE_CAT}/texlive-science )
 	publishers? ( ${TEXLIVE_CAT}/texlive-publishers )

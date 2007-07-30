@@ -10,7 +10,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="cjk context cyrillic doc extra games graphics humanities music omega
-	perl png pstricks publishers science truetype xetex xml X
+	perl png pstricks publishers science xetex xml X
 	linguas_bg linguas_zh linguas_cs linguas_sk linguas_nl
 	linguas_en linguas_fi linguas_fr linguas_de linguas_el
 	linguas_it linguas_ja linguas_ko linguas_mn linguas_pl
@@ -70,9 +70,7 @@ RDEPEND="${DEPEND}
 		${TEXLIVE_CAT}/texlive-mathextra
 		${TEXLIVE_CAT}/texlive-plainextra
 	)
-	xetex? ( app-text/xetex
-		${TEXLIVE_CAT}/texlive-xetex )
-	truetype? ( ${TEXLIVE_CAT}/texlive-ttfutils )
+	xetex? ( ${TEXLIVE_CAT}/texlive-xetex )
 	graphics? ( ${TEXLIVE_CAT}/texlive-graphicstools
 		${TEXLIVE_CAT}/texlive-pictures
 		>=dev-tex/pgf-1.18 )

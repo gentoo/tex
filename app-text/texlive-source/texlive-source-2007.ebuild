@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain-funcs versionator virtualx libtool
+inherit eutils flag-o-matic toolchain-funcs versionator virtualx libtool autotools
 
 TEXMF_PATH=/usr/share/texmf
 
@@ -42,6 +42,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	!app-text/tetex
 	!<app-text/texlive-2007
 	!app-text/dvipdfm
+	!app-text/xetex
 	sys-apps/ed
 	sys-libs/zlib
 	>=media-libs/libpng-1.2.1
@@ -58,7 +59,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	#	 !neXt? ( Xaw3d? ( x11-libs/Xaw3d ) ) )
 	#	 !app-text/xdvik
 	#)
-	#=media-libs/freetype-1*
 
 RDEPEND="${DEPEND}
 	dev-lang/ruby"
@@ -72,6 +72,7 @@ src_unpack() {
 #	epatch "${FILESDIR}/${PV}/${P}-use-system-libtool.patch"
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
 	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"
+	epatch "${FILESDIR}/${PV}/${P}-libteckit-asneeded.patch"
 
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed"
@@ -82,6 +83,9 @@ src_unpack() {
 	done
 
 	elibtoolize
+
+	cd libs/teckit
+	eautoreconf
 }
 
 src_compile() {
@@ -136,7 +140,7 @@ src_compile() {
 		--without-t1utils \
 		--enable-ipc \
 		--with-etex \
-		--without-xetex \
+		--with-xetex \
 		--without-dvipng \
 		--with-dvipdfm \
 		--without-dvipdfmx \
@@ -151,7 +155,8 @@ src_compile() {
 		$(use_with X x) \
 		${my_conf} || die "econf"
 
-	emake texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
+
+	emake -j1 texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
 }
 
 src_test() {

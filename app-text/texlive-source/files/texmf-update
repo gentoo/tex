@@ -3,6 +3,8 @@
 # Utility to update Gentoo TeXLive distribution configuration files
 #
 
+echo "Configuring TeXLive ..."
+
 PATH=/bin:/usr/bin
 
 # Fix for all those with altered umask for root
@@ -54,20 +56,22 @@ if test -n "$X"; then
 fi
 
 # Sync maps with texmf tree
+echo "Syncing updmap.cfg with texmf tree"
 updmap-sys --cnffile /etc/texmf/web2c/updmap.cfg --syncwithtrees &>/dev/null
 
-# configure
-echo "Configuring TeXLive ..."
+echo "Generating ls-R files"
 mktexlsr &>/dev/null
-texconfig-sys init &>/dev/null
+
+echo "Generating format files ..."
+fmtutil-sys --missing &>/dev/null
+
+echo "Generating font maps..."
+updmap-sys &>/dev/null
+
 texconfig-sys confall &>/dev/null
 texconfig-sys font rw &>/dev/null
 texconfig-sys font vardir /var/cache/fonts &>/dev/null
-updmap-sys &>/dev/null
 
-# generate
-echo "Generating format files ..."
-fmtutil-sys --missing &>/dev/null
 echo
 echo "Use 'texconfig font ro' to disable font generation for users"
 echo

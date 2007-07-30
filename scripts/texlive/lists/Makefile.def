@@ -11,7 +11,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-documentation-vietnamese \
        texlive-fontbin texlive-fontsextra texlive-fontsrecommended \
        texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
-       texlive-graphicstools texlive-htmlxml texlive-humanities \
+       texlive-htmlxml texlive-humanities \
        texlive-langafrican texlive-langarab texlive-langarmenian \
        texlive-langcjk texlive-langcroatian texlive-langcyrillic \
        texlive-langczechslovak texlive-langdanish texlive-langdutch \
@@ -42,3 +42,7 @@ DESC = texlive-basic texlive-bibtexextra \
        
 # freetype1 provides most of it
 # texlive-ttfutils 
+       
+# Does not provide anything besides what
+# dvipng does.
+# texlive-graphicstools 

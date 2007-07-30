@@ -14,6 +14,8 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	${TEXLIVE_MODULES_DEPS}"
 
+IUSE="doc"
+
 texlive-module_src_unpack() {
 	unpack ${A}
 	cd "${S}"
@@ -21,9 +23,11 @@ texlive-module_src_unpack() {
 	mkdir -p "${S}/unpacked"
 	cd "${S}/unpacked"
 
+	unzippostopts=""
+	use doc || unzippostopts="${unzippostopts} -x texmf-doc*"
 	for i in "${S}"/*zip ; do
 		einfo "Unpacking ${i}"
-		unzip -q "${i}"
+		unzip -q "${i}" ${unzippostopts}
 	done
 }
 
@@ -53,8 +57,8 @@ texlive-module_src_install() {
 			addDvipdfmMap)
 				dodir /etc/texmf/dvipdfm/config
 				echo "f	$parameter" >> ${D}etc/texmf/dvipdfm/config/config;;
-			esac
-		done
+		esac
+	done
 }
 
 texlive-module_pkg_postinst() {

@@ -75,7 +75,6 @@ clean:
 	echo "LICENSE=\"GPL-2\"" >> $@
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~amd64 ~x86\"" >> $@
-	echo "IUSE=\"\"" >> $@
 
 dirs:
 	$(MKDIRP) dist

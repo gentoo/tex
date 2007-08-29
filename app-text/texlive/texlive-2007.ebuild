@@ -49,7 +49,6 @@ RDEPEND="${DEPEND}
 	dev-tex/detex
 	png? ( app-text/dvipng )
 	X? ( app-text/xdvik )
-	${TEXLIVE_CAT}/texlive-binextra
 	${TEXLIVE_CAT}/texlive-fontbin
 	${TEXLIVE_CAT}/texlive-basic
 	${TEXLIVE_CAT}/texlive-fontsrecommended
@@ -62,6 +61,7 @@ RDEPEND="${DEPEND}
 	${TEXLIVE_CAT}/texlive-genericrecommended
 	perl? ( >=dev-lang/perl-5.2 )
 	extra? (
+		dev-tex/chktex
 		${TEXLIVE_CAT}/texlive-bibtexextra
 		${TEXLIVE_CAT}/texlive-fontsextra
 		${TEXLIVE_CAT}/texlive-formatsextra

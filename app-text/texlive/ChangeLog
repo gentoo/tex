@@ -1,0 +1,7 @@
+# ChangeLog for app-text/texlive
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Aug 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  add a changelog, move binextra to texlive-source
+

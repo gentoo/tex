@@ -12,7 +12,8 @@ SLOT="0"
 LICENSE="GPL-2"
 
 SRC_URI="mirror://gentoo/${P}.tar.bz2
-	mirror://gentoo/${PN/-source/}-basicbin-${PV}.tar.bz2"
+	mirror://gentoo/${PN/-source/}-basicbin-${PV}.tar.bz2
+	mirror://gentoo/${PN/-source/}-binextra-${PV}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
 #IUSE="lesstif motif neXt X Xaw3d doc"
@@ -77,7 +78,8 @@ src_unpack() {
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed"
 
-	for i in ${PN/-source/}-basicbin-${PV}/*zip; do
+	for i in ${PN/-source/}-basicbin-${PV}/*zip ${PN/-source/}-binextra-${PV}/*zip;
+	do
 		einfo "Unpacking ${i}"
 		unzip -q ${i}
 	done
@@ -204,18 +206,7 @@ src_install() {
 	cd "${S}/texk/web2c"
 	dodoc ChangeLog NEWS PROJECTS README
 
-	if use doc ; then
-		dodir /usr/share/doc/${PF}
-		mv "${D}/usr/share/texmf/doc/*" \
-			"${D}/usr/share/doc/${PF}" \
-			|| die "mv doc failed."
-		cd "${D}/usr/share/texmf"
-		rmdir doc
-		ln -s ../doc/${PF} doc || die "ln -s doc failed."
-		cd -
-	else
-		rm -rf "${D}/usr/share/texmf/doc"
-	fi
+	use doc || rm -rf "${D}/usr/share/texmf/doc"
 
 	dodir /var/cache/fonts
 

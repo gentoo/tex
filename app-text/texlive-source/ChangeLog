@@ -1,0 +1,12 @@
+# ChangeLog for app-text/texlive-source
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Aug 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-source-2007.ebuild:
+  add some dies for mv's
+
+  29 Aug 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-source-2007.ebuild:
+  add a changelog
+

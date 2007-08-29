@@ -4,6 +4,10 @@
 
   29 Aug 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-source-2007.ebuild:
+  Fix build with USE=doc, integrate binextra into this ebuild
+
+  29 Aug 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-source-2007.ebuild:
   add some dies for mv's
 
   29 Aug 2007; Alexis Ballier <aballier@gentoo.org>

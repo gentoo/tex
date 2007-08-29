@@ -3,27 +3,79 @@ Unfortunately it is not yet possible to have an overlay that works out of the
 box, therefore you'll have to do a few things to be able to install texlive
 2007.
 
+If you're reading this from the Trac web interface, you might want to install
+subversion and checkout this overlay : 
+$ svn co http://overlays.gentoo.org/svn/dev/aballier/
+
 
 First, download both live and inst isos of texlive from
-http://mirror.ctan.org/systems/texlive/Images/
+http://tug.org/texlive/acquire.html
+You'll need both, if you have an idea on how to use only one of the isos, just
+email me !
+
+For example :
+
+$ cd DOWNLOADDIR
+$ wget http://ftp.math.utah.edu/pub/texcollection/texlive/texlive-live.iso.zip
+$ wget http://ftp.math.utah.edu/pub/texcollection/texlive2007-inst-20070212.iso
+
 
 
 Then, mount the images : the default location is /mnt/texlive-inst for inst iso,
 and /mnt/texlive-live for live iso.
 
+For example (you'll need to be root to mount the images or modify /mnt)
+
+# mkdir -p /mnt/texlive-live/
+# mkdir -p /mnt/texlive-inst/
+# unzip texlive-live.iso.zip
+# mount -o loop -t iso9660 texlive2007-live-20070212.iso /mnt/texlive-live/
+# mount -o loop -t iso9660 texlive-inst.iso /mnt/texlive-inst/
+
+
 Copy /mnt/texlive-live/source/source.tar.bz2 as texlive-source-2007.tar.bz2 in
 your distfiles dir.
 
+For example (you'll need at least to be in the portage group to execute this
+command) : 
 
-Once that done, you have to generate the ebuilds for the modular texmf tree, go
+$ cp -a /mnt/texlive-live/source/source.tar.bz2 /usr/portage/distfiles/texlive-source-2007.tar.bz2
+
+
+
+Once that is done, you have to generate the ebuilds for the modular texmf tree, go
 to scripts/texlive/lists subdir and you'll find another README file :)
 If you want a simpler approach, just go to scripts/texlive subdir and type make.
-It should do the right thing for you.
+It should do the right thing for you if you have mounted the images to the
+default location and PORTDIR and DISTDIR are defined in /etc/make.conf
+
+At this point, it is ok to unmount texlive's isos : 
+
+# umount /mnt/texlive-live/
+# umount /mnt/texlive-inst/
 
 
 
 If you've gone through all those steps, you're ready to install texlive !
-Just append texlive-overlay to your portage overlay and type "emerge texlive".
+Well, in fact, you're almost ready : 
+Just append texlive-overlay subdir to your portage overlay, for example, 
+if you're in a terminal in the directory where this README file is, just type :
+
+# echo "PORTDIR_OVERLAY=\"\${PORTDIR_OVERLAY} ${PWD}/texlive-overlay\"" >> /etc/make.conf
+
+Due to some packages being masked globally in the portage tree, you'll need to
+unmask them first : 
+# echo 'dev-tex/xcolor' >> /etc/portage/package.unmask
+# echo 'app-text/texlive' >> /etc/portage/package.unmask
+
+
+Now, you should be ready to install texlive : 
+# emerge texlive
+
+If you have tetex installed, please read tetex-to-texlive/Howto, it is a short
+file that tries to report possible problems that can happen while switching. [
+This file is really incomplete, please report any problem you encountered so
+that I can add it there ]
 
 
 Reporting bugs / improvements : Just contact me, aballier@gentoo.org, or on irc

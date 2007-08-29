@@ -239,9 +239,9 @@ src_install() {
 
 	# take care of updmap.cfg, fmtutil.cnf and texmf.cnf
 	dodir /etc/texmf/{updmap.d,fmtutil.d,texmf.d}
-	mv "${D}/etc/texmf/web2c/updmap.cfg" "${D}/etc/texmf/updmap.d/00updmap.cfg"
-	mv "${D}/etc/texmf/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf"
-	mv "${D}/etc/texmf/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf"
+	mv "${D}/etc/texmf/web2c/updmap.cfg" "${D}/etc/texmf/updmap.d/00updmap.cfg" || die "moving updmap.cfg failed"
+	mv "${D}/etc/texmf/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf" || die "moving fmtutil.cnf failed"
+	mv "${D}/etc/texmf/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf" || die "moving texmf.cnf failed"
 
 	# xdvi
 	#if use X ; then

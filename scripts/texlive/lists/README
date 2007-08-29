@@ -4,10 +4,23 @@ modular texmf tree.
 
 Beware, the makefile system includes /etc/make.conf, so make sure it points to
 correct directories for PORTDIR and DISTDIR.
+[   Basically : 
+    $ grep "PORTDIR=" /etc/make.conf
+    should return something like :
+    PORTDIR=/usr/portage
+    and : 
+    $ grep "DISTDIR=" /etc/make.conf
+    DISTDIR=/usr/portage/distfiles
+    Beware of leading '#', that means the variable definition is commented out,
+    just uncomment them, the commented values should be portage's default anyway ]
+
+
 
 Note : Never ever use parallel make with this makefile system (make -j>1), it is
 made of hacks and will completely break if you do so. However, if you have a fix
-for that I'll gladly accept it ;)
+for that I'll gladly accept it ;)  [ Note that this has nothing to do with
+MAKEOPTS in make.conf, using -j$A_LOT should be sane with the ebuilds, if not,
+then it's a bug ;) ]
 
 
 How to proceed : 

@@ -78,7 +78,8 @@ RDEPEND="${DEPEND}
 	music? ( ${TEXLIVE_CAT}/texlive-music )
 	pstricks? ( ${TEXLIVE_CAT}/texlive-pstricks )
 	omega? ( ${TEXLIVE_CAT}/texlive-omega )
-	context? ( ${TEXLIVE_CAT}/texlive-context )
+	context? ( ${TEXLIVE_CAT}/texlive-context
+		${TEXLIVE_CAT}/texlive-langgreek )
 	games? ( ${TEXLIVE_CAT}/texlive-games )
 	humanities? ( ${TEXLIVE_CAT}/texlive-humanities )
 	xml? ( ${TEXLIVE_CAT}/texlive-htmlxml )

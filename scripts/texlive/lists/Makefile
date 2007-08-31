@@ -1,5 +1,6 @@
 
-include /etc/make.conf
+PORTDIR=$(shell portageq portdir)
+DISTDIR=$(shell portageq distdir)
 
 TEXLIVE_VERSION=2007
 

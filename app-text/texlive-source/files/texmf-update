@@ -65,6 +65,9 @@ mktexlsr &>/dev/null
 echo "Generating format files ..."
 fmtutil-sys --missing &>/dev/null
 
+echo "Generating tex symlinks from formats to engines..."
+texlinks -s
+
 echo "Generating font maps..."
 updmap-sys &>/dev/null
 

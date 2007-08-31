@@ -16,8 +16,8 @@ email me !
 For example :
 
 $ cd DOWNLOADDIR
-$ wget http://ftp.math.utah.edu/pub/texcollection/texlive/texlive-live.iso.zip
-$ wget http://ftp.math.utah.edu/pub/texcollection/texlive2007-inst-20070212.iso
+$ wget http://ftp.math.utah.edu/pub/texcollection/texlive/texlive2007-live-20070212.iso.zip
+$ wget http://ftp.math.utah.edu/pub/texcollection/texlive/texlive2007-inst-20070212.iso
 
 
 
@@ -28,9 +28,9 @@ For example (you'll need to be root to mount the images or modify /mnt)
 
 # mkdir -p /mnt/texlive-live/
 # mkdir -p /mnt/texlive-inst/
-# unzip texlive-live.iso.zip
+# unzip texlive2007-live-20070212.iso.zip
 # mount -o loop -t iso9660 texlive2007-live-20070212.iso /mnt/texlive-live/
-# mount -o loop -t iso9660 texlive-inst.iso /mnt/texlive-inst/
+# mount -o loop -t iso9660 texlive2007-inst-20070212.iso /mnt/texlive-inst/
 
 
 Copy /mnt/texlive-live/source/source.tar.bz2 as texlive-source-2007.tar.bz2 in

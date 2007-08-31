@@ -26,7 +26,6 @@ lists : $(DESC:%=%.list) $(DESC:%=%.base)
 %.list: %.base
 	grep "^+" $< > $@
 	sed -i -e "s/+//" $@
-	-grep "collection" $@ > $(@:.list=.deps)
 	grep -v "collection" $@ > $@.temp
 	tr '\n' ' ' < $@.temp > $@
 	$(RMF) $@.temp
@@ -43,10 +42,15 @@ lists : $(DESC:%=%.list) $(DESC:%=%.base)
 	sed -i -e "s/\*Title: //" $@
 	sed -i -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" $@
 
-%.deps: %.list
-	-sed -i -e "s/collection/texlive/g" $@
-	-sed -i -e "s/^/dev-texlive\//" $@
-	-sed -i -e "s/dev-texlive\/texlive-basicbin//g" $@
+%.deps: %.base
+	grep "^+" $< > $@.temp
+	sed -i -e "s/+//" $@.temp
+	-grep "collection" $@.temp > $(@:.base=.deps)
+	$(RMF) $@.temp
+	sed -i -e "s/collection/texlive/g" $@
+	sed -i -e "s/^/dev-texlive\//" $@
+	sed -i -e "s/dev-texlive\/texlive-basicbin//g" $@
+	sed -i -e "s/dev-texlive\/texlive-binextra//g" $@
 
 clean:
 	$(RMF) $(DESC:%=%.list)

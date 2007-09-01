@@ -74,7 +74,7 @@ src_unpack() {
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
 	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"
 	epatch "${FILESDIR}/${PV}/${P}-libteckit-asneeded.patch"
-	
+
 # it is also affected by bug 170861
 	epatch "${FILESDIR}/${PV}/tetex-3.0-CVE-2007-0650.patch"
 

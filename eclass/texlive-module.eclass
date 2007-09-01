@@ -23,7 +23,7 @@ texlive-module_src_unpack() {
 	mkdir -p "${S}/unpacked"
 	cd "${S}/unpacked"
 
-	unzippostopts=""
+	local unzippostopts=""
 	use doc || unzippostopts="${unzippostopts} -x texmf-doc*"
 	for i in "${S}"/*zip ; do
 		einfo "Unpacking ${i}"
@@ -33,30 +33,32 @@ texlive-module_src_unpack() {
 
 texlive-module_src_install() {
 	cd "${S}/unpacked"
+
 	insinto /usr/share
 	doins -r *
+
 	for i in "${S}"/unpacked/texmf/lists/*;
 	do
 		grep '^!' "${i}" | tr ' ' '=' |sort|uniq >> "${T}/jobs"
 	done
 
-	for j in `cat ${T}/jobs`;
+	for j in $(cat "${T}/jobs");
 	do
-		command=`echo $j | sed 's/.\(.*\)=.*/\1/'`
-		parameter=`echo $j | sed 's/.*=\(.*\)/\1/'`
-		case $command in
+		command=$(echo ${j} | sed 's/.\(.*\)=.*/\1/')
+		parameter=$(echo ${j} | sed 's/.*=\(.*\)/\1/')
+		case ${command} in
 			addMap)
 				dodir /etc/texmf/updmap.d
-				echo "Map $parameter" >> ${D}etc/texmf/updmap.d/${PN}.cfg;;
+				echo "Map ${parameter}" >> "${D}etc/texmf/updmap.d/${PN}.cfg";;
 			addMixedMap)
 				dodir /etc/texmf/updmap.d
-				echo "MixedMap $parameter" >> ${D}etc/texmf/updmap.d/${PN}.cfg;;
+				echo "MixedMap ${parameter}" >> "${D}etc/texmf/updmap.d/${PN}.cfg";;
 			addDvipsMap)
 				dodir /etc/texmf/dvips/config
-				echo "p	+$parameter" >> ${D}etc/texmf/dvips/config/config.ps;;
+				echo "p	+${parameter}" >> "${D}etc/texmf/dvips/config/config.ps";;
 			addDvipdfmMap)
 				dodir /etc/texmf/dvipdfm/config
-				echo "f	$parameter" >> ${D}etc/texmf/dvipdfm/config/config;;
+				echo "f	${parameter}" >> "${D}etc/texmf/dvipdfm/config/config";;
 		esac
 	done
 }

@@ -16,7 +16,7 @@ CPF=cp -f
 
 include Makefile.def
 
-TARBALLS = $(DESC:%=dist/%-$(TEXLIVE_VERSION).tar.bz2)
+TARBALLS = $(DESC:%=dist/%-$(TEXLIVE_VERSION).tar.bz2) $(EXTRA_DIST:%=dist/%-$(TEXLIVE_VERSION).tar.bz2)
 
 lists : $(DESC:%=%.list) $(DESC:%=%.base)
 
@@ -87,6 +87,7 @@ dirs:
 
 
 dist: lists dirs $(TARBALLS)
+	ebuild ../../../texlive-overlay/app-text/texlive-source/texlive-source-2007.ebuild digest
 
 ebuildsdir:
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)$(DESC:%=dev-texlive/%)

@@ -1,7 +1,8 @@
 
+# Collections that have to become ebuilds
 
 DESC = texlive-basic texlive-bibtexextra \
-       texlive-binextra texlive-context texlive-documentation-base \
+       texlive-context texlive-documentation-base \
        texlive-documentation-bulgarian texlive-documentation-chinese texlive-documentation-czechslovak \
        texlive-documentation-dutch texlive-documentation-english texlive-documentation-finnish \
        texlive-documentation-french texlive-documentation-german texlive-documentation-greek \
@@ -27,8 +28,10 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-pictures texlive-plainextra \
        texlive-pstricks texlive-psutils texlive-publishers \
        texlive-science texlive-texinfo \
-       texlive-xetex \
-       texlive-basicbin 
+       texlive-xetex
+
+# Collections that just need to be distfiles
+EXTRA_DIST = texlive-basicbin texlive-binextra
 
 # those ones are provided by texlive & friends
        

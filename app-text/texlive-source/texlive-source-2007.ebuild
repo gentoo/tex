@@ -79,7 +79,7 @@ src_unpack() {
 	epatch "${FILESDIR}/${PV}/tetex-3.0-CVE-2007-0650.patch"
 
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
-		Makefile.in || die "sed"
+		Makefile.in || die "sed failed"
 
 	for i in ${PN/-source/}-basicbin-${PV}/*zip ${PN/-source/}-binextra-${PV}/*zip;
 	do
@@ -158,7 +158,7 @@ src_compile() {
 		--without-xdvik --without-oxdvik \
 		--enable-shared \
 		$(use_with X x) \
-		${my_conf} || die "econf"
+		${my_conf} || die "econf failed"
 
 
 	emake -j1 texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
@@ -177,7 +177,7 @@ src_install() {
 	doins -r texmf
 
 	dodir ${TEXMF_PATH:-/usr/share/texmf}/web2c
-	einstall bindir="${D}/usr/bin" texmf="${D}${TEXMF_PATH:-/usr/share/texmf}" || die "install"
+	einstall bindir="${D}/usr/bin" texmf="${D}${TEXMF_PATH:-/usr/share/texmf}" || die "einstall failed"
 
 	dosbin "${FILESDIR}/texmf-update"
 
@@ -226,9 +226,9 @@ src_install() {
 		if [ "${f/config/}" != "${f}" ] ; then
 			continue
 		fi
-		dodir /etc/texmf/$(dirname $f)
-		mv "${D}/${TEXMF_PATH}/$f" "${D}/etc/texmf/$(dirname $f)" || die "mv $f failed."
-		dosym /etc/texmf/$f ${TEXMF_PATH}/$f
+		dodir /etc/texmf/$(dirname ${f})
+		mv "${D}/${TEXMF_PATH}/${f}" "${D}/etc/texmf/$(dirname ${f})" || die "mv ${f} failed."
+		dosym /etc/texmf/${f} ${TEXMF_PATH}/${f}
 	done
 
 	# take care of updmap.cfg, fmtutil.cnf and texmf.cnf

@@ -3,6 +3,10 @@
 # $Header: $
 
   01 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-source-2007.ebuild:
+  More verbose die messages, quote dir variables, patch by opfer
+
+  01 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   +files/2007/tetex-3.0-CVE-2007-0650.patch, texlive-source-2007.ebuild:
   Add a patch from redhat for a buffer overflow in makeindex, see
   https://bugs.gentoo.org/show_bug.cgi?id=170861 and

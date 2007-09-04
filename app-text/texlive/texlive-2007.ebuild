@@ -10,7 +10,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="cjk context cyrillic doc extra games graphics humanities music omega
-	perl png pstricks publishers science xetex xml X
+	png pstricks publishers science xetex xml X
 	linguas_bg linguas_zh linguas_cs linguas_sk linguas_nl
 	linguas_en linguas_fi linguas_fr linguas_de linguas_el
 	linguas_it linguas_ja linguas_ko linguas_mn linguas_pl
@@ -47,6 +47,7 @@ RDEPEND="${DEPEND}
 	app-text/lcdf-typetools
 	=media-libs/freetype-1*
 	dev-tex/detex
+	>=app-text/dvipdfm-0.13.2d
 	png? ( app-text/dvipng )
 	X? ( app-text/xdvik )
 	${TEXLIVE_CAT}/texlive-fontbin
@@ -59,7 +60,6 @@ RDEPEND="${DEPEND}
 	>=dev-tex/latex-beamer-3.06
 	${TEXLIVE_CAT}/texlive-metapost
 	${TEXLIVE_CAT}/texlive-genericrecommended
-	perl? ( >=dev-lang/perl-5.2 )
 	extra? (
 		dev-tex/chktex
 		${TEXLIVE_CAT}/texlive-bibtexextra

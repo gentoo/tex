@@ -42,7 +42,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	!app-text/cstetex
 	!app-text/tetex
 	!<app-text/texlive-2007
-	!app-text/dvipdfm
 	!app-text/xetex
 	sys-apps/ed
 	sys-libs/zlib
@@ -147,7 +146,7 @@ src_compile() {
 		--with-etex \
 		--with-xetex \
 		--without-dvipng \
-		--with-dvipdfm \
+		--without-dvipdfm \
 		--without-dvipdfmx \
 		--without-xdvipdfmx \
 		--without-lcdf-typetools \
@@ -170,11 +169,8 @@ src_test() {
 }
 
 src_install() {
-	# Workaround collissions for config files
-	rm texmf/dvipdfm/config/config
-
 	insinto /usr/share
-	doins -r texmf
+	doins -r texmf texmf-dist
 
 	dodir ${TEXMF_PATH:-/usr/share/texmf}/web2c
 	einstall bindir="${D}/usr/bin" texmf="${D}${TEXMF_PATH:-/usr/share/texmf}" || die "einstall failed"

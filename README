@@ -47,7 +47,8 @@ Once that is done, you have to generate the ebuilds for the modular texmf tree, 
 to scripts/texlive/lists subdir and you'll find another README file :)
 If you want a simpler approach, just go to scripts/texlive subdir and type make.
 It should do the right thing for you if you have mounted the images to the
-default location and PORTDIR and DISTDIR are defined in /etc/make.conf
+default location and you are using portage. (it now uses portageq to get the
+values of PORTDIR and DISTDIR)
 
 At this point, it is ok to unmount texlive's isos : 
 

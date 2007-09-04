@@ -36,6 +36,7 @@ lists : $(DESC:%=%.list) $(DESC:%=%.base)
 	sed -i -e "s/xcolor //" $@
 	sed -i -e "s/beamer //" $@
 	sed -i -e "s/bin-xdvi //" $@
+	sed -i -e "s/bin-dvipdfm //" $@
 
 %.desc: %.base
 	grep "\*Title" $< > $@
@@ -58,7 +59,7 @@ clean:
 	$(RMF) $(DESC:%=%.base)
 	$(RMF) genlist
 
-%.tar.bz2:
+dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "TEXLIVE_INST_MOUNTPOINT=$(TEXLIVE_INST_MOUNTPOINT)" > dist/Makefile
 	echo -n "ZIP=" >> dist/Makefile
 	cat $(@:dist/%-$(TEXLIVE_VERSION).tar.bz2=%.list) >> dist/Makefile

@@ -52,6 +52,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	app-arch/unzip
 	=media-libs/freetype-2*
 	dev-libs/icu
+	media-libs/fontconfig
 	>=net-libs/libwww-5.3.2-r1"
 	#X? ( motif? ( lesstif? ( x11-libs/lesstif )
 	#	 !lesstif? ( x11-libs/openmotif ) )

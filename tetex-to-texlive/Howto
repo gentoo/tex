@@ -18,9 +18,9 @@ Hey ! This one is useless, thus we can remove it safely :
 # rm /usr/bin/pdftex
 
 Sometimes, due to some problems with dep calculations and virtual/tetex, portage
-will try to install tetex and texlive-source and issue some errors because
+will try to install tetex and texlive-core and issue some errors because
 they're blocking each other. To workaround this, just type 'emerge -1
-texlive-source' before 'emerge texlive'. If you have any suggestion about how to
+texlive-core' before 'emerge texlive'. If you have any suggestion about how to
 solve this in a more friendly way, please contact me !
 
 # emerge texlive

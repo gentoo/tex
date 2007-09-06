@@ -6,7 +6,7 @@
 HOMEPAGE="http://www.tug.org/texlive/"
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
-COMMON_DEPEND=">=app-text/texlive-source-${PV}"
+COMMON_DEPEND=">=app-text/texlive-core-${PV}"
 DEPEND="${COMMON_DEPEND}
 	app-arch/unzip
 	${TEXLIVE_MODULES_DEPS}"

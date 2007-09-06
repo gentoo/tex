@@ -33,13 +33,13 @@ For example (you'll need to be root to mount the images or modify /mnt)
 # mount -o loop -t iso9660 texlive2007-inst-20070212.iso /mnt/texlive-inst/
 
 
-Copy /mnt/texlive-live/source/source.tar.bz2 as texlive-source-2007.tar.bz2 in
+Copy /mnt/texlive-live/source/source.tar.bz2 as texlive-core-2007.tar.bz2 in
 your distfiles dir.
 
 For example (you'll need at least to be in the portage group to execute this
 command) : 
 
-$ cp -a /mnt/texlive-live/source/source.tar.bz2 /usr/portage/distfiles/texlive-source-2007.tar.bz2
+$ cp -a /mnt/texlive-live/source/source.tar.bz2 /usr/portage/distfiles/texlive-core-2007.tar.bz2
 
 
 

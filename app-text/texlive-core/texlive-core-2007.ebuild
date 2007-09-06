@@ -12,15 +12,15 @@ SLOT="0"
 LICENSE="GPL-2"
 
 SRC_URI="mirror://gentoo/${P}.tar.bz2
-	mirror://gentoo/${PN/-source/}-basicbin-${PV}.tar.bz2
-	mirror://gentoo/${PN/-source/}-binextra-${PV}.tar.bz2"
+	mirror://gentoo/${PN/-core/}-basicbin-${PV}.tar.bz2
+	mirror://gentoo/${PN/-core/}-binextra-${PV}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
 #IUSE="lesstif motif neXt X Xaw3d doc"
 IUSE="X doc"
 
 # Not ideal, especially with the modularized way : some packages need only
-# texlive-source, ie, the binaries, some other use virtual/tetex to have
+# texlive-core, ie, the binaries, some other use virtual/tetex to have
 # a fully working latex installation to compile some .tex files...
 PROVIDE="virtual/tetex"
 
@@ -81,7 +81,7 @@ src_unpack() {
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed failed"
 
-	for i in ${PN/-source/}-basicbin-${PV}/*zip ${PN/-source/}-binextra-${PV}/*zip;
+	for i in ${PN/-core/}-basicbin-${PV}/*zip ${PN/-core/}-binextra-${PV}/*zip;
 	do
 		einfo "Unpacking ${i}"
 		unzip -q ${i}

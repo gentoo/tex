@@ -34,7 +34,7 @@ BLOCKS="!dev-tex/memoir
 	!dev-tex/eurosym
 	!dev-tex/extsizes"
 
-DEPEND=">=app-text/texlive-source-2007"
+DEPEND=">=app-text/texlive-core-2007"
 RDEPEND="${DEPEND}
 	${BLOCKS}
 	app-text/psutils

@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="doc lyx"
 
 DEPEND="lyx? ( app-office/lyx )
-	|| ( app-text/texlive-source >=app-text/tetex-3.0 )"
+	|| ( app-text/texlive-core >=app-text/tetex-3.0 )"
 RDEPEND=">=dev-tex/pgf-1.10"
 
 src_install() {

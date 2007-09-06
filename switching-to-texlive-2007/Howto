@@ -1,9 +1,9 @@
 We assume that you have successfully setup the overlay, generated the distfiles
 and so on.
-This file will just be a quick guide on how to switch from tetex to texlive as a
-user.
+This file will just be a quick guide on how to switch from another tex
+distribution to texlive 2007 as a user.
 
-Remove tetex : 
+Remove your previous tex distribution, for example : 
 emerge -C tetex
 
 This might have left some files, I had a package collision against a file not

@@ -3,6 +3,10 @@
 # $Header: $
 
   07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  context deps will be handled in the ebuild as it should have been done from
+  the beginning
+
+  07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   add references to the last few missing dev-texlive ebuilds
 
   30 Aug 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:

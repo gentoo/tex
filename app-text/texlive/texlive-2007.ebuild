@@ -42,6 +42,7 @@ RDEPEND="${DEPEND}
 	media-gfx/sam2p
 	app-text/texi2html
 	sys-apps/texinfo
+	${TEXLIVE_CAT}/texlive-texinfo
 	app-text/t1utils
 	dev-util/dialog
 	app-text/lcdf-typetools
@@ -137,3 +138,6 @@ RDEPEND="${DEPEND}
 
 # What to do with those ?
 # ${TEXLIVE_CAT}/texlive-langother
+# ${TEXLIVE_CAT}/texlive-langmanju
+# ${TEXLIVE_CAT}/texlive-langindic
+# ${TEXLIVE_CAT}/texlive-langarmenian

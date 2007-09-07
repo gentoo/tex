@@ -46,12 +46,13 @@ lists : $(DESC:%=%.list) $(DESC:%=%.base)
 %.deps: %.base
 	grep "^+" $< > $@.temp
 	sed -i -e "s/+//" $@.temp
-	-grep "collection" $@.temp > $(@:.base=.deps)
+	-grep "collection" $@.temp > $@
 	$(RMF) $@.temp
 	sed -i -e "s/collection/texlive/g" $@
 	sed -i -e "s/^/dev-texlive\//" $@
 	sed -i -e "s/dev-texlive\/texlive-basicbin//g" $@
 	sed -i -e "s/dev-texlive\/texlive-binextra//g" $@
+	-cat $(@:.deps=.extradeps) >> $@
 
 clean:
 	$(RMF) $(DESC:%=%.list)

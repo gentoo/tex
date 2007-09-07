@@ -78,6 +78,10 @@ src_unpack() {
 # it is also affected by bug 170861
 	epatch "${FILESDIR}/${PV}/tetex-3.0-CVE-2007-0650.patch"
 
+# Bug #188172 and bug #185225
+	epatch "${FILESDIR}/${PV}/tetex-3.0_p1-xpdf-CVE-2007-3387.patch"
+	
+
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed failed"
 

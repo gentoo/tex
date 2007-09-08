@@ -58,7 +58,6 @@ clean:
 	$(RMF) $(DESC:%=%.list)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.base)
-	$(RMF) genlist
 
 dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "TEXLIVE_INST_MOUNTPOINT=$(TEXLIVE_INST_MOUNTPOINT)" > dist/Makefile

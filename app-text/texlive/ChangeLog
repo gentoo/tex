@@ -3,6 +3,9 @@
 # $Header: $
 
   08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  support for various other languages
+
+  08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   add support for armenian locale
 
   07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:

@@ -18,7 +18,8 @@ IUSE="cjk context cyrillic doc extra games graphics humanities music omega
 	linguas_uk linguas_vi linguas_af linguas_ar linguas_hr
 	linguas_da linguas_he linguas_la linguas_no linguas_sv
 	linguas_en_GB linguas_bn linguas_ml linguas_ta linguas_hi
-	linguas_hy"
+	linguas_hy linguas_eo linguas_et linguas_is linguas_id
+	linguas_ro linguas_sr linguas_sl linguas_hsb linguas_cy"
 
 
 TEXLIVE_CAT="dev-texlive"
@@ -133,6 +134,16 @@ RDEPEND="${DEPEND}
 	linguas_la? ( ${TEXLIVE_CAT}/texlive-langlatin )
 	linguas_mn? ( ${TEXLIVE_CAT}/texlive-langmongolian )
 	linguas_no? ( ${TEXLIVE_CAT}/texlive-langnorwegian )
+	linguas_eo? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_et? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_is? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_id? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_ro? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_sr? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_sl? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_tr? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_hsb? ( ${TEXLIVE_CAT}/texlive-langother )
+	linguas_cy? ( ${TEXLIVE_CAT}/texlive-langother )
 	linguas_pl? ( ${TEXLIVE_CAT}/texlive-langpolish )
 	linguas_pt? ( ${TEXLIVE_CAT}/texlive-langportuguese )
 	linguas_es? ( ${TEXLIVE_CAT}/texlive-langspanish )
@@ -142,5 +153,4 @@ RDEPEND="${DEPEND}
 "
 
 # What to do with those ?
-# ${TEXLIVE_CAT}/texlive-langother
 # ${TEXLIVE_CAT}/texlive-langmanju

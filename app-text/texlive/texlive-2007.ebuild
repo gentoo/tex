@@ -10,16 +10,16 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="cjk context cyrillic doc extra games graphics humanities music omega
-	png pstricks publishers science xetex xml X
-	linguas_bg linguas_zh linguas_cs linguas_sk linguas_nl
-	linguas_en linguas_fi linguas_fr linguas_de linguas_el
-	linguas_it linguas_ja linguas_ko linguas_mn linguas_pl
-	linguas_pt linguas_ru linguas_es linguas_th linguas_tr
-	linguas_uk linguas_vi linguas_af linguas_ar linguas_hr
-	linguas_da linguas_he linguas_la linguas_no linguas_sv
-	linguas_en_GB linguas_bn linguas_ml linguas_ta linguas_hi
-	linguas_hy linguas_eo linguas_et linguas_is linguas_id
-	linguas_ro linguas_sr linguas_sl linguas_hsb linguas_cy"
+	png pstricks publishers science xetex xml X"
+
+
+LANGS="af ar bg bn cs cy da de el en en_GB eo es et fi fr he hi hr hsb hy id
+	is it ja ko la ml mn nl no pl pt ro ru sk sl sr sv ta th tr uk vi zh"
+
+for X in ${LANGS}; do
+	IUSE="${IUSE} linguas_${X}"
+done
+
 
 
 TEXLIVE_CAT="dev-texlive"

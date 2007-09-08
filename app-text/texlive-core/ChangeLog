@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  +files/2007/texlive-core-2007-icu-xetex-execstacks.patch,
+  texlive-core-2007.ebuild:
+  fix exec stacks on xetex
+
   07 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   +files/2007/tetex-3.0_p1-xpdf-CVE-2007-3387.patch,
   texlive-core-2007.ebuild:

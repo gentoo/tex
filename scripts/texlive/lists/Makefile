@@ -89,7 +89,8 @@ dirs:
 
 
 dist: lists dirs $(TARBALLS)
-	ebuild ../../../texlive-overlay/app-text/texlive-core/texlive-core-2007.ebuild digest
+	$(CPF) $(TEXLIVE_LIVE_MOUNTPOINT)/source/source.tar.bz2 $(DISTDIR)/texlive-core-$(TEXLIVE_VERSION).tar.bz2
+	ebuild ../../../texlive-overlay/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
 ebuildsdir:
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)$(DESC:%=dev-texlive/%)

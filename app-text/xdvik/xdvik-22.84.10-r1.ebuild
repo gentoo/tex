@@ -25,7 +25,7 @@ RDEPEND=">=media-libs/t1lib-5.0.2
 	motif? ( virtual/motif )
 	!motif? ( neXt? ( x11-libs/neXtaw )
 		!neXt? ( Xaw3d? ( x11-libs/Xaw3d ) ) )
-	cjk? ( app-text/ptex
+	cjk? ( || ( app-text/texlive-core app-text/ptex )
 		>=media-libs/freetype-2
 		>=media-fonts/kochi-substitute-20030809-r3 )
 	!cjk? ( virtual/tetex )"

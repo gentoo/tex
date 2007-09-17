@@ -162,6 +162,7 @@ src_compile() {
 		--without-pdfopen \
 		--without-detex \
 		--with-system-icu \
+		--with-icu-include=/usr/include/unicode/ \
 		--without-ttf2pk \
 		--without-xdvik --without-oxdvik \
 		--enable-shared \

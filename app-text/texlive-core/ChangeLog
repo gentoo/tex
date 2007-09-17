@@ -4,6 +4,10 @@
 
   17 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  remove dep on t1lib, only needed for xdvi and dvipng which are external
+
+  17 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   fix icu include dir
 
   08 Sep 2007; Alexis Ballier <aballier@gentoo.org>

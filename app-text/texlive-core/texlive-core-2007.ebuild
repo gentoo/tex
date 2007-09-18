@@ -45,7 +45,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	sys-apps/ed
 	sys-libs/zlib
 	>=media-libs/libpng-1.2.1
-	sys-libs/ncurses
 	app-arch/unzip
 	=media-libs/freetype-2*
 	dev-libs/icu
@@ -99,7 +98,6 @@ src_compile() {
 
 	econf --bindir=/usr/bin \
 		--datadir="${S}" \
-		--with-system-ncurses \
 		--with-system-freetype2 \
 		--with-freetype2-include=/usr/include \
 		--with-system-zlib \

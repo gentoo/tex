@@ -3,6 +3,10 @@
 # $Header: $
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  remove dep on media-libs/gd, only needed for dvipng
+
+  18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   -files/2007/texlive-core-2007-use-system-libtool.patch,
   texlive-core-2007.ebuild:
   remove use system libtool hack, it is a bad idea to do that without running

@@ -3,6 +3,9 @@
 # $Header: $
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  pull in xdvipdfmx when xetex support is wanted
+
+  18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   add manju support controled by chinese linguas variable
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:

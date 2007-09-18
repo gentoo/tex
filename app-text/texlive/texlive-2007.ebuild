@@ -73,7 +73,8 @@ RDEPEND="${DEPEND}
 		${TEXLIVE_CAT}/texlive-mathextra
 		${TEXLIVE_CAT}/texlive-plainextra
 	)
-	xetex? ( ${TEXLIVE_CAT}/texlive-xetex )
+	xetex? ( ${TEXLIVE_CAT}/texlive-xetex
+		>=app-text/xdvipdfmx-0.4 )
 	graphics? ( ${TEXLIVE_CAT}/texlive-pictures
 		>=dev-tex/pgf-1.18 )
 	science? ( ${TEXLIVE_CAT}/texlive-science )

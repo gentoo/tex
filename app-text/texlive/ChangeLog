@@ -3,6 +3,9 @@
 # $Header: $
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  add manju support controled by chinese linguas variable
+
+  18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   force dep on latest xdvik, thanks to dede for reporting this
 
   08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:

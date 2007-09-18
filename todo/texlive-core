@@ -1,1 +1,2 @@
+check deps one by one to tune them down if possible
 parallel make

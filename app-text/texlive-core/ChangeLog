@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  cleanup old stuff, esp. xdvik that we really dont want here, it would cause
+  circular deps with t1lib and use doc
+
   17 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
   remove dep on t1lib, only needed for xdvi and dvipng which are external

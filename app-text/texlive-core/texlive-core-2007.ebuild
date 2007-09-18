@@ -46,7 +46,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	sys-libs/zlib
 	>=media-libs/libpng-1.2.1
 	sys-libs/ncurses
-	media-libs/gd
 	app-arch/unzip
 	=media-libs/freetype-2*
 	dev-libs/icu
@@ -103,7 +102,6 @@ src_compile() {
 		--with-system-ncurses \
 		--with-system-freetype2 \
 		--with-freetype2-include=/usr/include \
-		--with-system-gd \
 		--with-system-zlib \
 		--with-system-pnglib \
 		--without-texinfo \

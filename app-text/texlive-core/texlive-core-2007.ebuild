@@ -16,7 +16,6 @@ SRC_URI="mirror://gentoo/${P}.tar.bz2
 	mirror://gentoo/${PN/-core/}-binextra-${PV}.tar.bz2"
 
 KEYWORDS="~amd64 ~x86"
-#IUSE="lesstif motif neXt X Xaw3d doc"
 IUSE="X doc"
 
 # Not ideal, especially with the modularized way : some packages need only
@@ -53,12 +52,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	dev-libs/icu
 	media-libs/fontconfig
 	>=net-libs/libwww-5.3.2-r1"
-	#X? ( motif? ( lesstif? ( x11-libs/lesstif )
-	#	 !lesstif? ( x11-libs/openmotif ) )
-	#	 !motif? ( neXt? ( x11-libs/neXtaw )
-	#	 !neXt? ( Xaw3d? ( x11-libs/Xaw3d ) ) )
-	#	 !app-text/xdvik
-	#)
 
 RDEPEND="${DEPEND}
 	dev-lang/ruby"
@@ -105,28 +98,6 @@ src_compile() {
 
 	export LC_ALL=C
 	tc-export CC CXX
-
-	#filter-flags "-fstack-protector" "-Os"
-	#use amd64 && replace-flags "-O3" "-O2"
-
-#	if use X ; then
-#		my_conf="${my_conf} --with-xdvik --with-oxdvik"
-#		if use motif ; then
-#			if use lesstif ; then
-#				append-ldflags -L/usr/X11R6/lib/lesstif -R/usr/X11R6/lib/lesstif
-#				export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include/lesstif"
-#			fi
-#			my_conf="${my_conf} --with-xdvi-x-toolkit=motif"
-#		elif use neXt ; then
-#			my_conf="${my_conf} --with-xdvi-x-toolkit=neXtaw"
-#		elif use Xaw3d ; then
-#			my_conf="${my_conf} --with-xdvi-x-toolkit=xaw3d"
-#		else
-#			my_conf="${my_conf} --with-xdvi-x-toolkit=xaw"
-#		fi
-#	else
-#		my_conf="${my_conf} --without-xdvik --without-oxdvik"
-#	fi
 
 	econf --bindir=/usr/bin \
 		--datadir="${S}" \
@@ -241,13 +212,6 @@ src_install() {
 	mv "${D}/etc/texmf/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf" || die "moving fmtutil.cnf failed"
 	mv "${D}/etc/texmf/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf" || die "moving texmf.cnf failed"
 
-	# xdvi
-	#if use X ; then
-	#	dodir /etc/X11/app-defaults /etc/texmf/xdvi
-	#	mv "${D}${TEXMF_PATH}/xdvi/XDvi" "${D}/etc/X11/app-defaults" || die "mv XDvi failed"
-	#	dosym /etc/X11/app-defaults/XDvi ${TEXMF_PATH}/xdvi/XDvi
-	#fi
-
 	keepdir /usr/share/texmf-site
 
 	# the virtex symlink is not installed
@@ -258,11 +222,6 @@ src_install() {
 	ln -snf tex virtex
 	ln -snf pdftex pdfvirtex
 }
-
-#pkg_preinst() {
-#	ewarn "Removing ${ROOT}usr/share/texmf/web2c"
-#	rm -rf "${ROOT}usr/share/texmf/web2c"
-#}
 
 pkg_postinst() {
 	if [ "$ROOT" = "/" ] ; then

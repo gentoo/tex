@@ -3,7 +3,7 @@
 # $Header: $
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  force dep on latex xdvik, thanks to dede for reporting this
+  force dep on latest xdvik, thanks to dede for reporting this
 
   08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   move linguas out of iuse, get them back in with a for, sort em

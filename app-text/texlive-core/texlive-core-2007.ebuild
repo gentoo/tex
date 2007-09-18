@@ -62,7 +62,6 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-#	epatch "${FILESDIR}/${PV}/${P}-use-system-libtool.patch"
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
 	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"
 	epatch "${FILESDIR}/${PV}/${P}-libteckit-asneeded.patch"

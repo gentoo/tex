@@ -3,6 +3,12 @@
 # $Header: $
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  -files/2007/texlive-core-2007-use-system-libtool.patch,
+  texlive-core-2007.ebuild:
+  remove use system libtool hack, it is a bad idea to do that without running
+  eautoreconf
+
+  18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
   cleanup old stuff, esp. xdvik that we really dont want here, it would cause
   circular deps with t1lib and use doc

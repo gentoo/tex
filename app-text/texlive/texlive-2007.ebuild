@@ -132,6 +132,7 @@ RDEPEND="${DEPEND}
 	linguas_hi? ( ${TEXLIVE_CAT}/texlive-langindic )
 	linguas_it? ( ${TEXLIVE_CAT}/texlive-langitalian )
 	linguas_la? ( ${TEXLIVE_CAT}/texlive-langlatin )
+	linguas_zh? ( ${TEXLIVE_CAT}/texlive-langmanju )
 	linguas_mn? ( ${TEXLIVE_CAT}/texlive-langmongolian )
 	linguas_no? ( ${TEXLIVE_CAT}/texlive-langnorwegian )
 	linguas_eo? ( ${TEXLIVE_CAT}/texlive-langother )
@@ -151,6 +152,3 @@ RDEPEND="${DEPEND}
 	linguas_en_GB? ( ${TEXLIVE_CAT}/texlive-langukenglish )
 	linguas_vi? ( ${TEXLIVE_CAT}/texlive-langvietnamese )
 "
-
-# What to do with those ?
-# ${TEXLIVE_CAT}/texlive-langmanju

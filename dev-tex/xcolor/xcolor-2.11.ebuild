@@ -20,6 +20,8 @@ RDEPEND="virtual/latex-base
 	!>=app-text/tetex-3.0"
 S="${WORKDIR}/${PN}"
 
+TEXMF="/usr/share/texmf-site"
+
 src_install() {
 
 	addwrite /var/cache/fonts/

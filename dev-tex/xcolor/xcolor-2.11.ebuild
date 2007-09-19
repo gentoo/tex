@@ -14,10 +14,10 @@ KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86"
 
 IUSE=""
 
-DEPEND="virtual/tetex
-	app-arch/unzip
+DEPEND="virtual/latex-base
+	app-arch/unzip"
+RDEPEND="virtual/latex-base
 	!>=app-text/tetex-3.0"
-RDEPEND="virtual/tetex"
 S="${WORKDIR}/${PN}"
 
 src_install() {

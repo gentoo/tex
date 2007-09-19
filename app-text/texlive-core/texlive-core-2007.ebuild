@@ -48,8 +48,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	app-arch/unzip
 	=media-libs/freetype-2*
 	dev-libs/icu
-	media-libs/fontconfig
-	>=net-libs/libwww-5.3.2-r1"
+	media-libs/fontconfig"
 
 RDEPEND="${DEPEND}
 	dev-lang/ruby"

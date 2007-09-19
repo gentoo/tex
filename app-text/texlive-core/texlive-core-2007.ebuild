@@ -23,7 +23,7 @@ IUSE="X doc"
 # a fully working latex installation to compile some .tex files...
 PROVIDE="virtual/tetex"
 
-MODULAR_X_DEPEND="X? ( || ( (
+MODULAR_X_DEPEND="X? (
 				x11-libs/libXmu
 				x11-libs/libXp
 				x11-libs/libXpm
@@ -31,9 +31,6 @@ MODULAR_X_DEPEND="X? ( || ( (
 				x11-libs/libSM
 				x11-libs/libXaw
 				x11-libs/libXfont
-			)
-			virtual/x11
-		)
 	)"
 
 DEPEND="${MODULAR_X_DEPEND}

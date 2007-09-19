@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain-funcs virtualx libtool autotools
+inherit eutils flag-o-matic toolchain-funcs libtool autotools
 
 TEXMF_PATH=/usr/share/texmf
 
@@ -134,8 +134,12 @@ src_compile() {
 }
 
 src_test() {
-	fmtutil --fmtdir "${S}/texk/web2c" --all
-	Xmake check || die "Xmake check failed."
+	ewarn "Due to modular layout of texlive ebuilds,"
+	ewarn "It would not make much sense to use tests into the ebuild"
+	ewarn "And tests would fail anyway"
+	ewarn "Alternatively you can try to compile any tex file"
+	ewarn "Tex warnings should be considered as errors and reported"
+	ewarn "You can also run fmtutil-sys --all and check for errors/warnings there"
 }
 
 src_install() {

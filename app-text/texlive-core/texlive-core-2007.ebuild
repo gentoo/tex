@@ -47,7 +47,6 @@ DEPEND="${MODULAR_X_DEPEND}
 	>=media-libs/libpng-1.2.1
 	app-arch/unzip
 	=media-libs/freetype-2*
-	dev-libs/icu
 	media-libs/fontconfig"
 
 RDEPEND="${DEPEND}
@@ -124,8 +123,6 @@ src_compile() {
 		--without-lcdf-typetools \
 		--without-pdfopen \
 		--without-detex \
-		--with-system-icu \
-		--with-icu-include=/usr/include/unicode/ \
 		--without-ttf2pk \
 		--without-xdvik --without-oxdvik \
 		--enable-shared \
@@ -133,7 +130,10 @@ src_compile() {
 		${my_conf} || die "econf failed"
 
 
-	emake -j1 texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
+	cd "${S}/libs/icu-xetex"
+	emake -j1 texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake of icu-xetex failed"
+	cd "${S}"
+	emake texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
 }
 
 src_test() {

@@ -1,2 +1,2 @@
 check deps one by one to tune them down if possible
-parallel make
+parallel make : partially fixed, only icu-xetex is built with -j1 now

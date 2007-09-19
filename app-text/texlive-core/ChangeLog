@@ -4,6 +4,15 @@
 
   19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  Use -j1 for emake only for icu-xetex, other parts are fine
+
+  19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  Use included icu, system one doesnt install necessary headers to be used
+  with xetex
+
+  19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   remove libwww dep, not needed
 
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org>

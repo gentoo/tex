@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Virtual for basic latex binaries"
+DESCRIPTION="Virtual for a full latex installation"
 HOMEPAGE="http://www.ctan.org"
 SRC_URI=""
 

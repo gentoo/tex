@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  remove libwww dep, not needed
+
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
   remove ncurses dep, only needed for dialog

@@ -4,6 +4,10 @@
 
   19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  remove versionnator inherit, not needed
+
+  19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   drop virtual/x11 reference
 
   19 Sep 2007; Alexis Ballier <aballier@gentoo.org>

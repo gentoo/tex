@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain-funcs versionator virtualx libtool autotools
+inherit eutils flag-o-matic toolchain-funcs virtualx libtool autotools
 
 TEXMF_PATH=/usr/share/texmf
 

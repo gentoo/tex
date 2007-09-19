@@ -23,11 +23,9 @@ texlive-module_src_unpack() {
 	mkdir -p "${S}/unpacked"
 	cd "${S}/unpacked"
 
-	local unzippostopts=""
-	use doc || unzippostopts="${unzippostopts} -x texmf-doc*"
 	for i in "${S}"/*zip ; do
 		einfo "Unpacking ${i}"
-		unzip -q "${i}" ${unzippostopts}
+		unzip -q "${i}"
 	done
 }
 
@@ -35,7 +33,10 @@ texlive-module_src_install() {
 	cd "${S}/unpacked"
 
 	insinto /usr/share
-	doins -r *
+	doins -r texmf
+	doins -r texmf-dist
+	use doc && doins -r texmf-doc
+
 
 	for i in "${S}"/unpacked/texmf/lists/*;
 	do

@@ -4,10 +4,10 @@ DISTDIR=$(shell portageq distdir)
 
 TEXLIVE_VERSION=2007
 
-TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay/
+TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay
 
-TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live/
-TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst/
+TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live
+TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
 
 MKDIRP=mkdir -p
 RMF=rm -f
@@ -21,7 +21,7 @@ TARBALLS = $(DESC:%=dist/%-$(TEXLIVE_VERSION).tar.bz2) $(EXTRA_DIST:%=dist/%-$(T
 lists : $(DESC:%=%.list) $(DESC:%=%.base)
 
 %.base: 
-	$(CPF) $(@:texlive-%.base=$(TEXLIVE_LIVE_MOUNTPOINT)texmf/lists/collection-%) $@
+	$(CPF) $(@:texlive-%.base=$(TEXLIVE_LIVE_MOUNTPOINT)/texmf/lists/collection-%) $@
 
 %.list: %.base
 	grep "^+" $< > $@
@@ -92,15 +92,15 @@ dist: lists dirs $(TARBALLS)
 	ebuild ../../../texlive-overlay/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
 ebuildsdir:
-	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)$(DESC:%=dev-texlive/%)
+	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/$(DESC:%=dev-texlive/%)
 
 ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
 %.installed: %.ebuild
-	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)dev-texlive/$(@:%.installed=%)
-	$(CPF) $< $(TEXLIVE_OVERLAY_LOCATION)dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild
-	ebuild $(TEXLIVE_OVERLAY_LOCATION)dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild digest
-	echo "$(TEXLIVE_OVERLAY_LOCATION)dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild" > $@
+	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)
+	$(CPF) $< $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild
+	ebuild $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild digest
+	echo "$(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild" > $@
 
 ebuilds-install: $(DESC:%=%.installed)
 

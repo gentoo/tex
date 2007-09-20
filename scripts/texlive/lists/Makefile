@@ -21,7 +21,7 @@ TARBALLS = $(DESC:%=dist/%-$(TEXLIVE_VERSION).tar.bz2) $(EXTRA_DIST:%=dist/%-$(T
 lists : $(DESC:%=%.list) $(DESC:%=%.base)
 
 %.base: 
-	$(CPF) $(@:texlive-%.base=$(TEXLIVE_LIVE_MOUNTPOINT)/texmf/lists/collection-%) $@
+	$(CPF) $(@:texlive-%.base=$(TEXLIVE_INST_MOUNTPOINT)/texmf/lists/collection-%) $@
 
 %.list: %.base
 	grep "^+" $< > $@

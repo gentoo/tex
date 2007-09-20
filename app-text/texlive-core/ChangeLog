@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  block xmltex, texlive provides it and may fail to install
+  (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=419987)
+
   19 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
   add a note about tests, disable em

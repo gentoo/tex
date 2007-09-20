@@ -7,13 +7,6 @@ EBUILD xdvipdfmx-0.4-r1.ebuild 1185 RMD160 f2aeff5abe55dfddba867b4e9ddd9f3cd0350
 MD5 9e351bbd5dea8c26b672cc614605142b xdvipdfmx-0.4-r1.ebuild 1185
 RMD160 f2aeff5abe55dfddba867b4e9ddd9f3cd0350c96 xdvipdfmx-0.4-r1.ebuild 1185
 SHA256 3fc0034b2451ed35b61ad3672b41c43ddceaacb9f7a6003577776dcdb82f0d3c xdvipdfmx-0.4-r1.ebuild 1185
-EBUILD xdvipdfmx-0.4.ebuild 1076 RMD160 890949b0916ee405b416fedfc5ffc5bac17e4ca2 SHA1 e0b90bd51249be272237cbf87bdff7b3f6cde0b4 SHA256 657dfeb3d2ec4ad0a4602d6a498722f7ce87717a82f4ddc90ec9c3d2505c2d4d
-MD5 477f841812155ca67ff4ef41f2c79ba9 xdvipdfmx-0.4.ebuild 1076
-RMD160 890949b0916ee405b416fedfc5ffc5bac17e4ca2 xdvipdfmx-0.4.ebuild 1076
-SHA256 657dfeb3d2ec4ad0a4602d6a498722f7ce87717a82f4ddc90ec9c3d2505c2d4d xdvipdfmx-0.4.ebuild 1076
-MD5 838b6e04f26d25c021a1eb7bb4fbd642 files/digest-xdvipdfmx-0.4 244
-RMD160 c693436a387c1c92d03396a6c64b2d7bc6cd47ac files/digest-xdvipdfmx-0.4 244
-SHA256 64a24dc4c20222e196cc373f52bf562dee121e83bbfaea441fbf41e2d0a41488 files/digest-xdvipdfmx-0.4 244
 MD5 838b6e04f26d25c021a1eb7bb4fbd642 files/digest-xdvipdfmx-0.4-r1 244
 RMD160 c693436a387c1c92d03396a6c64b2d7bc6cd47ac files/digest-xdvipdfmx-0.4-r1 244
 SHA256 64a24dc4c20222e196cc373f52bf562dee121e83bbfaea441fbf41e2d0a41488 files/digest-xdvipdfmx-0.4-r1 244

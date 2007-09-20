@@ -39,6 +39,7 @@ DEPEND="${MODULAR_X_DEPEND}
 	!app-text/tetex
 	!<app-text/texlive-2007
 	!app-text/xetex
+	!dev-tex/xmltex
 	sys-apps/ed
 	sys-libs/zlib
 	>=media-libs/libpng-1.2.1

@@ -16,6 +16,8 @@ RDEPEND="${COMMON_DEPEND}
 
 IUSE="doc"
 
+TEXMF_PATH=/usr/share/texmf
+
 texlive-module_src_unpack() {
 	unpack ${A}
 	cd "${S}"
@@ -29,12 +31,22 @@ texlive-module_src_unpack() {
 	done
 }
 
+texlive-module_src_compile() {
+	for i in unpacked/texmf/fmtutil/format*.cnf; do
+		einfo "Building format ${i}"
+		TEXMFHOME="${S}/unpacked/texmf:${S}/unpacked/texmf-dist"\
+			fmtutil --cnffile "${i}" --fmtdir "${S}/unpacked/texmf-var/web2c" --all\
+			|| die "failed to build format ${i}"
+	done
+}
+
 texlive-module_src_install() {
 	cd "${S}/unpacked"
 
 	insinto /usr/share
 	doins -r texmf
 	doins -r texmf-dist
+	doins -r texmf-var
 	use doc && doins -r texmf-doc
 
 
@@ -62,6 +74,17 @@ texlive-module_src_install() {
 				echo "f	${parameter}" >> "${D}etc/texmf/dvipdfm/config/config";;
 		esac
 	done
+
+	# Handle config files properly
+	cd "${D}${TEXMF_PATH}"
+	for f in $(find . -name '*.cnf' -o -name '*.cfg' -type f | sed -e "s:\./::g") ; do
+		if [ "${f/config/}" != "${f}" ] ; then
+			continue
+		fi
+		dodir /etc/texmf/$(dirname ${f}).d
+		mv "${D}/${TEXMF_PATH}/${f}" "${D}/etc/texmf/$(dirname ${f}).d" || die "mv ${f} failed."
+		dosym /etc/texmf/$(dirname ${f}).d/$(basename ${f}) ${TEXMF_PATH}/${f}
+	done
 }
 
 texlive-module_pkg_postinst() {
@@ -72,4 +95,4 @@ texlive-module_pkg_postrm() {
 	texmf-update
 }
 
-EXPORT_FUNCTIONS src_unpack src_install pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS src_unpack src_compile src_install pkg_postinst pkg_postrm

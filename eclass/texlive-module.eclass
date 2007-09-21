@@ -33,10 +33,12 @@ texlive-module_src_unpack() {
 
 texlive-module_src_compile() {
 	for i in unpacked/texmf/fmtutil/format*.cnf; do
-		einfo "Building format ${i}"
-		TEXMFHOME="${S}/unpacked/texmf:${S}/unpacked/texmf-dist"\
-			fmtutil --cnffile "${i}" --fmtdir "${S}/unpacked/texmf-var/web2c" --all\
-			|| die "failed to build format ${i}"
+		if test -f "${i}"; then
+			einfo "Building format ${i}"
+			TEXMFHOME="${S}/unpacked/texmf:${S}/unpacked/texmf-dist"\
+				fmtutil --cnffile "${i}" --fmtdir "${S}/unpacked/texmf-var/web2c" --all\
+				|| die "failed to build format ${i}"
+		fi
 	done
 }
 

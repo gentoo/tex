@@ -1,5 +1,0 @@
-Changes in r129 :
-now texlive-module eclass builds and installs format files by itself rather than
-leaving fmtutil doing it. As a result you might have file collisions for files
-not owned by any package in /usr/share/texmf-var, just disable collision
-protection and it should be fine.

@@ -55,10 +55,6 @@ if test -n "$X"; then
     cat language.us language.*.dat > $Z/language.dat
 fi
 
-# Sync maps with texmf tree
-echo "Syncing updmap.cfg with texmf tree"
-updmap-sys --cnffile /etc/texmf/web2c/updmap.cfg --syncwithtrees &>/dev/null
-
 echo "Generating ls-R files"
 mktexlsr &>/dev/null
 

@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Sep 2007; Alexis Ballier <aballier@gentoo.org> files/texmf-update:
+  no need to sync with tree updmap, texmf-update is now much faster
+
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
   mimic updmap syncwithtrees option to only ask for available fonts when

@@ -200,15 +200,20 @@ src_install() {
 	dodir /etc/texmf/{updmap.d,fmtutil.d,texmf.d}
 
 	mv "${D}${TEXMF_PATH}/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf" || die "moving fmtutil.cnf failed"
-	dosym /etc/texmf/web2c/fmtutil.cnf ${TEXMF_PATH}/web2c/fmtutil.cnf
 
 	mv "${D}${TEXMF_PATH}/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf" || die "moving texmf.cnf failed"
-	dosym /etc/texmf/web2c/texmf.cnf ${TEXMF_PATH}/web2c/texmf.cnf
+
+	mv "${D}${TEXMF_PATH}/web2c/updmap.cfg"	"${D}/etc/texmf/updmap.d/00updmap.cfg" || die "moving updmap.cfg failed"
 
 
 	texlive-common_handle_config_files
 
 	keepdir /usr/share/texmf-site
+
+
+	dosym /etc/texmf/web2c/fmtutil.cnf ${TEXMF_PATH}/web2c/fmtutil.cnf
+	dosym /etc/texmf/web2c/texmf.cnf ${TEXMF_PATH}/web2c/texmf.cnf
+	dosym /etc/texmf/web2c/updmap.cfg ${TEXMF_PATH}/web2c/updmap.cfg
 
 	# the virtex symlink is not installed
 	# The links has to be relative, since the targets

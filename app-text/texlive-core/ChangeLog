@@ -4,6 +4,15 @@
 
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  mimic updmap syncwithtrees option to only ask for available fonts when
+  installing texlive
+
+  22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
+  disable etex, we're using pdftex
+
+  22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   handle updmap.cfg
 
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org>

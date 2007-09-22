@@ -2,18 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain-funcs libtool autotools
-
-TEXMF_PATH=/usr/share/texmf
+inherit eutils flag-o-matic toolchain-funcs libtool autotools texlive-common
 
 DESCRIPTION="A complete TeX distribution"
 HOMEPAGE="http://tug.org/texlive/"
 SLOT="0"
 LICENSE="GPL-2"
 
-SRC_URI="mirror://gentoo/${P}.tar.bz2
-	mirror://gentoo/${PN/-core/}-basicbin-${PV}.tar.bz2
-	mirror://gentoo/${PN/-core/}-binextra-${PV}.tar.bz2"
+TEXLIVE_CORE_INCLUDED_TEXMF="${P/-core/-basicbin} ${P/-core/-binextra} ${P/-core/-fontbin}"
+
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
+
+for i in ${TEXLIVE_CORE_INCLUDED_TEXMF}; do
+	SRC_URI="${SRC_URI} ${i}.tar.bz2"
+done
 
 KEYWORDS="~amd64 ~x86"
 IUSE="X doc"
@@ -56,6 +58,13 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
+	for i in ${TEXLIVE_CORE_INCLUDED_TEXMF}; do
+		for j in "${S}/${i}"/*zip ; do
+			einfo "Unpacking ${j}"
+			unzip -q "${j}"
+		done
+	done
+
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
 	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"
 	epatch "${FILESDIR}/${PV}/${P}-libteckit-asneeded.patch"
@@ -73,12 +82,6 @@ src_unpack() {
 
 	sed -i -e "/mktexlsr/,+3d" -e "s/\(updmap-sys\)/\1 --nohash/" \
 		Makefile.in || die "sed failed"
-
-	for i in ${PN/-core/}-basicbin-${PV}/*zip ${PN/-core/}-binextra-${PV}/*zip;
-	do
-		einfo "Unpacking ${i}"
-		unzip -q ${i}
-	done
 
 	elibtoolize
 
@@ -192,21 +195,18 @@ src_install() {
 	# populate /etc/texmf
 	keepdir /etc/texmf/web2c
 
-	cd "${D}/${TEXMF_PATH}"
-	for f in $(find . -name '*.cnf' -o -name '*.cfg' -type f | sed -e "s:\./::g") ; do
-		if [ "${f/config/}" != "${f}" ] ; then
-			continue
-		fi
-		dodir /etc/texmf/$(dirname ${f})
-		mv "${D}/${TEXMF_PATH}/${f}" "${D}/etc/texmf/$(dirname ${f})" || die "mv ${f} failed."
-		dosym /etc/texmf/${f} ${TEXMF_PATH}/${f}
-	done
 
 	# take care of updmap.cfg, fmtutil.cnf and texmf.cnf
 	dodir /etc/texmf/{updmap.d,fmtutil.d,texmf.d}
-	mv "${D}/etc/texmf/web2c/updmap.cfg" "${D}/etc/texmf/updmap.d/00updmap.cfg" || die "moving updmap.cfg failed"
-	mv "${D}/etc/texmf/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf" || die "moving fmtutil.cnf failed"
-	mv "${D}/etc/texmf/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf" || die "moving texmf.cnf failed"
+
+	mv "${D}${TEXMF_PATH}/web2c/fmtutil.cnf" "${D}/etc/texmf/fmtutil.d/00fmtutil.cnf" || die "moving fmtutil.cnf failed"
+	dosym /etc/texmf/web2c/fmtutil.cnf ${TEXMF_PATH}/web2c/fmtutil.cnf
+
+	mv "${D}${TEXMF_PATH}/web2c/texmf.cnf" "${D}/etc/texmf/texmf.d/00texmf.cnf" || die "moving texmf.cnf failed"
+	dosym /etc/texmf/web2c/texmf.cnf ${TEXMF_PATH}/web2c/texmf.cnf
+
+
+	texlive-common_handle_config_files
 
 	keepdir /usr/share/texmf-site
 

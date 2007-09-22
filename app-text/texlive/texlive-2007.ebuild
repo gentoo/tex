@@ -53,7 +53,6 @@ RDEPEND="${DEPEND}
 	>=app-text/dvipdfm-0.13.2d
 	png? ( app-text/dvipng )
 	X? ( >=app-text/xdvik-22.84.10-r1 )
-	${TEXLIVE_CAT}/texlive-fontbin
 	${TEXLIVE_CAT}/texlive-basic
 	${TEXLIVE_CAT}/texlive-fontsrecommended
 	${TEXLIVE_CAT}/texlive-latex

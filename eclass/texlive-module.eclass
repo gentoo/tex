@@ -81,7 +81,7 @@ texlive-module_src_install() {
 
 	insinto /etc/texmf/updmap.d
 	doins "${S}/${PN}.cfg"
-	insinto /etc/texmf/dvips/config/config.ps
+	insinto /etc/texmf/dvips/config
 	doins "${S}/${PN}-config.ps"
 	insinto /etc/texmf/dvipdfm/config
 	doins "${S}/${PN}-config"

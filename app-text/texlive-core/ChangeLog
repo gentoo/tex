@@ -4,6 +4,10 @@
 
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  handle updmap.cfg
+
+  22 Sep 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   make use of texlive-common eclass, include fontbin, rework included texmf
   handling, better handling of configurable files
 

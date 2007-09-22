@@ -10,7 +10,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-documentation-mongolian texlive-documentation-polish texlive-documentation-portuguese \
        texlive-documentation-russian texlive-documentation-spanish texlive-documentation-thai texlive-documentation-turkish texlive-documentation-ukrainian \
        texlive-documentation-vietnamese \
-       texlive-fontbin texlive-fontsextra texlive-fontsrecommended \
+       texlive-fontsextra texlive-fontsrecommended \
        texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
        texlive-htmlxml texlive-humanities \
        texlive-langafrican texlive-langarab texlive-langarmenian \
@@ -31,7 +31,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-xetex
 
 # Collections that just need to be distfiles
-EXTRA_DIST = texlive-basicbin texlive-binextra
+EXTRA_DIST = texlive-basicbin texlive-binextra texlive-fontbin
 
 # those ones are provided by texlive & friends
        

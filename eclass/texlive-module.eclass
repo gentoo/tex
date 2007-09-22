@@ -37,6 +37,7 @@ texlive-module_src_unpack() {
 }
 
 texlive-module_src_compile() {
+	# Build format files
 	for i in unpacked/texmf/fmtutil/format*.cnf; do
 		if test -f "${i}"; then
 			einfo "Building format ${i}"
@@ -44,6 +45,28 @@ texlive-module_src_compile() {
 				fmtutil --cnffile "${i}" --fmtdir "${S}/unpacked/texmf-var/web2c" --all\
 				|| die "failed to build format ${i}"
 		fi
+	done
+
+	# Generate config files
+	for i in "${S}"/unpacked/texmf/lists/*;
+	do
+		grep '^!' "${i}" | tr ' ' '=' |sort|uniq >> "${T}/jobs"
+	done
+
+	for j in $(cat "${T}/jobs");
+	do
+		command=$(echo ${j} | sed 's/.\(.*\)=.*/\1/')
+		parameter=$(echo ${j} | sed 's/.*=\(.*\)/\1/')
+		case ${command} in
+			addMap)
+				echo "Map ${parameter}" >> "${S}/${PN}.cfg";;
+			addMixedMap)
+				echo "MixedMap ${parameter}" >> "${S}/${PN}.cfg";;
+			addDvipsMap)
+				echo "p	+${parameter}" >> "${S}/${PN}-config.ps";;
+			addDvipdfmMap)
+				echo "f	${parameter}" >> "${S}/${PN}-config";;
+		esac
 	done
 }
 
@@ -56,31 +79,12 @@ texlive-module_src_install() {
 	doins -r texmf-var
 	use doc && doins -r texmf-doc
 
-
-	for i in "${S}"/unpacked/texmf/lists/*;
-	do
-		grep '^!' "${i}" | tr ' ' '=' |sort|uniq >> "${T}/jobs"
-	done
-
-	for j in $(cat "${T}/jobs");
-	do
-		command=$(echo ${j} | sed 's/.\(.*\)=.*/\1/')
-		parameter=$(echo ${j} | sed 's/.*=\(.*\)/\1/')
-		case ${command} in
-			addMap)
-				dodir /etc/texmf/updmap.d
-				echo "Map ${parameter}" >> "${D}etc/texmf/updmap.d/${PN}.cfg";;
-			addMixedMap)
-				dodir /etc/texmf/updmap.d
-				echo "MixedMap ${parameter}" >> "${D}etc/texmf/updmap.d/${PN}.cfg";;
-			addDvipsMap)
-				dodir /etc/texmf/dvips/config
-				echo "p	+${parameter}" >> "${D}etc/texmf/dvips/config/config.ps";;
-			addDvipdfmMap)
-				dodir /etc/texmf/dvipdfm/config
-				echo "f	${parameter}" >> "${D}etc/texmf/dvipdfm/config/config";;
-		esac
-	done
+	insinto /etc/texmf/updmap.d
+	doins "${S}/${PN}.cfg"
+	insinto /etc/texmf/dvips/config/config.ps
+	doins "${S}/${PN}-config.ps"
+	insinto /etc/texmf/dvipdfm/config
+	doins "${S}/${PN}-config"
 
 	texlive-common_handle_config_files
 }

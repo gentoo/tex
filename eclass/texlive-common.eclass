@@ -30,3 +30,13 @@ texlive-common_handle_config_files() {
 		dosym /etc/texmf/$(dirname ${f}).d/$(basename ${f}) ${TEXMF_PATH}/${f}
 	done
 }
+
+
+# Return if a file is present in the texmf tree
+# Call it from the directory containing texmf and texmf-dist
+
+texlive-common_is_file_present_in_texmf() {
+	find texmf -name $1 -exec return 0 \;
+	find texmf-dist -name $1 -exec return 0 \;
+	return 1
+}

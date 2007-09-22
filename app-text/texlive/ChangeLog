@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  font bin now in -core
+
   18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   pull in xdvipdfmx when xetex support is wanted
 

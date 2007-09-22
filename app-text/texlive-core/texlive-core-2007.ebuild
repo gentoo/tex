@@ -115,7 +115,7 @@ src_compile() {
 		--without-sam2p \
 		--without-t1utils \
 		--enable-ipc \
-		--with-etex \
+		--without-etex \
 		--with-xetex \
 		--without-dvipng \
 		--without-dvipdfm \
@@ -135,6 +135,19 @@ src_compile() {
 	emake -j1 texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake of icu-xetex failed"
 	cd "${S}"
 	emake texmf=${TEXMF_PATH:-/usr/share/texmf} || die "emake failed"
+
+
+	# Mimic updmap --syncwithtrees to enable only fonts installed
+	# Code copied from updmap script
+	for i in `egrep '^(Mixed)?Map' "texmf/web2c/updmap.cfg" | sed 's@.* @@'`; do
+		texlive-common_is_file_present_in_texmf "$i" || echo "$i"
+	done > "${T}/updmap_update"
+	{
+		sed 's@/@\\/@g; s@^@/^MixedMap[     ]*@; s@$@$/s/^/#! /@' <"${T}/updmap_update"
+		sed 's@/@\\/@g; s@^@/^Map[  ]*@; s@$@$/s/^/#! /@' <"${T}/updmap_update"
+	} > "${T}/updmap_update2"
+	sed -f "${T}/updmap_update2" "texmf/web2c/updmap.cfg" >	"${T}/updmap_update3"\
+		&& cat "${T}/updmap_update3" > "texmf/web2c/updmap.cfg"
 }
 
 src_test() {

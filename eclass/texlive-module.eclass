@@ -2,6 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+#
+# Original Author: Alexis Ballier <aballier@gentoo.org>
+# Purpose: Provide generic install functions so that modular texlive's texmf ebuilds will
+# only have to inherit this eclass.
+#
+
+inherit texlive-common
 
 HOMEPAGE="http://www.tug.org/texlive/"
 SRC_URI="mirror://gentoo/${P}${TEXLIVE_MODULE_EXTRA_PACKAGE_NAME}.tar.bz2"
@@ -15,8 +22,6 @@ RDEPEND="${COMMON_DEPEND}
 	${TEXLIVE_MODULES_DEPS}"
 
 IUSE="doc"
-
-TEXMF_PATH=/usr/share/texmf
 
 texlive-module_src_unpack() {
 	unpack ${A}
@@ -77,16 +82,7 @@ texlive-module_src_install() {
 		esac
 	done
 
-	# Handle config files properly
-	cd "${D}${TEXMF_PATH}"
-	for f in $(find . -name '*.cnf' -o -name '*.cfg' -type f | sed -e "s:\./::g") ; do
-		if [ "${f/config/}" != "${f}" ] ; then
-			continue
-		fi
-		dodir /etc/texmf/$(dirname ${f}).d
-		mv "${D}/${TEXMF_PATH}/${f}" "${D}/etc/texmf/$(dirname ${f}).d" || die "mv ${f} failed."
-		dosym /etc/texmf/$(dirname ${f}).d/$(basename ${f}) ${TEXMF_PATH}/${f}
-	done
+	texlive-common_handle_config_files
 }
 
 texlive-module_pkg_postinst() {

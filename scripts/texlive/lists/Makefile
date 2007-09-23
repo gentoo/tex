@@ -121,3 +121,15 @@ fulldistclean: distclean
 	$(RMDIR) dist
 
 
+%.dotbase: %.deps
+	sed -e "s/^/$(<:%.deps=%) -> /" $< > $@
+	-sed -e "s/^/$(<:%.deps=%) -> /" $(<:%.deps=%.extradeps) >> $@
+	sed -i -e "s:dev-texlive/texlive-::g" $@
+	sed -i -e "s:texlive-::g" $@
+	
+
+
+dot: $(DESC:%=%.dotbase)
+	echo "digraph G{" > texlive-$(TEXLIVE_VERSION).dot
+	cat *dotbase >>  texlive-$(TEXLIVE_VERSION).dot
+	echo "}" >>  texlive-$(TEXLIVE_VERSION).dot

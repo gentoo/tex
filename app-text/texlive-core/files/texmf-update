@@ -52,7 +52,10 @@ if test -n "$X"; then
 
     Y=`kpsewhich language.us`
     cd `dirname $Y`
-    cat language.us language.*.dat > $Z/language.dat
+    cat language.us > $Z/language.dat
+    for i in language.*.dat; do
+            test -f $i && cat $i >> $Z/language.dat
+    done
 fi
 
 echo "Generating ls-R files"

@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Sep 2007; Alexis Ballier <aballier@gentoo.org> files/texmf-update:
+  fix generation of language.dat when no other language than us is present
+
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org> files/texmf-update:
   no need to sync with tree updmap, texmf-update is now much faster
 

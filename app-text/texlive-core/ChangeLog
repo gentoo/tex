@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Sep 2007; <alexis@gentoo.org> files/texmf-update:
+  regenerate all formats like was done before, this will avoid having to
+  manually update latex.fmt after adding more hyphenations support
+
   23 Sep 2007; Alexis Ballier <aballier@gentoo.org> files/texmf-update:
   fix generation of language.dat when no other language than us is present
 

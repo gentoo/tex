@@ -62,7 +62,7 @@ echo "Generating ls-R files"
 mktexlsr &>/dev/null
 
 echo "Generating format files ..."
-fmtutil-sys --missing &>/dev/null
+fmtutil-sys --all &>/dev/null
 
 echo "Generating tex symlinks from formats to engines..."
 texlinks -s

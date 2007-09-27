@@ -11,7 +11,11 @@
 inherit texlive-common
 
 HOMEPAGE="http://www.tug.org/texlive/"
-SRC_URI="mirror://gentoo/${P}${TEXLIVE_MODULE_EXTRA_PACKAGE_NAME}.tar.bz2"
+
+for i in ${TEXLIVE_MODULE_CONTENTS}; do
+	SRC_URI="${SRC_URI} mirror://gentoo/texlive-module-${i}-${PV}.zip"
+done
+#SRC_URI="mirror://gentoo/${P}${TEXLIVE_MODULE_EXTRA_PACKAGE_NAME}.tar.bz2"
 
 COMMON_DEPEND=">=app-text/texlive-core-${PV}"
 DEPEND="${COMMON_DEPEND}
@@ -23,32 +27,21 @@ RDEPEND="${COMMON_DEPEND}
 
 IUSE="doc"
 
-texlive-module_src_unpack() {
-	unpack ${A}
-	cd "${S}"
-
-	mkdir -p "${S}/unpacked"
-	cd "${S}/unpacked"
-
-	for i in "${S}"/*zip ; do
-		einfo "Unpacking ${i}"
-		unzip -q "${i}"
-	done
-}
+S="${WORKDIR}"
 
 texlive-module_src_compile() {
 	# Build format files
-	for i in unpacked/texmf/fmtutil/format*.cnf; do
+	for i in texmf/fmtutil/format*.cnf; do
 		if test -f "${i}"; then
 			einfo "Building format ${i}"
-			TEXMFHOME="${S}/unpacked/texmf:${S}/unpacked/texmf-dist"\
-				fmtutil --cnffile "${i}" --fmtdir "${S}/unpacked/texmf-var/web2c" --all\
+			TEXMFHOME="${S}/texmf:${S}/texmf-dist"\
+				fmtutil --cnffile "${i}" --fmtdir "${S}/texmf-var/web2c" --all\
 				|| die "failed to build format ${i}"
 		fi
 	done
 
 	# Generate config files
-	for i in "${S}"/unpacked/texmf/lists/*;
+	for i in "${S}"/texmf/lists/*;
 	do
 		grep '^!' "${i}" | tr ' ' '=' |sort|uniq >> "${T}/jobs"
 	done
@@ -71,8 +64,6 @@ texlive-module_src_compile() {
 }
 
 texlive-module_src_install() {
-	cd "${S}/unpacked"
-
 	insinto /usr/share
 	doins -r texmf
 	doins -r texmf-dist
@@ -90,11 +81,15 @@ texlive-module_src_install() {
 }
 
 texlive-module_pkg_postinst() {
-		texmf-update
+	if [ "$ROOT" = "/" ] ; then
+		/usr/sbin/texmf-update
+	fi
 }
 
 texlive-module_pkg_postrm() {
-	texmf-update
+	if [ "$ROOT" = "/" ] ; then
+		/usr/sbin/texmf-update
+	fi
 }
 
-EXPORT_FUNCTIONS src_unpack src_compile src_install pkg_postinst pkg_postrm
+EXPORT_FUNCTIONS src_compile src_install pkg_postinst pkg_postrm

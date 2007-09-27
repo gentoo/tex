@@ -1,18 +1,5 @@
 
-PORTDIR=$(shell portageq portdir)
-DISTDIR=$(shell portageq distdir)
-
-TEXLIVE_VERSION=2007
-
-TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay
-
-TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live
-TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
-
-MKDIRP=mkdir -p
-RMF=rm -f
-RMDIR=rmdir
-CPF=cp -f
+include Makefile.common
 
 include Makefile.def
 
@@ -59,6 +46,7 @@ clean:
 	$(RMF) $(DESC:%=%.list)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.base)
+	$(RMF) $(DESC:%=%.dotbase)
 
 dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "TEXLIVE_INST_MOUNTPOINT=$(TEXLIVE_INST_MOUNTPOINT)" > dist/Makefile
@@ -67,14 +55,18 @@ dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "" >> dist/Makefile
 	echo "include ../Makefile-dist.ref" >> dist/Makefile
 	echo "all: $(@:dist/%=%)" >> dist/Makefile
-	$(MAKE) -C dist
+	$(MAKE) -C dist $(@:dist/%=%)
+	$(MAKE) -C dist versionnedzips
 	$(RMF) dist/Makefile
 	$(CPF) $@ $(DISTDIR)/
 
-%.ebuild: %.desc %.deps
+%.ebuild: %.desc %.deps %.list
 	cat $(PORTDIR)/header.txt > $@
 	echo -n "TEXLIVE_MODULES_DEPS=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@
+	echo "\"" >> $@
+	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
+	cat $(@:%.ebuild=%.list) >> $@
 	echo "\"" >> $@
 	echo "inherit texlive-module" >> $@
 	cat $< >> $@

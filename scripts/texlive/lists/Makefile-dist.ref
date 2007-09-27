@@ -1,10 +1,22 @@
 
+include ../Makefile.common
+
 MKDIRP=mkdir -p
 
 CPF=cp -f
+
+DISTDIR=$(shell portageq distdir)
+
+
+$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip: $(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip
+	$(CPF) $< $@
+
+
+
 
 %.tar.bz2: $(ZIP:%=$(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip)
 	$(MKDIRP) $(@:%.tar.bz2=%)
 	$(CPF) $(ZIP:%=$(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip) $(@:%.tar.bz2=%)
 	tar cjf $@ $(@:%.tar.bz2=%)
 
+versionnedzips: $(ZIP:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip)

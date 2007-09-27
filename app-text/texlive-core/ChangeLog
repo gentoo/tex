@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Sep 2007; Alexis Ballier <aballier@gentoo.org> files/texmf-update:
+  run mktexlsr before generating language.dat file, this will prevent failures
+  after merging texlive-basic
+
   26 Sep 2007; <alexis@gentoo.org> files/texmf-update:
   regenerate all formats like was done before, this will avoid having to
   manually update latex.fmt after adding more hyphenations support

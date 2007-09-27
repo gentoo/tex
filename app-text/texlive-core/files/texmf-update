@@ -43,6 +43,9 @@ for conf in texmf.cnf fmtutil.cnf updmap.cfg; do
 	fi
 done
 
+echo "Generating ls-R files"
+mktexlsr &>/dev/null
+
 # Generate language.dat file, from texlive install-pkg.sh
 X=`kpsewhich language.dat`
 if test -n "$X"; then
@@ -57,9 +60,6 @@ if test -n "$X"; then
             test -f $i && cat $i >> $Z/language.dat
     done
 fi
-
-echo "Generating ls-R files"
-mktexlsr &>/dev/null
 
 echo "Generating format files ..."
 fmtutil-sys --all &>/dev/null

@@ -5,7 +5,7 @@
 #
 # Original Author: Alexis Ballier <aballier@gentoo.org>
 # Purpose: Provide various functions used by both texlive-core and texlive
-# modules. 
+# modules.
 #
 
 

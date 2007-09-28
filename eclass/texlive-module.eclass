@@ -65,17 +65,17 @@ texlive-module_src_compile() {
 
 texlive-module_src_install() {
 	insinto /usr/share
-	doins -r texmf
-	doins -r texmf-dist
-	doins -r texmf-var
-	use doc && doins -r texmf-doc
+	test -d texmf && doins -r texmf
+	test -d texmf-dist && doins -r texmf-dist
+	test -d texmf-var && doins -r texmf-var
+	use doc && test -d texmf-doc && doins -r texmf-doc
 
 	insinto /etc/texmf/updmap.d
-	doins "${S}/${PN}.cfg"
+	test -f "${S}/${PN}.cfg" && doins "${S}/${PN}.cfg"
 	insinto /etc/texmf/dvips/config
-	doins "${S}/${PN}-config.ps"
+	test -f "${S}/${PN}-config.ps" && doins "${S}/${PN}-config.ps"
 	insinto /etc/texmf/dvipdfm/config
-	doins "${S}/${PN}-config"
+	test -f "${S}/${PN}-config" && doins "${S}/${PN}-config"
 
 	texlive-common_handle_config_files
 }

@@ -6,6 +6,8 @@
 # Original Author: Alexis Ballier <aballier@gentoo.org>
 # Purpose: Provide generic install functions so that modular texlive's texmf ebuilds will
 # only have to inherit this eclass.
+# Ebuilds have to provide TEXLIVE_MODULE_CONTENTS variable that contains the list
+# of packages that it will install.
 #
 
 inherit texlive-common
@@ -15,7 +17,6 @@ HOMEPAGE="http://www.tug.org/texlive/"
 for i in ${TEXLIVE_MODULE_CONTENTS}; do
 	SRC_URI="${SRC_URI} mirror://gentoo/texlive-module-${i}-${PV}.zip"
 done
-#SRC_URI="mirror://gentoo/${P}${TEXLIVE_MODULE_EXTRA_PACKAGE_NAME}.tar.bz2"
 
 COMMON_DEPEND=">=app-text/texlive-core-${PV}
 	${TEXLIVE_MODULES_DEPS}"

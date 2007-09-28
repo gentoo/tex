@@ -17,13 +17,13 @@ for i in ${TEXLIVE_MODULE_CONTENTS}; do
 done
 #SRC_URI="mirror://gentoo/${P}${TEXLIVE_MODULE_EXTRA_PACKAGE_NAME}.tar.bz2"
 
-COMMON_DEPEND=">=app-text/texlive-core-${PV}"
-DEPEND="${COMMON_DEPEND}
-	app-arch/unzip
+COMMON_DEPEND=">=app-text/texlive-core-${PV}
 	${TEXLIVE_MODULES_DEPS}"
 
-RDEPEND="${COMMON_DEPEND}
-	${TEXLIVE_MODULES_DEPS}"
+DEPEND="${COMMON_DEPEND}
+	app-arch/unzip"
+
+RDEPEND="${COMMON_DEPEND}"
 
 IUSE="doc"
 

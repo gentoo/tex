@@ -5,7 +5,9 @@ include Makefile.def
 
 VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips)
 
-lists : $(DESC:%=%.list) $(DESC:%=%.base) $(EXTRA_DIST:%=%.list) $(EXTRA_DIST:%=%.base)
+FULLDESC = $(DESC) $(EXTRA_DIST)
+
+lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 
 %.base: 
 	$(CPF) $(@:texlive-%.base=$(TEXLIVE_INST_MOUNTPOINT)/texmf/lists/collection-%) $@
@@ -43,10 +45,11 @@ lists : $(DESC:%=%.list) $(DESC:%=%.base) $(EXTRA_DIST:%=%.list) $(EXTRA_DIST:%=
 	-cat $(@:.deps=.extradeps) >> $@
 
 clean:
-	$(RMF) $(DESC:%=%.list)
-	$(RMF) $(DESC:%=%.deps)
-	$(RMF) $(DESC:%=%.base)
+	$(RMF) $(FULLDESC:%=%.list)
+	$(RMF) $(FULLDESC:%=%.base)
+	$(RMF) $(FULLDESC:%=%.versionnedzips)
 	$(RMF) $(DESC:%=%.dotbase)
+	$(RMF) $(DESC:%=%.deps)
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips

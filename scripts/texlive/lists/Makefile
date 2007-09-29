@@ -3,9 +3,9 @@ include Makefile.common
 
 include Makefile.def
 
-TARBALLS = $(DESC:%=dist/%-$(TEXLIVE_VERSION).tar.bz2) $(EXTRA_DIST:%=dist/%-$(TEXLIVE_VERSION).tar.bz2)
+VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips)
 
-lists : $(DESC:%=%.list) $(DESC:%=%.base)
+lists : $(DESC:%=%.list) $(DESC:%=%.base) $(EXTRA_DIST:%=%.list) $(EXTRA_DIST:%=%.base)
 
 %.base: 
 	$(CPF) $(@:texlive-%.base=$(TEXLIVE_INST_MOUNTPOINT)/texmf/lists/collection-%) $@
@@ -48,17 +48,9 @@ clean:
 	$(RMF) $(DESC:%=%.base)
 	$(RMF) $(DESC:%=%.dotbase)
 
-dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
-	echo "TEXLIVE_INST_MOUNTPOINT=$(TEXLIVE_INST_MOUNTPOINT)" > dist/Makefile
-	echo -n "ZIP=" >> dist/Makefile
-	cat $(@:dist/%-$(TEXLIVE_VERSION).tar.bz2=%.list) >> dist/Makefile
-	echo "" >> dist/Makefile
-	echo "include ../Makefile-dist.ref" >> dist/Makefile
-	echo "all: $(@:dist/%=%)" >> dist/Makefile
-	$(MAKE) -C dist $(@:dist/%=%)
+%.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
-	$(RMF) dist/Makefile
-	$(CPF) $@ $(DISTDIR)/
+	touch $@
 
 %.ebuild: %.desc %.deps %.list
 	cat $(PORTDIR)/header.txt > $@
@@ -75,12 +67,7 @@ dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~amd64 ~x86\"" >> $@
 
-dirs:
-	$(MKDIRP) dist
-	$(MKDIRP) dist/archive
-
-
-dist: lists dirs $(TARBALLS)
+dist: lists $(VERSIONNED_ZIPS)
 	$(CPF) $(TEXLIVE_LIVE_MOUNTPOINT)/source/source.tar.bz2 $(DISTDIR)/texlive-core-$(TEXLIVE_VERSION).tar.bz2
 	ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
@@ -97,21 +84,10 @@ ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
 ebuilds-install: $(DESC:%=%.installed)
 
-distclean: clean
-	$(RMF) $(TARBALLS)
-	$(RMF) $(TARBALLS:%.tar.bz2=%/*)
-	$(RMDIR) $(TARBALLS:%.tar.bz2=%)
-
 ebuildsclean: clean
 	$(RMF) $(DESC:%=%.ebuild)
 	$(RMF) $(DESC:%=%.desc)
 	$(RMF) $(DESC:%=%.installed)
-
-fulldistclean: distclean
-	$(RMF) dist/archive/*
-	$(RMDIR) dist/archive
-	$(RMDIR) dist
-
 
 %.dotbase: %.deps
 	sed -e "s/^/$(<:%.deps=%) -> /" $< > $@

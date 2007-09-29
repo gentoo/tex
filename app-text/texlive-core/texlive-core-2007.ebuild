@@ -9,12 +9,18 @@ HOMEPAGE="http://tug.org/texlive/"
 SLOT="0"
 LICENSE="GPL-2"
 
-TEXLIVE_CORE_INCLUDED_TEXMF="${P/-core/-basicbin} ${P/-core/-binextra} ${P/-core/-fontbin}"
+TEXLIVE_BASICBIN_CONTENTS="bin-bibtex bin-dialog bin-dvipdfmx bin-dvipsk bin-etex bin-getnonfreefonts bin-gsftopk bin-kpathsea bin-makeindex bin-metafont bin-mfware bin-pdftex bin-tetex bin-tex bin-texconfig lib-regex lib-zlib"
+
+TEXLIVE_BINEXTRA_CONTENTS="bin-bibtex8 bin-chktex bin-ctie bin-cweb bin-detex bin-dtl bin-dvi2tty bin-dvicopy bin-dvidvi bin-dviljk bin-lacheck bin-patgen bin-pdftools bin-seetexk bin-texdoc bin-texware bin-thumbpdf bin-tie bin-tpic2pdftex bin-vpe bin-web bin-xpdf cweb mkind-english"
+
+TEXLIVE_FONTBIN_CONTENTS="bin-afm2pl bin-fontware bin-ps2pkm fontinst mft"
+
+TEXLIVE_CORE_INCLUDED_TEXMF="${TEXLIVE_BASICBIN_CONTENTS} ${TEXLIVE_FONTBIN_CONTENTS} ${TEXLIVE_BINEXTRA_CONTENTS}"
 
 SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 for i in ${TEXLIVE_CORE_INCLUDED_TEXMF}; do
-	SRC_URI="${SRC_URI} ${i}.tar.bz2"
+	SRC_URI="${SRC_URI} mirror://gentoo/texlive-module-${i}-${PV}.zip"
 done
 
 KEYWORDS="~amd64 ~x86"
@@ -57,13 +63,6 @@ S="${WORKDIR}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-
-	for i in ${TEXLIVE_CORE_INCLUDED_TEXMF}; do
-		for j in "${S}/${i}"/*zip ; do
-			einfo "Unpacking ${j}"
-			unzip -q "${j}"
-		done
-	done
 
 	epatch "${FILESDIR}/${PV}/${P}-gentoo-texmf-site.patch"
 	epatch "${FILESDIR}/${PV}/${P}-mpware.patch"

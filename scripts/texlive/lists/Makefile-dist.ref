@@ -7,6 +7,7 @@ CPF=cp -f
 
 DISTDIR=$(shell portageq distdir)
 
+CONTENTS=YOU_NEED_TO_SET_LISTS_CONTENTS_VARIABLE_TO_GENERATE_ZIP_FILES
 
 $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip: $(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip
 	$(CPF) $< $@
@@ -19,4 +20,4 @@ $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip: $(TEXLIVE_INST_MOUNTPOINT)/a
 	$(CPF) $(ZIP:%=$(TEXLIVE_INST_MOUNTPOINT)/archive/%.zip) $(@:%.tar.bz2=%)
 	tar cjf $@ $(@:%.tar.bz2=%)
 
-versionnedzips: $(ZIP:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip)
+versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip)

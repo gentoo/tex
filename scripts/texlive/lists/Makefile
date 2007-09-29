@@ -56,7 +56,7 @@ dist/%-$(TEXLIVE_VERSION).tar.bz2: %.list
 	echo "include ../Makefile-dist.ref" >> dist/Makefile
 	echo "all: $(@:dist/%=%)" >> dist/Makefile
 	$(MAKE) -C dist $(@:dist/%=%)
-	$(MAKE) -C dist versionnedzips
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
 	$(RMF) dist/Makefile
 	$(CPF) $@ $(DISTDIR)/
 

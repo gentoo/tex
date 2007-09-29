@@ -1,12 +1,7 @@
 Here you'll find a Makefile system to generate ebuilds, distfiles for the
 modular texmf tree.
 
-Note : Never ever use parallel make with this makefile system (make -j>1), it is
-made of hacks and will completely break if you do so. However, if you have a fix
-for that I'll gladly accept it ;)  [ Note that this has nothing to do with
-MAKEOPTS in make.conf, using -j$A_LOT should be sane with the ebuilds, if not,
-then it's a bug ;) ]
-
+Note : Now parallel make should be safe to use with this makefile system.
 
 How to proceed : 
 (If you mounted the texlive live & inst isos somewhere else, just override the

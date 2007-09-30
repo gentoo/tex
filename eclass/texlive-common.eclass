@@ -6,6 +6,7 @@
 # Original Author: Alexis Ballier <aballier@gentoo.org>
 # Purpose: Provide various functions used by both texlive-core and texlive
 # modules.
+# Note that this eclass *must* not assume the presence of any standard tex tool
 #
 
 
@@ -36,7 +37,8 @@ texlive-common_handle_config_files() {
 # Call it from the directory containing texmf and texmf-dist
 
 texlive-common_is_file_present_in_texmf() {
-	find texmf -name $1 -exec return 0 \;
-	find texmf-dist -name $1 -exec return 0 \;
-	return 1
+	local mark="${T}/$1.found"
+	find texmf -name $1 -exec touch "${mark}" \;
+	find texmf-dist -name $1 -exec touch "${mark}" \;
+	return $(test -f "${mark}")
 }

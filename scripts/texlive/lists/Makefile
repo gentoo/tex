@@ -66,7 +66,9 @@ clean:
 	echo "inherit texlive-module" >> $@
 	cat $< >> $@
 	echo "" >> $@
-	echo "LICENSE=\"GPL-2\"" >> $@
+	echo -n "LICENSE=\"GPL-2 LPPL-1.3c" >> $@
+	-test -f $(@:%.ebuild=%.extralicense) && cat $(@:%.ebuild=%.extralicense) >> $@
+	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~amd64 ~x86\"" >> $@
 

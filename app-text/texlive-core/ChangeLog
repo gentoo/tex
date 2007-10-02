@@ -4,6 +4,10 @@
 
   02 Oct 2007; Alexis Ballier <aballier@gentoo.org>
   texlive-core-2007.ebuild:
+  bundle also bin-xetex bin-aleph bin-omega
+
+  02 Oct 2007; Alexis Ballier <aballier@gentoo.org>
+  texlive-core-2007.ebuild:
   add lppl 1.3c as license aswell
 
   29 Sep 2007; Alexis Ballier <aballier@gentoo.org>

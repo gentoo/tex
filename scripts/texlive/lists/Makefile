@@ -26,6 +26,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	sed -i -e "s/beamer //" $@
 	sed -i -e "s/bin-xdvi //" $@
 	sed -i -e "s/bin-dvipdfm //" $@
+	-sh $(@:%.list=%.extraexec) $@
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 
 %.desc: %.base

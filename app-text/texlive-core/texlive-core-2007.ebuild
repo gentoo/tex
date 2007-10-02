@@ -7,7 +7,7 @@ inherit eutils flag-o-matic toolchain-funcs libtool autotools texlive-common
 DESCRIPTION="A complete TeX distribution"
 HOMEPAGE="http://tug.org/texlive/"
 SLOT="0"
-LICENSE="GPL-2"
+LICENSE="GPL-2 LPPL-1.3c"
 
 TEXLIVE_BASICBIN_CONTENTS="bin-bibtex bin-dialog bin-dvipdfmx bin-dvipsk bin-etex bin-getnonfreefonts bin-gsftopk bin-kpathsea bin-makeindex bin-metafont bin-mfware bin-pdftex bin-tetex bin-tex bin-texconfig lib-regex lib-zlib"
 

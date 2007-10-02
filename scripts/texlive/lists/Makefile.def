@@ -30,6 +30,8 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-science texlive-texinfo \
        texlive-xetex
 
+EXTRA_ZIP = bin-aleph bin-omega bin-xetex
+
 # Collections that just need to be distfiles
 EXTRA_DIST = texlive-basicbin texlive-binextra texlive-fontbin
 

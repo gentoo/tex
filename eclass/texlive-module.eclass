@@ -47,7 +47,7 @@ texlive-module_src_compile() {
 		grep '^!' "${i}" | tr ' ' '=' |sort|uniq >> "${T}/jobs"
 	done
 
-	for j in $(cat "${T}/jobs");
+	for j in $(<"${T}/jobs");
 	do
 		command=$(echo ${j} | sed 's/.\(.*\)=.*/\1/')
 		parameter=$(echo ${j} | sed 's/.*=\(.*\)/\1/')

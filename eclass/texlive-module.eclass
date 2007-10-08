@@ -33,7 +33,7 @@ S="${WORKDIR}"
 texlive-module_src_compile() {
 	# Build format files
 	for i in texmf/fmtutil/format*.cnf; do
-		if test -f "${i}"; then
+		if [ -f "${i}" ]; then
 			einfo "Building format ${i}"
 			TEXMFHOME="${S}/texmf:${S}/texmf-dist"\
 				fmtutil --cnffile "${i}" --fmtdir "${S}/texmf-var/web2c" --all\
@@ -66,17 +66,17 @@ texlive-module_src_compile() {
 
 texlive-module_src_install() {
 	insinto /usr/share
-	test -d texmf && doins -r texmf
-	test -d texmf-dist && doins -r texmf-dist
-	test -d texmf-var && doins -r texmf-var
-	use doc && test -d texmf-doc && doins -r texmf-doc
+	[ -d texmf ] && doins -r texmf
+	[ -d texmf-dist ] && doins -r texmf-dist
+	[ -d texmf-var ] && doins -r texmf-var
+	use doc && [ -d texmf-doc ] && doins -r texmf-doc
 
 	insinto /etc/texmf/updmap.d
-	test -f "${S}/${PN}.cfg" && doins "${S}/${PN}.cfg"
+	[ -f "${S}/${PN}.cfg" ] && doins "${S}/${PN}.cfg"
 	insinto /etc/texmf/dvips/config
-	test -f "${S}/${PN}-config.ps" && doins "${S}/${PN}-config.ps"
+	[ -f "${S}/${PN}-config.ps" ] && doins "${S}/${PN}-config.ps"
 	insinto /etc/texmf/dvipdfm/config
-	test -f "${S}/${PN}-config" && doins "${S}/${PN}-config"
+	[ -f "${S}/${PN}-config" ] && doins "${S}/${PN}-config"
 
 	texlive-common_handle_config_files
 }

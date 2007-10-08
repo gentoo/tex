@@ -24,21 +24,8 @@ done
 
 TEXLIVE_CAT="dev-texlive"
 
-BLOCKS="!dev-tex/memoir
-	!dev-tex/lineno
-	!dev-tex/SIunits
-	!dev-tex/floatflt
-	!dev-tex/g-brief
-	!dev-tex/xkeyval
-	!dev-tex/vntex
-	!dev-tex/koma-script
-	!dev-tex/currvita
-	!dev-tex/eurosym
-	!dev-tex/extsizes"
-
 DEPEND=">=app-text/texlive-core-2007"
 RDEPEND="${DEPEND}
-	${BLOCKS}
 	app-text/psutils
 	${TEXLIVE_CAT}/texlive-psutils
 	media-gfx/sam2p

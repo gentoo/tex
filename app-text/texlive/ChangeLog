@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Oct 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
+  remove blockers, modules have been updated accordingly
+
   22 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
   font bin now in -core
 

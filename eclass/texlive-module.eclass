@@ -8,6 +8,10 @@
 # only have to inherit this eclass.
 # Ebuilds have to provide TEXLIVE_MODULE_CONTENTS variable that contains the list
 # of packages that it will install.
+# TEXLIVE_MODULE_CONTENTS will be expanded to SRC_URI : 
+#	foo -> texlive-module-foo-${PV}.zip
+# What is assumed is that it unpacks texmf and texmf-dist directories to
+# ${WORKDIR}.
 #
 
 inherit texlive-common
@@ -29,6 +33,15 @@ RDEPEND="${COMMON_DEPEND}"
 IUSE="doc"
 
 S="${WORKDIR}"
+
+# src_compile, exported function:
+# Will look for format.foo.cnf and build foo format files using fmtutil
+# (provided by texlive-core). The compiled format files will be sent to
+# texmf-var/web2c, like fmtutil defaults to but with some trick to stay in the
+# sandbox
+# The next step is to generate config files that are to be installed in
+# /etc/texmf; texmf-update script will take care of merging the different config
+# files for different packages in a single one used by the whole tex installation.
 
 texlive-module_src_compile() {
 	# Build format files
@@ -64,6 +77,9 @@ texlive-module_src_compile() {
 	done
 }
 
+# src_install, exported function:
+# Install texmf and config files to the system
+
 texlive-module_src_install() {
 	insinto /usr/share
 	[ -d texmf ] && doins -r texmf
@@ -80,6 +96,10 @@ texlive-module_src_install() {
 
 	texlive-common_handle_config_files
 }
+
+# pkg_postinst and pkg_postrm, exported functions:
+# run texmf-update to ensure the tex installation is consistent with the
+# installed texmf trees.
 
 texlive-module_pkg_postinst() {
 	if [ "$ROOT" = "/" ] ; then

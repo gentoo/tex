@@ -51,7 +51,7 @@ texlive-module_src_compile() {
 	do
 		command=$(echo ${j} | sed 's/.\(.*\)=.*/\1/')
 		parameter=$(echo ${j} | sed 's/.*=\(.*\)/\1/')
-		case ${command} in
+		case "${command}" in
 			addMap)
 				echo "Map ${parameter}" >> "${S}/${PN}.cfg";;
 			addMixedMap)

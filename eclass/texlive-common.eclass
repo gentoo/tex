@@ -40,5 +40,5 @@ texlive-common_is_file_present_in_texmf() {
 	local mark="${T}/$1.found"
 	find texmf -name $1 -exec touch "${mark}" \;
 	find texmf-dist -name $1 -exec touch "${mark}" \;
-	return $([ -f "${mark}" ])
+	[ -f "${mark}" ]
 }

@@ -28,11 +28,6 @@ done
 KEYWORDS="~amd64 ~x86"
 IUSE="X doc"
 
-# Not ideal, especially with the modularized way : some packages need only
-# texlive-core, ie, the binaries, some other use virtual/tetex to have
-# a fully working latex installation to compile some .tex files...
-PROVIDE="virtual/tetex"
-
 MODULAR_X_DEPEND="X? (
 				x11-libs/libXmu
 				x11-libs/libXp

@@ -17,7 +17,7 @@ DEPEND="!>=app-text/tetex-2
 	!>=app-text/tetex-2
 	!app-text/ptex
 	!app-text/cstetex
-	virtual/tetex"
+	virtual/latex-base"
 
 S="${WORKDIR}/${PN}"
 

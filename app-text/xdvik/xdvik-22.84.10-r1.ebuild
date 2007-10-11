@@ -28,11 +28,11 @@ RDEPEND=">=media-libs/t1lib-5.0.2
 	cjk? ( || ( app-text/texlive-core app-text/ptex )
 		>=media-libs/freetype-2
 		>=media-fonts/kochi-substitute-20030809-r3 )
-	!cjk? ( virtual/tetex )"
+	!cjk? ( virtual/latex-base )"
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
-	if has_version virtual/tetex && ! has_version app-text/texlive-core && built_with_use virtual/tetex X ; then
+	if has_version virtual/latex-base && ! has_version app-text/texlive-core; then
 		eerror "tetex provides xdvik when built with the X flag."
 		eerror "To install this version of xdvik re-install tetex"
 		eerror "without the X flag."

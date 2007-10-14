@@ -1,0 +1,8 @@
+DIST latex-beamer-3.07.tar.gz 2391893 RMD160 cbaf5c62b214810436abca2486a5731291e2b808 SHA1 786251752ae95e78ec0f5d7b4bacc4e73767adb0 SHA256 7b71bd57c7820dc2fa94825ac430fcc832856954e895f79f849641e0ca838d1e
+EBUILD latex-beamer-3.07-r1.ebuild 1262 RMD160 9383d24a90efaa8371d075cad8fa1c314536fbef SHA1 1235ec2228d0e914fbac7dec2e5ff52e733522f5 SHA256 2d93771e0125480cf822a2855e56a5cafdbb7d48b4fdba56cbd3fa5eddb7cf13
+MD5 3eea09b947e22143ab4a7877a50e3ea1 latex-beamer-3.07-r1.ebuild 1262
+RMD160 9383d24a90efaa8371d075cad8fa1c314536fbef latex-beamer-3.07-r1.ebuild 1262
+SHA256 2d93771e0125480cf822a2855e56a5cafdbb7d48b4fdba56cbd3fa5eddb7cf13 latex-beamer-3.07-r1.ebuild 1262
+MD5 f014862b0c2587b4d7fe3cca0bab357f files/digest-latex-beamer-3.07-r1 256
+RMD160 a5c6eb68d9daac49788a6646fdb3aff3b8b524a2 files/digest-latex-beamer-3.07-r1 256
+SHA256 bcd02ae119e9856e5b59631a4118ae3d7021f1469a78925ae51cca76f9780bb4 files/digest-latex-beamer-3.07-r1 256

@@ -43,7 +43,7 @@ RDEPEND="${DEPEND}
 	=media-libs/freetype-1*
 	dev-tex/detex
 	>=app-text/dvipdfm-0.13.2d
-	png? ( >=app-text/dvipng-1.9 )
+	png? ( app-text/dvipng )
 	X? ( >=app-text/xdvik-22.84.10-r1 )
 	${TEXLIVE_CAT}/texlive-basic
 	${TEXLIVE_CAT}/texlive-fontsrecommended

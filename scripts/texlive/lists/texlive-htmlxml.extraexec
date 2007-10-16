@@ -1,0 +1,2 @@
+sed -i -e "s/bin-jadetex//" $1
+sed -i -e "s/jadetex//" $1

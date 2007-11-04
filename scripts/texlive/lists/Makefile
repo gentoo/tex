@@ -77,7 +77,7 @@ clean:
 dist: lists $(VERSIONNED_ZIPS)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips
 	$(CPF) $(TEXLIVE_LIVE_MOUNTPOINT)/source/source.tar.bz2 $(DISTDIR)/texlive-core-$(TEXLIVE_VERSION).tar.bz2
-	ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
+	-ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
 ebuildsdir:
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/$(DESC:%=dev-texlive/%)

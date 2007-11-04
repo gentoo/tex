@@ -18,11 +18,9 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	grep -v "collection" $@ > $@.temp
 	tr '\n' ' ' < $@.temp > $@
 	$(RMF) $@.temp
-	sed -i -e "s/pgf //" $@
 	sed -i -e "s/bin-xetex //" $@
 	sed -i -e "s/bin-aleph //" $@
 	sed -i -e "s/bin-omega //" $@
-	sed -i -e "s/xcolor //" $@
 	sed -i -e "s/beamer //" $@
 	sed -i -e "s/bin-xdvi //" $@
 	sed -i -e "s/bin-dvipdfm //" $@

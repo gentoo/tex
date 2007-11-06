@@ -70,7 +70,7 @@ clean:
 	-test -f $(@:%.ebuild=%.extralicense) && cat $(@:%.ebuild=%.extralicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
-	echo "KEYWORDS=\"\"" >> $@
+	echo "KEYWORDS=\"~alpha ~amd64 ~ia64 ~ppc64 ~sparc ~x86\"" >> $@
 
 dist: lists $(VERSIONNED_ZIPS)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips

@@ -1,0 +1,2 @@
+sed -i -e "s/CJK //" $1
+sed -i -e "s/bin-cjkutils //" $1

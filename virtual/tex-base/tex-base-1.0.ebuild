@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Virtual for basic tex binaries"
+DESCRIPTION="Virtual for basic tex binaries (tex, kpathsea)"
 HOMEPAGE="http://www.ctan.org"
 SRC_URI=""
 
@@ -16,6 +16,6 @@ RDEPEND="|| (
 	app-text/texlive-core
 	app-text/tetex
 	app-text/ptex
-	app-text/cstex
+	app-text/cstetex
 )"
 

@@ -1,35 +1,7 @@
 Now that texlive is in the main portage tree, it should not be very hard to
 install it. 
-This file will just be a quick guide on how to switch from another tex
-distribution to texlive 2007 as a user.
 
-Remove your previous tex distribution, for example : 
-emerge -C tetex
+This file has been obsoleted by a more verbose guide:
+http://dev.gentoo.org/~aballier/migrationhowto.xml
 
-This might have left some files, I had a package collision against a file not
-owned by anything : /usr/bin/pdftex ...
-
-ls /usr/bin/pdftex -l
-lrwxrwxrwx 1 root root 7 2007-07-09 07:34 /usr/bin/pdftex -> pdfetex
-
-and... of course pdfetex has gone with tetex...
-
-Hey ! This one is useless, thus we can remove it safely : 
-# rm /usr/bin/pdftex
-
-Other dead symlinks deserves some care also in order to avoid collisions.
-
-$ find /usr/bin -name "*" -type l ! -xtype f ! -xtype d
-should report dead symlinks.
-
-You must empty /var/lib/texmf/web2c, texlive will also install its format files
-there. Take care also of other files in this /var/lib/texmf directory for stray
-files from other tex distributions.
-
-
-Once you checked everything:
-
-# emerge texlive
-
-Go take a coffee.
-Tada ! Texlive 2007 should be installed on your system!
+until it gets on the main gentoo web site.

@@ -71,6 +71,7 @@ clean:
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~alpha ~amd64 ~ia64 ~ppc64 ~sparc ~x86\"" >> $@
+	-test -f $(@:%.ebuild=%.extrardepend) && echo -n "RDEPEND=\"" >> $@ && cat $(@:%.ebuild=%.extrardepend) >> $@ && echo "\"" >> $@
 
 dist: lists $(VERSIONNED_ZIPS)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips

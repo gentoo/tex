@@ -4,4 +4,7 @@ dev-texlive/texlive-fontsrecommended
 !dev-tex/prosper
 !dev-tex/ha-prosper
 !dev-tex/texpower
+!dev-tex/cdcover
+!dev-tex/leaflet
+!dev-tex/latex-calendar
 !dev-tex/g-brief

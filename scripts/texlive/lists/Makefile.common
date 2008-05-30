@@ -1,17 +1,4 @@
 
 TEXLIVE_VERSION=2007
 
-
-PORTDIR=$(shell portageq portdir)
-DISTDIR=$(shell portageq distdir)
-
-
-TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay
-
-TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live
-TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
-
-MKDIRP=mkdir -p
-RMF=rm -f
-RMDIR=rmdir
-CPF=cp -f
+include ../common/Makefile.common

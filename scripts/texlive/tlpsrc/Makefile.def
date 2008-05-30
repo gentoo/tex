@@ -19,7 +19,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langfinnish texlive-langfrench texlive-langgerman \
        texlive-langgreek texlive-langhebrew texlive-langhungarian \
        texlive-langindic texlive-langitalian texlive-langlatin \
-       texlive-langmanju texlive-langmongolian texlive-langnorwegian \
+       texlive-langmongolian texlive-langnorwegian \
        texlive-langother texlive-langpolish texlive-langportuguese \
        texlive-langspanish texlive-langswedish texlive-langtibetan \
        texlive-langukenglish texlive-langvietnamese texlive-latex3 \

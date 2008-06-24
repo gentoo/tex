@@ -28,7 +28,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 
 %.desc: %.base
-	grep "longdesc " $< | sed -e "s/longdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
+	grep "shortdesc " $< | sed -e "s/shortdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
 
 %.deps: %.base
 	grep "depend " $< | awk '{print $$2}' > $@.temp

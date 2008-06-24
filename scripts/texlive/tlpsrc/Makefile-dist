@@ -3,7 +3,7 @@ include Makefile.common
 
 CONTENTS=YOU_NEED_TO_SET_CONTENTS_VARIABLE_TO_GENERATE_VERSIONNED_LZMA_FILES
 
-$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).zip: $(TEXLIVE_INST_MOUNTPOINT)/archive/%.tar.lzma
+$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma: $(TEXLIVE_INST_MOUNTPOINT)/archive/%.tar.lzma
 	$(CPF) $< $@
 
 versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)

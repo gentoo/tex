@@ -20,7 +20,8 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	sed -i -e "s/bin-xetex //" $@
 	sed -i -e "s/bin-aleph //" $@
 	sed -i -e "s/bin-omega //" $@
-	sed -i -e "s/beamer //" $@
+	sed -i -e "s/ beamer / /" $@
+	sed -i -e "s/texlive-infra/texlive.infra/" $@
 	sed -i -e "s/bin-xdvi //" $@
 	sed -i -e "s/bin-dvipdfm //" $@
 	-sh $(@:%.list=%.extraexec) $@
@@ -71,7 +72,6 @@ clean:
 
 dist: lists $(VERSIONNED_ZIPS)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips
-	$(CPF) $(TEXLIVE_LIVE_MOUNTPOINT)/source/source.tar.bz2 $(DISTDIR)/texlive-core-$(TEXLIVE_VERSION).tar.bz2
 	-ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
 ebuildsdir:

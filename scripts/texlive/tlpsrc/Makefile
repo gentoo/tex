@@ -30,6 +30,20 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 %.desc: %.base
 	grep "shortdesc " $< | sed -e "s/shortdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
 
+%.metadata: %.base
+	echo '<?xml version="1.0" encoding="UTF-8"?>' > $@
+	echo '<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">' >> $@
+	echo '<pkgmetadata>' >> $@
+	echo '	<herd>tex</herd>' >> $@
+	echo '	<maintainer>' >> $@
+	echo '		<email>aballier@gentoo.org</email>' >> $@
+	echo '		<name>Alexis Ballier</name>' >> $@
+	echo '	</maintainer>' >> $@
+	echo '<longdescription lang="en">' >> $@
+	grep "longdesc " $< | sed -e "s/longdesc //" >> $@
+	echo '</longdescription>' >> $@
+	echo '</pkgmetadata>' >> $@
+
 %.deps: %.base
 	grep "depend " $< | awk '{print $$2}' > $@.temp
 	-grep "collection" $@.temp > $@
@@ -79,9 +93,10 @@ ebuildsdir:
 
 ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
-%.installed: %.ebuild
+%.installed: %.ebuild %.metadata
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)
-	$(CPF) $< $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild
+	$(CPF) $(@:%.installed=%.ebuild) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild
+	$(CPF) $(@:%.installed=%.metadata) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/metadata.xml
 	ebuild $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild digest
 	echo "$(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild" > $@
 

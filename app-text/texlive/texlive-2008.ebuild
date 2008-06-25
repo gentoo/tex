@@ -58,6 +58,7 @@ RDEPEND="${DEPEND}
 		>=${TEXLIVE_CAT}/texlive-formatsextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-genericextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-latexextra-${PV}
+			dev-tex/translator
 		>=${TEXLIVE_CAT}/texlive-mathextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-plainextra-${PV}
 	)

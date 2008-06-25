@@ -7,6 +7,7 @@ TEXLIVE_OVERLAY_LOCATION=../../../texlive-overlay
 
 TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive-live
 TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
+CTAN_MIRROR=http://ctan.org/tex-archive
 
 MKDIRP=mkdir -p
 RMF=rm -f

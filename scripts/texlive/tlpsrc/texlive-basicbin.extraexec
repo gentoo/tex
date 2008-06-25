@@ -1,0 +1,3 @@
+sed -i -e "s/bin-xdvi //" $@
+sed -i -e "s/bin-dvipdfm //" $@
+sed -i -e "s/texlive-infra/texlive.infra/" $@

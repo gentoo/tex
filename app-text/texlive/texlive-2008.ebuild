@@ -94,6 +94,7 @@ RDEPEND="${DEPEND}
 		linguas_pl? ( >=${TEXLIVE_CAT}/texlive-documentation-polish-${PV} )
 		linguas_pt? ( >=${TEXLIVE_CAT}/texlive-documentation-portuguese-${PV} )
 		linguas_ru? ( >=${TEXLIVE_CAT}/texlive-documentation-russian-${PV} )
+		linguas_sl? ( >=${TEXLIVE_CAT}/texlive-documentation-slovenian-${PV} )
 		linguas_es? ( >=${TEXLIVE_CAT}/texlive-documentation-spanish-${PV} )
 		linguas_th? ( >=${TEXLIVE_CAT}/texlive-documentation-thai-${PV} )
 		linguas_tr? ( >=${TEXLIVE_CAT}/texlive-documentation-turkish-${PV} )

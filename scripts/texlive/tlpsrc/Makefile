@@ -17,12 +17,6 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	grep -v "collection" $@ > $@.temp
 	tr '\n' ' ' < $@.temp > $@
 	$(RMF) $@.temp
-	sed -i -e "s/bin-aleph //" $@
-	sed -i -e "s/bin-omega //" $@
-	sed -i -e "s/ beamer / /" $@
-	sed -i -e "s/texlive-infra/texlive.infra/" $@
-	sed -i -e "s/bin-xdvi //" $@
-	sed -i -e "s/bin-dvipdfm //" $@
 	-sh $(@:%.list=%.extraexec) $@
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 

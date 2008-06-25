@@ -17,7 +17,6 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	grep -v "collection" $@ > $@.temp
 	tr '\n' ' ' < $@.temp > $@
 	$(RMF) $@.temp
-	sed -i -e "s/bin-xetex //" $@
 	sed -i -e "s/bin-aleph //" $@
 	sed -i -e "s/bin-omega //" $@
 	sed -i -e "s/ beamer / /" $@
@@ -61,6 +60,7 @@ clean:
 	$(RMF) $(FULLDESC:%=%.versionnedzips)
 	$(RMF) $(DESC:%=%.dotbase)
 	$(RMF) $(DESC:%=%.deps)
+	$(RMF) $(DESC:%=%.metadata)
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips

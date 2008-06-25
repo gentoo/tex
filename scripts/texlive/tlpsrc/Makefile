@@ -10,7 +10,7 @@ FULLDESC = $(DESC) $(EXTRA_DIST)
 lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 
 %.base: 
-	$(CPF) $(@:texlive-%.base=/share/stock/texlive/trunk/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
+	$(CPF) $(@:texlive-%.base=$(TL_TRUNK)/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
 
 %.list: %.base
 	grep "depend " $< | awk '{print $$2}'  > $@

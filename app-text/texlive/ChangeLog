@@ -1,50 +1,7 @@
 # ChangeLog for app-text/texlive
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  14 Oct 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  no need to force ~arch dvipng anymore
-
-  10 Oct 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  provide virtual/tetex as a transition
-
-  08 Oct 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  remove blockers, modules have been updated accordingly
-
-  22 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  font bin now in -core
-
-  18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  pull in xdvipdfmx when xetex support is wanted
-
-  18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  add manju support controled by chinese linguas variable
-
-  18 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  force dep on latest xdvik, thanks to dede for reporting this
-
-  08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  move linguas out of iuse, get them back in with a for, sort em
-
-  08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  support for various other languages
-
-  08 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  add support for armenian locale
-
-  07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  add support for indian locales
-
-  07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  context deps will be handled in the ebuild as it should have been done from
-  the beginning
-
-  07 Sep 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  add references to the last few missing dev-texlive ebuilds
-
-  30 Aug 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  install greek language support with context as some font files are needed
-
-  29 Aug 2007; Alexis Ballier <aballier@gentoo.org> texlive-2007.ebuild:
-  add a changelog, move binextra to texlive-source
+  25 Jun 2008; Alexis Ballier <aballier@gentoo.org> ChangeLog:
+  add a changelog too
 

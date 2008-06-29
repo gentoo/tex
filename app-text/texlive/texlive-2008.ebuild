@@ -53,6 +53,7 @@ RDEPEND="${DEPEND}
 	>=${TEXLIVE_CAT}/texlive-genericrecommended-${PV}
 	extra? (
 		dev-tex/chktex
+		>=${TEXLIVE_CAT}/texlive-binextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-bibtexextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-fontsextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-formatsextra-${PV}

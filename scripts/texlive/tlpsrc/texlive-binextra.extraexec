@@ -1,1 +1,2 @@
 sed -i -e "s/bin-detex //" $@
+sed -i -e "s/xindy //" $@

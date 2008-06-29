@@ -44,7 +44,6 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	sed -i -e "s/collection/texlive/g" $@
 	sed -i -e "s/^/dev-texlive\//" $@
 	sed -i -e "s/dev-texlive\/texlive-basicbin//g" $@
-	sed -i -e "s/dev-texlive\/texlive-binextra//g" $@
 	sed -i -e "s/dev-texlive\/texlive-fontbin//g" $@
 	-cat $(@:.deps=.extradeps) >> $@
 

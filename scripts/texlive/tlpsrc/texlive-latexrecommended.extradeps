@@ -2,3 +2,4 @@
 !dev-tex/xkeyval
 !dev-tex/floatflt
 !dev-tex/memoir
+!=dev-texlive/texlive-latexextra-2007*

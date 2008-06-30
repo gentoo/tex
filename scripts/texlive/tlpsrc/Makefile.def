@@ -31,7 +31,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-xetex \
        texlive-documentation-slovenian texlive-binextra
 
-EXTRA_ZIP = bin-aleph bin-omega bin-xetex
+EXTRA_ZIP = bin-aleph bin-omega
 
 # Collections that just need to be distfiles
 EXTRA_DIST = texlive-basicbin texlive-fontbin

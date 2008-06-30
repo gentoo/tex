@@ -8,3 +8,5 @@ dev-texlive/texlive-fontsrecommended
 !dev-tex/leaflet
 !dev-tex/latex-calendar
 !dev-tex/g-brief
+!=dev-texlive/texlive-latexrecommended-2007*
+!=dev-texlive/texlive-latex3-2007*

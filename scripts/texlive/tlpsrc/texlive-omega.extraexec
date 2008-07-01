@@ -1,2 +1,0 @@
-sed -i -e "s/bin-aleph //" $@
-sed -i -e "s/bin-omega //" $@

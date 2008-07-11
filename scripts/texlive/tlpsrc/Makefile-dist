@@ -4,6 +4,6 @@ include Makefile.common
 CONTENTS=YOU_NEED_TO_SET_CONTENTS_VARIABLE_TO_GENERATE_VERSIONNED_LZMA_FILES
 
 $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma:
-	wget $(CTAN_MIRROR)/systems/texlive/tlnet/tldev/tlpkg/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma=%.tar.lzma) -O $@
+	wget $(CTAN_MIRROR)/systems/texlive/tlnet/tldev/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma=%.tar.lzma) -O $@
 
 versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)

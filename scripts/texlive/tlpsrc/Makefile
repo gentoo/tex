@@ -20,6 +20,12 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	-sh $(@:%.list=%.extraexec) $@
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 
+%.doclist: %.tlpobj
+	./gendoc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
+
+%.srclist: %.tlpobj
+	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
+
 %.desc: %.base
 	grep "shortdesc " $< | sed -e "s/shortdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
 
@@ -64,13 +70,19 @@ clean:
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlpobj
 	touch $@
 
-%.ebuild: %.desc %.deps %.list
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist
 	cat $(PORTDIR)/header.txt > $@
 	echo -n "TEXLIVE_MODULES_DEPS=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@
 	echo "\"" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
 	cat $(@:%.ebuild=%.list) >> $@
+	echo "\"" >> $@
+	echo -n "TEXLIVE_MODULE_DOC_CONTENTS=\"" >> $@
+	cat $(@:%.ebuild=%.doclist) >> $@
+	echo "\"" >> $@
+	echo -n "TEXLIVE_MODULE_SRC_CONTENTS=\"" >> $@
+	cat $(@:%.ebuild=%.srclist) >> $@
 	echo "\"" >> $@
 	echo "inherit texlive-module" >> $@
 	cat $< >> $@

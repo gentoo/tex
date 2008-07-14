@@ -7,3 +7,9 @@ $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma:
 	wget $(CTAN_MIRROR)/systems/texlive/tlnet/tldev/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma=%.tar.lzma) -O $@
 
 versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)
+
+
+%.tlpobj: $(TL_TRUNK)/Master/tlpkg/tlpsrc/%.tlpsrc
+	$(TL_TRUNK)/Master/tlpkg/bin/tlpsrc2tlpobj -master=$(TL_TRUNK)/Master -outputdir=. $<
+
+tlpobj: $(CONTENTS:%=%.tlpobj)

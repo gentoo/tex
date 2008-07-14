@@ -54,9 +54,14 @@ clean:
 	$(RMF) $(DESC:%=%.dotbase)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.metadata)
+	$(RMF) $(DESC:%=%.tlpobj) 
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
+	touch $@
+
+%.tlpobj: %.list
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlpobj
 	touch $@
 
 %.ebuild: %.desc %.deps %.list
@@ -86,6 +91,8 @@ ebuildsdir:
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/$(DESC:%=dev-texlive/%)
 
 ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
+
+tlpobj: $(DESC:%=%.tlpobj) 
 
 %.installed: %.ebuild %.metadata
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)

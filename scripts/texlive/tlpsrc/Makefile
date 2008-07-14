@@ -75,6 +75,7 @@ clean:
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd\"" >> $@
+	echo "IUSE=\"\"" >> $@
 	-test -f $(@:%.ebuild=%.extrardepend) && echo -n "RDEPEND=\"" >> $@ && cat $(@:%.ebuild=%.extrardepend) >> $@ && echo "\"" >> $@
 
 dist: lists $(VERSIONNED_ZIPS)

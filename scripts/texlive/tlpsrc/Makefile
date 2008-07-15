@@ -3,7 +3,7 @@ include Makefile.common
 
 include Makefile.def
 
-VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips)
+VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips) $(DESC:%=%.docversionnedzips) $(EXTRA_DIST:%=%.docversionnedzips) $(DESC:%=%.srcversionnedzips) $(EXTRA_DIST:%=%.srcversionnedzips)
 
 FULLDESC = $(DESC) $(EXTRA_DIST)
 
@@ -57,12 +57,22 @@ clean:
 	$(RMF) $(FULLDESC:%=%.list)
 	$(RMF) $(FULLDESC:%=%.base)
 	$(RMF) $(FULLDESC:%=%.versionnedzips)
+	$(RMF) $(FULLDESC:%=%.docversionnedzips)
+	$(RMF) $(FULLDESC:%=%.srcversionnedzips)
 	$(RMF) $(DESC:%=%.dotbase)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.metadata)
 	$(RMF) $(DESC:%=%.tlpobj) 
 
 %.versionnedzips: %.list
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
+	touch $@
+
+%.docversionnedzips: %.doclist
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
+	touch $@
+
+%.srcversionnedzips: %.srclist
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
 	touch $@
 

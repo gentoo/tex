@@ -8,8 +8,10 @@ $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma:
 
 versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)
 
-%.tlpobj: /usr/share/tlpkg/tlpobj/%.tlpobj
+%.tlplic: tlpobj/%.tlpobj
 	cp $< $@
+
+tlplic: $(CONTENTS:%=%.tlplic)
 
 %.tlpobj: $(TL_TRUNK)/Master/tlpkg/tlpsrc/%.tlpsrc
 	$(TL_TRUNK)/Master/tlpkg/bin/tlpsrc2tlpobj -master=$(TL_TRUNK)/Master -catalogue catalogue/www.ctan.org/tex-archive/help/Catalogue -outputdir=. $<

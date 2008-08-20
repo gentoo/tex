@@ -4,12 +4,14 @@ include Makefile.common
 CONTENTS=YOU_NEED_TO_SET_CONTENTS_VARIABLE_TO_GENERATE_VERSIONNED_LZMA_FILES
 
 $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma:
-	wget $(CTAN_MIRROR)/systems/texlive/tlnet/tldev/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma=%.tar.lzma) -O $@
+	wget $(CTAN_MIRROR)/systems/texlive/tlnet/2008/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma=%.tar.lzma) -O $@
 
 versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)
 
+%.tlpobj: /usr/share/tlpkg/tlpobj/%.tlpobj
+	cp $< $@
 
 %.tlpobj: $(TL_TRUNK)/Master/tlpkg/tlpsrc/%.tlpsrc
-	$(TL_TRUNK)/Master/tlpkg/bin/tlpsrc2tlpobj -master=$(TL_TRUNK)/Master -outputdir=. $<
+	$(TL_TRUNK)/Master/tlpkg/bin/tlpsrc2tlpobj -master=$(TL_TRUNK)/Master -catalogue catalogue/www.ctan.org/tex-archive/help/Catalogue -outputdir=. $<
 
 tlpobj: $(CONTENTS:%=%.tlpobj)

@@ -86,7 +86,7 @@ clean:
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlpobj
 	touch $@
 
-%.ebuild: %.desc %.deps %.list %.doclist %.srclist
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
 	cat $(PORTDIR)/header.txt > $@
 	echo -n "TEXLIVE_MODULES_DEPS=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@
@@ -103,8 +103,8 @@ clean:
 	echo "inherit texlive-module" >> $@
 	cat $< >> $@
 	echo "" >> $@
-	echo -n "LICENSE=\"GPL-2 LPPL-1.3c" >> $@
-	-test -f $(@:%.ebuild=%.extralicense) && cat $(@:%.ebuild=%.extralicense) >> $@
+	echo -n "LICENSE=\"" >> $@
+	cat $(@:%.ebuild=%.gentoolicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd\"" >> $@

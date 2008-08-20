@@ -26,8 +26,8 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 %.srclist: %.tlpobj
 	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
 
-%.licenselist: %.tlpobj
-	./getlicense.sh $(shell cat $(<:%.tlpobj=%.list)) | sort | uniq | tr '\n' ' ' > $@
+%.licenselist: %.tlplic
+	./getlicense.sh $(shell cat $(<:%.tlplic=%.list)) | sort | uniq | tr '\n' ' ' > $@
 
 %.gentoolicense: %.licenselist
 	./cataloguelicense2gentoolicense.sh $(shell cat $<) | sort | uniq | tr '\n' ' ' > $@
@@ -61,6 +61,9 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 
 clean:
 	$(RMF) $(FULLDESC:%=%.list)
+	$(RMF) $(FULLDESC:%=%.srclist)
+	$(RMF) $(FULLDESC:%=%.doclist)
+	$(RMF) $(FULLDESC:%=%.licenselist)
 	$(RMF) $(FULLDESC:%=%.base)
 	$(RMF) $(FULLDESC:%=%.versionnedzips)
 	$(RMF) $(FULLDESC:%=%.docversionnedzips)
@@ -68,7 +71,8 @@ clean:
 	$(RMF) $(DESC:%=%.dotbase)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.metadata)
-	$(RMF) $(DESC:%=%.tlpobj) 
+	$(RMF) *.tlpobj
+	$(RMF) *.tlplic
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
@@ -84,6 +88,10 @@ clean:
 
 %.tlpobj: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlpobj
+	touch $@
+
+%.tlplic: %.list
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlplic
 	touch $@
 
 %.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
@@ -122,6 +130,7 @@ ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
 tlpobj: $(DESC:%=%.tlpobj) 
 
+tlpobj: $(DESC:%=%.tlplic) 
 
 licenselist: $(DESC:%=%.licenselist) $(EXTRA_DIST:%=%.licenselist)
 

@@ -26,6 +26,9 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 %.srclist: %.tlpobj
 	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
 
+%.licenselist: %.tlpobj
+	./getlicense.sh $(shell cat $(<:%.tlpobj=%.list)) | sort | uniq | tr '\n' ' ' > $@
+
 %.desc: %.base
 	grep "shortdesc " $< | sed -e "s/shortdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
 
@@ -115,6 +118,9 @@ ebuildsdir:
 ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
 tlpobj: $(DESC:%=%.tlpobj) 
+
+
+licenselist: $(DESC:%=%.licenselist) 
 
 %.installed: %.ebuild %.metadata
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)

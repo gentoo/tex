@@ -5,3 +5,4 @@ sed -i -e "s/dvipdfmx-def //" $@
 sed -i -e "s/luatex //" $@
 sed -i -e "s/pdftex //" $@
 sed -i -e "s/bin-tex //" $@
+sed -i -e "s/bin-metafont //" $@

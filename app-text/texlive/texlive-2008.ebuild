@@ -39,6 +39,7 @@ RDEPEND="${DEPEND}
 	dev-tex/detex
 	app-text/ps2eps
 	>=app-text/dvipdfm-0.13.2d
+	dev-tex/dvi2tty
 	png? ( app-text/dvipng )
 	X? ( >=app-text/xdvik-22.84.10 )
 	>=${TEXLIVE_CAT}/texlive-basic-${PV}
@@ -53,7 +54,6 @@ RDEPEND="${DEPEND}
 	>=${TEXLIVE_CAT}/texlive-genericrecommended-${PV}
 	extra? (
 		dev-tex/chktex
-		>=${TEXLIVE_CAT}/texlive-binextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-bibtexextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-fontsextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-formatsextra-${PV}

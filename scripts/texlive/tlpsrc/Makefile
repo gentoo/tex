@@ -145,6 +145,10 @@ gentoolicenses: $(DESC:%=%.gentoolicense) $(EXTRA_DIST:%=%.gentoolicense)
 
 ebuilds-install: $(DESC:%=%.installed)
 
+
+texlive-core.gentoolicense: $(EXTRA_DIST:%=%.gentoolicense)
+	cat $(EXTRA_DIST:%=%.gentoolicense) | tr ' ' '\n' | sort | uniq | tr '\n' ' ' > $@
+
 ebuildsclean: clean
 	$(RMF) $(DESC:%=%.ebuild)
 	$(RMF) $(DESC:%=%.desc)

@@ -157,7 +157,6 @@ ebuildsclean: clean
 
 %.dotbase: %.deps
 	sed -e "s/^/$(<:%.deps=%) -> /" $< > $@
-	-sed -e "s/^/$(<:%.deps=%) -> /" $(<:%.deps=%.extradeps) >> $@
 	sed -i -e "s:dev-texlive/texlive-::g" $@
 	sed -i -e "s:texlive-::g" $@
 	

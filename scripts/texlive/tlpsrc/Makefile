@@ -153,6 +153,7 @@ ebuildsclean: clean
 	$(RMF) $(DESC:%=%.ebuild)
 	$(RMF) $(DESC:%=%.desc)
 	$(RMF) $(DESC:%=%.installed)
+	$(RMF) $(DESC:%=%.gentoolicense)
 
 %.dotbase: %.deps
 	sed -e "s/^/$(<:%.deps=%) -> /" $< > $@

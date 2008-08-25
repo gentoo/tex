@@ -50,13 +50,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	echo '</pkgmetadata>' >> $@
 
 %.deps: %.base
-	grep "depend " $< | awk '{print $$2}' > $@.temp
-	-grep "collection" $@.temp > $@
-	$(RMF) $@.temp
-	sed -i -e "s/collection/texlive/g" $@
-	sed -i -e "s/^/dev-texlive\//" $@
-	sed -i -e "s/dev-texlive\/texlive-basicbin//g" $@
-	sed -i -e "s/dev-texlive\/texlive-fontbin//g" $@
+	grep "depend " $< | awk '{print $$2}' | grep "collection" |  sed -e "s/collection/texlive/g" | sed -e "s/^/dev-texlive\//" | sed -e "s/dev-texlive\/texlive-basicbin//g" | sed -e "s/dev-texlive\/texlive-fontbin//g" > $@
 	-cat $(@:.deps=.extradeps) >> $@
 
 clean:

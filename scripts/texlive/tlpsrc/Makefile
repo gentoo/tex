@@ -13,10 +13,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	$(CPF) $(@:texlive-%.base=$(TL_TRUNK)/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
 
 %.list: %.base
-	grep "depend " $< | awk '{print $$2}'  > $@
-	grep -v "collection" $@ > $@.temp
-	tr '\n' ' ' < $@.temp > $@
-	$(RMF) $@.temp
+	grep "depend " $< | awk '{print $$2}'  | grep -v "collection" | tr '\n' ' ' > $@
 	-sh $(@:%.list=%.extraexec) $@
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 

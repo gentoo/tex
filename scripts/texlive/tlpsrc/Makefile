@@ -155,5 +155,5 @@ ebuildsclean: clean
 
 dot: $(DESC:%=%.dotbase)
 	echo "digraph G{" > texlive-$(TEXLIVE_VERSION).dot
-	cat *dotbase >>  texlive-$(TEXLIVE_VERSION).dot
+	cat $(DESC:%=%.dotbase) >>  texlive-$(TEXLIVE_VERSION).dot
 	echo "}" >>  texlive-$(TEXLIVE_VERSION).dot

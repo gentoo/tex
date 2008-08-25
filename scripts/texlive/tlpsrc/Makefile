@@ -156,10 +156,7 @@ ebuildsclean: clean
 	$(RMF) $(DESC:%=%.gentoolicense)
 
 %.dotbase: %.deps
-	sed -e "s/^/$(<:%.deps=%) -> /" $< > $@
-	sed -i -e "s:dev-texlive/texlive-::g" $@
-	sed -i -e "s:texlive-::g" $@
-	
+	sed -e "s/^/\"$(<:%.deps=%)\" -> \"/" $< | tr '\n' '#' | sed -e "s/#/\"#/g" | tr '#' '\n' | sed -e "s:dev-texlive/texlive-::g" | sed -e "s:texlive-::g" > $@
 
 
 dot: $(DESC:%=%.dotbase)

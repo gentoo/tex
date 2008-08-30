@@ -61,6 +61,7 @@ RDEPEND="${DEPEND}
 		>=${TEXLIVE_CAT}/texlive-latexextra-${PV}
 			dev-tex/translator
 			dev-tex/glossaries
+			>=dev-tex/leaflet-20041222
 		>=${TEXLIVE_CAT}/texlive-mathextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-plainextra-${PV}
 	)

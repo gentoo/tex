@@ -4,7 +4,6 @@ dev-texlive/texlive-fontsrecommended
 !dev-tex/ha-prosper
 !dev-tex/texpower
 !dev-tex/cdcover
-!dev-tex/g-brief
 !=dev-texlive/texlive-latexrecommended-2007*
 !=dev-texlive/texlive-latex3-2007*
 !=dev-texlive/texlive-humanities-2007*

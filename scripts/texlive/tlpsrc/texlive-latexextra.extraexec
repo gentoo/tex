@@ -1,2 +1,3 @@
 sed -i -e "s/translator //" $@
 sed -i -e "s/glossaries //" $@
+sed -i -e "s/leaflet //" $@

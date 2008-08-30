@@ -62,6 +62,7 @@ RDEPEND="${DEPEND}
 			dev-tex/translator
 			dev-tex/glossaries
 			>=dev-tex/leaflet-20041222
+			>=dev-tex/currvita-0.9i-r1
 		>=${TEXLIVE_CAT}/texlive-mathextra-${PV}
 		>=${TEXLIVE_CAT}/texlive-plainextra-${PV}
 	)

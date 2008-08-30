@@ -10,7 +10,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
 IUSE="cjk context cyrillic doc extra games graphics humanities jadetex music omega
-	png pstricks publishers science seetexk tex4ht xetex xindy xml X"
+	png pstricks publishers science tex4ht xetex xindy xml X"
 
 LANGS="af ar bg bn bo cs cy da de el en en_GB eo es et fi fr ga he hi hr hsb hu hy id
 	is it ja ko la ml mn nl no pl pt ro ru sk sl sr sv ta th tr uk vi zh"
@@ -78,7 +78,6 @@ RDEPEND="${DEPEND}
 	tex4ht? ( >=dev-tex/tex4ht-20071024 )
 	xml? ( >=${TEXLIVE_CAT}/texlive-htmlxml-${PV} >=dev-tex/xmltex-1.9-r2 )
 	jadetex? ( >=app-text/jadetex-3.13-r2 )
-	seetexk? ( app-text/dvibook )
 	doc? (
 		>=${TEXLIVE_CAT}/texlive-documentation-base-${PV}
 		linguas_bg? ( >=${TEXLIVE_CAT}/texlive-documentation-bulgarian-${PV} )

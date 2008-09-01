@@ -34,7 +34,7 @@ RDEPEND="${DEPEND}
 	>=${TEXLIVE_CAT}/texlive-texinfo-${PV}
 	app-text/t1utils
 	dev-util/dialog
-	app-text/lcdf-typetools
+	>=app-text/lcdf-typetools-2.69
 	=media-libs/freetype-1*
 	dev-tex/detex
 	app-text/ps2eps

@@ -69,7 +69,7 @@ RDEPEND="${DEPEND}
 	)
 	xetex? ( >=${TEXLIVE_CAT}/texlive-xetex-${PV} )
 	graphics? ( >=${TEXLIVE_CAT}/texlive-pictures-${PV}
-		>=dev-tex/pgf-1.18 )
+		>=dev-tex/pgf-2.00 )
 	science? ( >=${TEXLIVE_CAT}/texlive-science-${PV} )
 	publishers? ( >=${TEXLIVE_CAT}/texlive-publishers-${PV} )
 	music? ( >=${TEXLIVE_CAT}/texlive-music-${PV} )

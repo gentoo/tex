@@ -1,0 +1,1 @@
+TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/perltex/perltex.pl texmf-dist/scripts/ppower4/pdfthumb.texlua texmf-dist/scripts/ppower4/ppower4.texlua texmf-dist/scripts/pst-pdf/ps4pdf texmf-dist/scripts/vpe/vpe.pl"

@@ -48,7 +48,7 @@ RDEPEND="${DEPEND}
 	>=${TEXLIVE_CAT}/texlive-latex3-${PV}
 	>=${TEXLIVE_CAT}/texlive-latexrecommended-${PV}
 	>=dev-tex/xcolor-2.11
-	>=dev-tex/latex-beamer-3.06
+	>=dev-tex/latex-beamer-3.07
 	>=${TEXLIVE_CAT}/texlive-metapost-${PV}
 		dev-tex/feynmf
 	>=${TEXLIVE_CAT}/texlive-genericrecommended-${PV}

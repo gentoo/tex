@@ -111,7 +111,7 @@ RDEPEND="${DEPEND}
 	linguas_ar? ( >=${TEXLIVE_CAT}/texlive-langarab-${PV} )
 	linguas_hy? ( >=${TEXLIVE_CAT}/texlive-langarmenian-${PV} )
 	cjk? ( >=${TEXLIVE_CAT}/texlive-langcjk-${PV}
-		>=dev-tex/cjk-latex-4.7.0 )
+		>=dev-tex/cjk-latex-4.8.1 )
 	linguas_hr? ( >=${TEXLIVE_CAT}/texlive-langcroatian-${PV} )
 	cyrillic? ( >=${TEXLIVE_CAT}/texlive-langcyrillic-${PV} )
 	linguas_cs? ( >=${TEXLIVE_CAT}/texlive-langczechslovak-${PV} >=app-text/vlna-1.3 )

@@ -80,7 +80,11 @@ RDEPEND="${DEPEND}
 	games? ( >=${TEXLIVE_CAT}/texlive-games-${PV} )
 	humanities? ( >=${TEXLIVE_CAT}/texlive-humanities-${PV} )
 	tex4ht? ( >=dev-tex/tex4ht-20080829 )
-	xml? ( >=${TEXLIVE_CAT}/texlive-htmlxml-${PV} >=dev-tex/xmltex-1.9-r2 )
+	xml? ( 
+		>=${TEXLIVE_CAT}/texlive-htmlxml-${PV}
+		>=dev-tex/xmltex-1.9-r2
+		app-text/passivetex 
+	)
 	jadetex? ( >=app-text/jadetex-3.13-r2 )
 	doc? (
 		>=${TEXLIVE_CAT}/texlive-documentation-base-${PV}

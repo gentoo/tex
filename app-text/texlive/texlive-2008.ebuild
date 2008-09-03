@@ -26,6 +26,7 @@ TEXLIVE_CAT="dev-texlive"
 
 DEPEND=">=app-text/texlive-core-${PV}"
 RDEPEND="${DEPEND}
+	dev-tex/luatex
 	app-text/psutils
 	>=${TEXLIVE_CAT}/texlive-psutils-${PV}
 	media-gfx/sam2p
@@ -83,10 +84,10 @@ RDEPEND="${DEPEND}
 	games? ( >=${TEXLIVE_CAT}/texlive-games-${PV} )
 	humanities? ( >=${TEXLIVE_CAT}/texlive-humanities-${PV} )
 	tex4ht? ( >=dev-tex/tex4ht-20080829 )
-	xml? ( 
+	xml? (
 		>=${TEXLIVE_CAT}/texlive-htmlxml-${PV}
 		>=dev-tex/xmltex-1.9-r2
-		app-text/passivetex 
+		app-text/passivetex
 	)
 	jadetex? ( >=app-text/jadetex-3.13-r2 )
 	doc? (

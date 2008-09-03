@@ -65,6 +65,7 @@ RDEPEND="${DEPEND}
 			>=dev-tex/currvita-0.9i-r1
 			>=dev-tex/g-brief-4.0.2
 			>=dev-tex/envlab-1.2-r1
+			>=dev-tex/europecv-20060424-r1
 		>=${TEXLIVE_CAT}/texlive-mathextra-${PV}
 			>=dev-tex/mh-20080903
 		>=${TEXLIVE_CAT}/texlive-plainextra-${PV}

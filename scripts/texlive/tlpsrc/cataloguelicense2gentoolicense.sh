@@ -42,7 +42,7 @@ while [ $# -gt 0 ] ; do
         ofl)
             echo "OFL";;
         nosell)
-            echo "freedist";;
+            echo "nosell";;
         *)
             echo "The $1 license is not mapped yet!"
             exit 1;;

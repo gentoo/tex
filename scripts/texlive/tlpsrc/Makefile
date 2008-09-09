@@ -102,7 +102,7 @@ clean:
 	echo "inherit texlive-module" >> $@
 	cat $< >> $@
 	echo "" >> $@
-	echo -n "LICENSE=\"" >> $@
+	echo -n "LICENSE=\"GPL-2 " >> $@
 	cat $(@:%.ebuild=%.gentoolicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@

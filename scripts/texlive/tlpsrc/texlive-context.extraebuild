@@ -1,5 +1,5 @@
 TL_CONTEXT_UNIX_STUBS="context ctxtools exatools luatools makempy mpstools mptopdf mtxrun mtxtools pdftools pdftrimwhite pstopdf rlxtools runtools texexec texfind texfont texshow textools texutil tmftools xmltools"
 TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/context/ruby/texmfstart.rb"
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
-    TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
+TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
 done

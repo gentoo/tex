@@ -3,6 +3,8 @@ include Makefile.common
 
 include Makefile.def
 
+include Makefile.revs
+
 VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips) $(DESC:%=%.docversionnedzips) $(EXTRA_DIST:%=%.docversionnedzips) $(DESC:%=%.srcversionnedzips) $(EXTRA_DIST:%=%.srcversionnedzips)
 
 FULLDESC = $(DESC) $(EXTRA_DIST)
@@ -129,10 +131,10 @@ gentoolicenses: $(DESC:%=%.gentoolicense) $(EXTRA_DIST:%=%.gentoolicense)
 
 %.installed: %.ebuild %.metadata
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)
-	$(CPF) $(@:%.installed=%.ebuild) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild
+	$(CPF) $(@:%.installed=%.ebuild) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION)$(EXTRA_REV).ebuild
 	$(CPF) $(@:%.installed=%.metadata) $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/metadata.xml
-	ebuild $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild digest
-	echo "$(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION).ebuild" > $@
+	ebuild $(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION)$(EXTRA_REV).ebuild digest
+	echo "$(TEXLIVE_OVERLAY_LOCATION)/dev-texlive/$(@:%.installed=%)/$(@:%.installed=%)-$(TEXLIVE_VERSION)$(EXTRA_REV).ebuild" > $@
 
 ebuilds-install: $(DESC:%=%.installed)
 

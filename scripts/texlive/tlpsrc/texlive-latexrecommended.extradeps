@@ -2,6 +2,7 @@
 !dev-tex/xkeyval
 !dev-tex/floatflt
 !dev-tex/memoir
+!dev-tex/listings
 !=dev-texlive/texlive-latexextra-2007*
 !=app-text/texlive-core-2007*
 !=dev-texlive/texlive-xetex-2008

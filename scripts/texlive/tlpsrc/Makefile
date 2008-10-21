@@ -112,7 +112,7 @@ clean:
 	echo "IUSE=\"\"" >> $@
 	-cat $(@:%.ebuild=%.extraebuild) >> $@ 
 
-dist: lists $(VERSIONNED_ZIPS)
+dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips
 	-ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 

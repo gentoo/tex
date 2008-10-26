@@ -1,7 +1,5 @@
 sed -i -e "s/bin-xdvi //" $@
 sed -i -e "s/bin-dvipdfm //" $@
-sed -i -e "s/bin-dvipdfmx //" $@
-sed -i -e "s/dvipdfmx-def //" $@
 sed -i -e "s/luatex //" $@
 sed -i -e "s/pdftex //" $@
 sed -i -e "s/bin-tex //" $@

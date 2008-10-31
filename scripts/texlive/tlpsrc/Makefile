@@ -49,7 +49,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 	echo '</pkgmetadata>' >> $@
 
 %.deps: %.base
-	grep "depend " $< | awk '{print $$2}' | grep "collection" |  sed -e "s/collection/texlive/g" | sed -e "s/^/>=dev-texlive\//" | sed -e "s/$$/-$(TEXLIVE_VERSION)/" | sed -e "s/dev-texlive\/texlive-basicbin//g" | sed -e "s/dev-texlive\/texlive-fontbin//g" > $@
+	grep "depend " $< | awk '{print $$2}' | grep "collection" | grep -v "collection-basicbin" | grep -v "collection-fontbin" |  sed -e "s/collection/texlive/g" | sed -e "s/^/>=dev-texlive\//" | sed -e "s/$$/-$(TEXLIVE_VERSION)/" > $@
 	-cat $(@:.deps=.extradeps) >> $@
 
 clean:
@@ -89,9 +89,6 @@ clean:
 
 %.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
 	cat $(PORTDIR)/header.txt > $@
-	echo -n "TEXLIVE_MODULES_DEPS=\"" >> $@
-	cat $(@:%.ebuild=%.deps) >> $@
-	echo "\"" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
 	cat $(@:%.ebuild=%.list) >> $@
 	echo "\"" >> $@
@@ -110,6 +107,10 @@ clean:
 	echo "SLOT=\"0\"" >> $@
 	echo "KEYWORDS=\"~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd\"" >> $@
 	echo "IUSE=\"\"" >> $@
+	echo -n "DEPEND=\"" >> $@
+	cat $(@:%.ebuild=%.deps) >> $@
+	echo "\"" >> $@
+	echo 'RDEPEND="$${DEPEND}"' >> $@
 	-cat $(@:%.ebuild=%.extraebuild) >> $@ 
 
 dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)

@@ -110,7 +110,9 @@ clean:
 	echo -n "DEPEND=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@
 	echo "\"" >> $@
-	echo 'RDEPEND="$${DEPEND}"' >> $@
+	echo -n 'RDEPEND="$${DEPEND} ' >> $@
+	-cat $(@:%.ebuild=%.extrardepend) >> $@ 
+	echo '"' >> $@
 	-cat $(@:%.ebuild=%.extraebuild) >> $@ 
 
 dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)

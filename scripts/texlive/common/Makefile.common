@@ -9,7 +9,7 @@ TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive
 TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
 CTAN_MIRROR=http://ctan.org/tex-archive
 TL_TRUNK=/share/stock/texlive/trunk
-TUG=ftp://tug.org/texlive/Images/
+TUG=ftp://tug.org/texlive/Images
 
 MKDIRP=mkdir -p
 RMF=rm -f

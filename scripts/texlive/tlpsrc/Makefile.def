@@ -13,7 +13,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-fontsextra texlive-fontsrecommended \
        texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
        texlive-htmlxml texlive-humanities \
-       texlive-langafrican texlive-langarab texlive-langarmenian \
+       texlive-langafrican texlive-langarabic texlive-langarmenian \
        texlive-langcjk texlive-langcroatian texlive-langcyrillic \
        texlive-langczechslovak texlive-langdanish texlive-langdutch \
        texlive-langfinnish texlive-langfrench texlive-langgerman \
@@ -22,11 +22,13 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langmongolian texlive-langnorwegian \
        texlive-langother texlive-langpolish texlive-langportuguese \
        texlive-langspanish texlive-langswedish texlive-langtibetan \
+       texlive-langlatvian texlive-langlithuanian \
        texlive-langukenglish texlive-langvietnamese texlive-latex3 \
        texlive-latex texlive-latexextra texlive-latexrecommended \
+       texlive-luatex \
        texlive-mathextra texlive-metapost texlive-music texlive-omega \
        texlive-pictures texlive-plainextra \
-       texlive-pstricks texlive-psutils texlive-publishers \
+       texlive-pstricks texlive-fontutils texlive-publishers \
        texlive-science texlive-texinfo \
        texlive-xetex \
        texlive-documentation-slovenian 
@@ -35,7 +37,8 @@ EXTRA_ZIP =
 #bin-aleph bin-omega
 
 # Collections that just need to be distfiles
-EXTRA_DIST = texlive-basicbin texlive-fontbin texlive-binextra
+EXTRA_DIST = texlive-binextra
+# texlive-basicbin
 
 # those ones are provided by texlive & friends
        

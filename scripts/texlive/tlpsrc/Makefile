@@ -11,6 +11,8 @@ FULLDESC = $(DESC) $(EXTRA_DIST)
 
 lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 
+unpacked : $(FULLDESC:%=%.unpacked)
+
 %.base: 
 	$(CPF) $(@:texlive-%.base=$(TL_TRUNK)/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
 
@@ -61,6 +63,7 @@ clean:
 	$(RMF) $(FULLDESC:%=%.versionnedzips)
 	$(RMF) $(FULLDESC:%=%.docversionnedzips)
 	$(RMF) $(FULLDESC:%=%.srcversionnedzips)
+	$(RMF) $(FULLDESC:%=%.unpacked)
 	$(RMF) $(DESC:%=%.dotbase)
 	$(RMF) $(DESC:%=%.deps)
 	$(RMF) $(DESC:%=%.metadata)
@@ -77,6 +80,10 @@ clean:
 
 %.srcversionnedzips: %.srclist
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips
+	touch $@
+
+%.unpacked: %.list
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist unpacked
 	touch $@
 
 %.tlpobj: %.list

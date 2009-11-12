@@ -112,7 +112,7 @@ clean:
 	cat $(@:%.ebuild=%.gentoolicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
-	echo "KEYWORDS=\"~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd\"" >> $@
+	echo "KEYWORDS=\"~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd\"" >> $@
 	echo "IUSE=\"\"" >> $@
 	echo -n "DEPEND=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@

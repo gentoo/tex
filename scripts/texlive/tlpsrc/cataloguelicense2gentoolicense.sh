@@ -7,6 +7,8 @@ while [ $# -gt 0 ] ; do
             echo "GPL-2";;
         gpl3)
             echo "GPL-3";;
+        lppl1)
+            echo "LPPL-1.3";;
         lppl)
             echo "LPPL-1.3";;
         lppl1.2)

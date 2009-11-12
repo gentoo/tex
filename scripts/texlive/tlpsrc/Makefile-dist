@@ -10,18 +10,22 @@ $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma: $(DISTDIR)/texlive-modu
 	xz -d $<
 	lzma $(<:%.xz=%)
 
-versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma)
+versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz)
 
-%.tlplic: tlpkg/tlpobj/%.tlpobj
-	cp $< $@
+%.tlplic: %.unpacked
+	cp $(@:%.tlplic=tlunpackdir/tlpkg/tlpobj/%.tlpobj) $@
 
 tlplic: $(CONTENTS:%=%.tlplic)
 
 %.tlpobj: $(TL_TRUNK)/Master/tlpkg/tlpsrc/%.tlpsrc
 	$(TL_TRUNK)/Master/tlpkg/bin/tl-update-tlpdb -master=$(TL_TRUNK)/Master -output=$@ --tlpsrc-from-cmdline $<
 
-%.unpacked: $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma
-	lzma -dc $< | tar xof -
+tldir:
+	mkdir tlunpackdir
+	touch $@
+
+%.unpacked: $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz tldir
+	xz -dc $< | tar xof - -C tlunpackdir
 	touch $@
 
 tlpobj: $(CONTENTS:%=%.tlpobj)

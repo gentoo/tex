@@ -21,6 +21,8 @@ while [ $# -gt 0 ] ; do
             echo "freedist";;
         noinfo)
             echo "freedist";;
+        collection)
+            echo "freedist";;
         other-free)
             echo "as-is";;            
         other)

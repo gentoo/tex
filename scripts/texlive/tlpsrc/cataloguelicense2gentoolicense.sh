@@ -19,6 +19,8 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.3";;
         unknown)
             echo "freedist";;
+        noinfo)
+            echo "freedist";;
         other-free)
             echo "as-is";;            
         other)

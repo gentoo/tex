@@ -69,6 +69,7 @@ clean:
 	$(RMF) $(DESC:%=%.metadata)
 	$(RMF) *.tlpobj
 	$(RMF) *.tlplic
+	$(RMF) *.unpacked
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips

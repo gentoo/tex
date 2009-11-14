@@ -1,2 +1,0 @@
-sed -i -e "s/$/luatex /" $@
-sed -i -e "s/$/pdftex /" $@

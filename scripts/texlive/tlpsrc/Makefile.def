@@ -5,7 +5,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-context texlive-documentation-base \
        texlive-documentation-bulgarian texlive-documentation-chinese texlive-documentation-czechslovak \
        texlive-documentation-dutch texlive-documentation-english texlive-documentation-finnish \
-       texlive-documentation-french texlive-documentation-german texlive-documentation-greek \
+       texlive-documentation-french texlive-documentation-german \
        texlive-documentation-italian texlive-documentation-japanese texlive-documentation-korean \
        texlive-documentation-mongolian texlive-documentation-polish texlive-documentation-portuguese \
        texlive-documentation-russian texlive-documentation-spanish texlive-documentation-thai texlive-documentation-turkish texlive-documentation-ukrainian \

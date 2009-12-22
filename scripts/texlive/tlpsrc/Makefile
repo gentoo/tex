@@ -70,6 +70,7 @@ clean:
 	$(RMF) *.tlpobj
 	$(RMF) *.tlplic
 	$(RMF) *.unpacked
+	$(RMF) tldir
 
 %.versionnedzips: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist versionnedzips

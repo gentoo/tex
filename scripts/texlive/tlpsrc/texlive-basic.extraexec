@@ -5,3 +5,5 @@ sed -i -e "s/texlive[.]infra //" $@
 sed -i -e "s/dvipdfmx //" $@
 sed -i -e "s/kpathsea //" $@
 sed -i -e "s/hyphen-base //" $@
+sed -i -e "s/texconfig //" $@
+sed -i -e "s/dvips //" $@

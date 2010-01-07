@@ -7,3 +7,4 @@ sed -i -e "s/kpathsea //" $@
 sed -i -e "s/hyphen-base //" $@
 sed -i -e "s/texconfig //" $@
 sed -i -e "s/dvips //" $@
+sed -i -e "s/gsftopk //" $@

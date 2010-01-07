@@ -35,7 +35,7 @@ DESC = texlive-basic texlive-bibtexextra \
 
 EXTRA_ZIP = tetex tetex.doc texlive.infra texlive.infra.doc \
     kpathsea kpathsea.doc hyphen-base dvips dvips.doc \
-    texconfig texconfig.doc
+    texconfig texconfig.doc gsftopk gsftopk.doc
 #bin-aleph bin-omega
 
 # Collections that just need to be distfiles

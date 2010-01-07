@@ -33,7 +33,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-xetex \
        texlive-documentation-slovenian 
 
-EXTRA_ZIP = tetex tetex.doc texlive.infra texlive.infra.doc dvips dvips.doc
+EXTRA_ZIP = tetex tetex.doc texlive.infra texlive.infra.doc
 #bin-aleph bin-omega
 
 # Collections that just need to be distfiles

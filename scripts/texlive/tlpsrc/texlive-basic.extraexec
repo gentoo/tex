@@ -2,3 +2,4 @@ sed -i -e "s/xdvi //" $@
 sed -i -e "s/dvipdfm //" $@
 sed -i -e "s/tetex //" $@
 sed -i -e "s/texlive[.]infra //" $@
+sed -i -e "s/dvipdfmx //" $@

@@ -51,6 +51,8 @@ while [ $# -gt 0 ] ; do
             echo "OFL";;
         nosell)
             echo "nosell";;
+        nocommercial)
+            echo "nosell";;
         *)
             echo "The $1 license is not mapped yet!"
             exit 1;;

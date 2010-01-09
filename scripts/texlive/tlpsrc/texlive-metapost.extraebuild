@@ -3,7 +3,7 @@
 # the new TeX Live 2009 metapost produces this file but it is not recorded in
 # any package; when running fmtutil (like texmf-update does) this file will be
 # created and cause collisions.
-pkg_preinst(){
+pkg_preinst() {
     if [ -f "${ROOT}/var/lib/texmf/web2c/metapost/mplib-luatex.mem" ]; then
         einfo "Removing ${ROOT}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"
         rm -f "${ROOT}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"

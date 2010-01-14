@@ -3,3 +3,15 @@ TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/context/lua/luatools.lua texmf-dis
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
 TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
 done
+
+# This small hack is needed in order to have a sane upgrade path:
+# the new TeX Live 2009 metapost produces this file but it is not recorded in
+# any package; when running fmtutil (like texmf-update does) this file will be
+# created and cause collisions.
+
+pkg_setup() {
+	if [ -f "${ROOT}/var/lib/texmf/web2c/metapost/metafun.log" ]; then
+		einfo "Removing ${ROOT}/var/lib/texmf/web2c/metapost/metafun.log"
+		rm -f "${ROOT}/var/lib/texmf/web2c/metapost/metafun.log"
+	fi
+}

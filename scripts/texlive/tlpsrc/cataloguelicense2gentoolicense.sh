@@ -20,11 +20,11 @@ while [ $# -gt 0 ] ; do
         gfsl)
             echo "LPPL-1.3";;
         unknown)
-            echo "freedist";;
+            echo "as-is";;
         noinfo)
-            echo "freedist";;
+            echo "as-is";;
         collection)
-            echo "freedist";;
+            echo "GPL-2";;
         other-free)
             echo "as-is";;            
         other)

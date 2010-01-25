@@ -114,7 +114,7 @@ clean:
 	cat $(@:%.ebuild=%.gentoolicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@
-	echo "KEYWORDS=\"~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd\"" >> $@
+	echo "KEYWORDS=\"~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris\"" >> $@
 	echo "IUSE=\"\"" >> $@
 	echo -n "DEPEND=\"" >> $@
 	cat $(@:%.ebuild=%.deps) >> $@

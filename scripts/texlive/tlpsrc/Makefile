@@ -15,6 +15,7 @@ unpacked : $(FULLDESC:%=%.unpacked)
 
 %.base: 
 	$(CPF) $(@:texlive-%.base=$(TL_TRUNK)/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
+	-sh $(@:%.base=%.baseexec) $@
 
 %.list: %.base
 	grep "depend " $< | awk '{print $$2}'  | grep -v "collection" | tr '\n' ' ' > $@

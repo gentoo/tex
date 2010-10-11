@@ -1,1 +1,1 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/cachepic/cachepic.tlu texmf-dist/scripts/epspdf/epspdf texmf-dist/scripts/epspdf/epspdftk texmf-dist/scripts/fig4latex/fig4latex"
+TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/cachepic/cachepic.tlu texmf-dist/scripts/epspdf/epspdf texmf-dist/scripts/epspdf/epspdftk texmf-dist/scripts/fig4latex/fig4latex texmf-dist/scripts/mathspic/mathspic.pl"

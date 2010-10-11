@@ -5,8 +5,6 @@
 # created and cause collisions.
 
 pkg_setup() {
-	use prefix || EPREFIX=
-
 	if [ -f "${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem" ]; then
 		einfo "Removing ${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"
 		rm -f "${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"

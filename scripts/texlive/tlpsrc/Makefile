@@ -99,6 +99,7 @@ clean:
 
 %.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
 	cat $(PORTDIR)/header.txt > $@
+	printf "EAPI=\"3\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
 	cat $(@:%.ebuild=%.list) >> $@
 	echo "\"" >> $@
@@ -127,7 +128,8 @@ clean:
 
 dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips
-	-ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
+
+#-ebuild $(TEXLIVE_OVERLAY_LOCATION)/app-text/texlive-core/texlive-core-$(TEXLIVE_VERSION).ebuild digest
 
 ebuildsdir:
 	$(MKDIRP) $(TEXLIVE_OVERLAY_LOCATION)/$(DESC:%=dev-texlive/%)

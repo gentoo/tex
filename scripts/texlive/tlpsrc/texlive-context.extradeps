@@ -1,1 +1,2 @@
->=dev-texlive/texlive-latex-2008
+>=dev-texlive/texlive-latex-2010
+!<dev-texlive/texlive-latex-2010

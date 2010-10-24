@@ -1,2 +1,3 @@
 !=app-text/texlive-core-2007*
 dev-texlive/texlive-latexextra
+>=app-text/texlive-core-2010[context]

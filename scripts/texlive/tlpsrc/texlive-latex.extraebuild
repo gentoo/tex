@@ -1,2 +1,1 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/oberdiek/pdfatfi.pl"
-# texmf/scripts/simpdftex/simpdftex"
+TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/oberdiek/pdfatfi.pl texmf-dist/scripts/context/perl/mptopdf.pl"

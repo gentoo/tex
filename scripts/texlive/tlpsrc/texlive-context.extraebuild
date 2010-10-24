@@ -1,5 +1,5 @@
-TL_CONTEXT_UNIX_STUBS="context ctxtools makempy mpstools mptopdf mtxtools pdftools pstopdf rlxtools runtools texexec texfont textools texutil tmftools xmltools"
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/context/lua/luatools.lua texmf-dist/scripts/context/lua/mtxrun.lua texmf-dist/scripts/context/ruby/texmfstart.rb"
+TL_CONTEXT_UNIX_STUBS="context ctxtools luatools mtxrun pstopdf rlxtools texexec texmfstart"
+TEXLIVE_MODULE_BINSCRIPTS=""
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
 TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
 done

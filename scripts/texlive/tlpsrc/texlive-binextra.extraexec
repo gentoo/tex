@@ -3,3 +3,4 @@ sed -i -e "s/xindy //" $@
 sed -i -e "s/chktex //" $@
 sed -i -e "s/dvisvgm //" $@
 sed -i -e "s/latexdiff //" $@
+sed -i -e "s/latexmk //" $@

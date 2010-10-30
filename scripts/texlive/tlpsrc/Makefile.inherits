@@ -1,0 +1,6 @@
+# Example:
+# texlive-xetex.ebuild: EXTRA_INHERIT=font
+#
+
+texlive-xetex.ebuild: EXTRA_INHERIT=font
+

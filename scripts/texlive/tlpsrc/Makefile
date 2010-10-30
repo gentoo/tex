@@ -5,6 +5,8 @@ include Makefile.def
 
 include Makefile.revs
 
+include Makefile.inherits
+
 VERSIONNED_ZIPS = $(DESC:%=%.versionnedzips) $(EXTRA_DIST:%=%.versionnedzips) $(DESC:%=%.docversionnedzips) $(EXTRA_DIST:%=%.docversionnedzips) $(DESC:%=%.srcversionnedzips) $(EXTRA_DIST:%=%.srcversionnedzips)
 
 FULLDESC = $(DESC) $(EXTRA_DIST)
@@ -109,7 +111,7 @@ clean:
 	echo -n "TEXLIVE_MODULE_SRC_CONTENTS=\"" >> $@
 	cat $(@:%.ebuild=%.srclist) >> $@
 	echo "\"" >> $@
-	echo "inherit texlive-module" >> $@
+	echo "inherit $(EXTRA_INHERIT) texlive-module" >> $@
 	cat $< >> $@
 	echo "" >> $@
 	echo -n "LICENSE=\"GPL-2 " >> $@

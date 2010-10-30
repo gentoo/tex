@@ -1,3 +1,4 @@
 !=app-text/texlive-core-2007*
 dev-texlive/texlive-latexextra
+>=dev-texlive/texlive-latex3-2010
 >=app-text/texlive-core-2010[xetex]

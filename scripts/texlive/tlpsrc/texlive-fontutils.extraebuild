@@ -1,1 +1,2 @@
 TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/accfonts/mkt1font texmf-dist/scripts/accfonts/vpl2ovp texmf-dist/scripts/accfonts/vpl2vpl texmf-dist/scripts/epstopdf/epstopdf.pl texmf-dist/scripts/fontools/afm2afm texmf-dist/scripts/fontools/autoinst texmf-dist/scripts/fontools/cmap2enc texmf-dist/scripts/fontools/font2afm texmf-dist/scripts/fontools/ot2kpx texmf-dist/scripts/fontools/pfm2kpx texmf-dist/scripts/fontools/showglyphs"
+PATCHES=( "${FILESDIR}/epstopdf_invocation.patch" )

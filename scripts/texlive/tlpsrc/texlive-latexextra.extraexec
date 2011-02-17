@@ -6,3 +6,4 @@ sed -i -e "s/g-brief //" $@
 sed -i -e "s/envlab //" $@
 sed -i -e "s/europecv //" $@
 sed -i -e "s/svninfo //" $@
+sed -i -e "s/pax //" $@

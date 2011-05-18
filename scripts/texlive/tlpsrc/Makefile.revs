@@ -5,4 +5,6 @@ texlive-xetex.installed: EXTRA_REV=-r1
 texlive-pictures.installed: EXTRA_REV=-r1
 texlive-fontutils.installed: EXTRA_REV=-r1
 texlive-latexextra.installed: EXTRA_REV=-r1
+texlive-luatex.installed: EXTRA_REV=-r1
+texlive-context.installed: EXTRA_REV=-r1
 

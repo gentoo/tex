@@ -1,1 +1,2 @@
 TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/luaotfload/mkluatexfontdb.lua"
+PATCHES=( "${FILESDIR}/lualibs.patch" )

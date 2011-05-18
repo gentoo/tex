@@ -3,7 +3,7 @@ PORTDIR=$(shell portageq portdir)
 DISTDIR=$(shell portageq distdir)
 
 
-TEXLIVE_OVERLAY_LOCATION=/usr/portage_cvs/gentoo-x86
+TEXLIVE_OVERLAY_LOCATION=~/gentoo-x86
 
 TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive
 TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst

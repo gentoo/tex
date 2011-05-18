@@ -1,2 +1,2 @@
 TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/perltex/perltex.pl texmf-dist/scripts/ppower4/pdfthumb.tlu texmf-dist/scripts/ppower4/ppower4.tlu texmf-dist/scripts/pst-pdf/ps4pdf texmf-dist/scripts/splitindex/perl/splitindex.pl texmf-dist/scripts/svn-multi/svn-multi.pl texmf-dist/scripts/vpe/vpe.pl texmf-dist/scripts/authorindex/authorindex"
-PATCHES=( "${FILESDIR}/vpe_invocation.patch" )
+PATCHES=( "${FILESDIR}/vpe_invocation.patch" "${FILESDIR}/ifplatform.patch" )

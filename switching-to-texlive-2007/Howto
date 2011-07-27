@@ -1,5 +1,0 @@
-Now that texlive is in the main portage tree, it should not be very hard to
-install it. 
-
-This file has been obsoleted by a more verbose guide:
-http://www.gentoo.org/proj/en/tex/texlive-migration-guide.xml

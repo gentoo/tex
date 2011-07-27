@@ -26,7 +26,6 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langother texlive-langpolish texlive-langportuguese \
        texlive-langspanish texlive-langswedish texlive-langtibetan \
        texlive-langturkmen texlive-langvietnamese \
-       texlive-latex3 \
        texlive-latex texlive-latexextra texlive-latexrecommended \
        texlive-luatex \
        texlive-mathextra texlive-metapost texlive-music texlive-omega \

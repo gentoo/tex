@@ -50,6 +50,8 @@ EXTRA_DIST = texlive-binextra
        
 # Only for windows
 # texlive-wintools 
+# Should go with texworks
+# texlive-texworks
 
 # It's a perl install... better
 # to depend on perl-related packages

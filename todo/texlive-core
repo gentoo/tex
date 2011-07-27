@@ -1,4 +1,0 @@
-check deps one by one to tune them down if possible
-parallel make : partially fixed, only icu-xetex is built with -j1 now
-
-mpost fails to run on hardened, gets killed

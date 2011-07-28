@@ -29,6 +29,8 @@ while [ $# -gt 0 ] ; do
             echo "as-is";;            
         other)
             echo "as-is";;
+        other-nonfree)
+            echo "as-is";;
         lgpl)
             echo "LGPL-2";;
         lgpl2.1)

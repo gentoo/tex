@@ -23,5 +23,3 @@ you have to run 'luatools --generate' as normal user before first use.
 
 More information and advanced options on:
 http://wiki.contextgarden.net/TeX_Live_2010"
-
-PATCHES=( "${FILESDIR}/luatools.patch" )

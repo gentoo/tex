@@ -1,4 +1,4 @@
->=dev-tex/luatex-0.45
+>=dev-tex/luatex-0.70
 !<app-text/texlive-core-2009
 !<dev-texlive/texlive-latex-2009
 !<dev-texlive/texlive-latexrecommended-2009

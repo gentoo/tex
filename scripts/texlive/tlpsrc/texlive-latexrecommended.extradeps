@@ -3,5 +3,5 @@
 !dev-tex/listings
 !<dev-texlive/texlive-latexextra-2011
 !=app-text/texlive-core-2007*
-!=dev-texlive/texlive-xetex-2008*
+!<dev-texlive/texlive-xetex-2011
 !dev-texlive/texlive-latex3

@@ -1,2 +1,2 @@
 >=app-text/texlive-core-2010[cjk]
-dev-texlive/texlive-latex
+>=dev-texlive/texlive-latex-2011

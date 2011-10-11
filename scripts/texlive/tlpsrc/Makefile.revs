@@ -1,3 +1,5 @@
 # Example:
 # texlive-xetex.installed: EXTRA_REV=-r1
 
+texlive-basic.installed: EXTRA_REV=-r1
+

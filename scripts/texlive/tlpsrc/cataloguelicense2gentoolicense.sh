@@ -23,6 +23,8 @@ while [ $# -gt 0 ] ; do
             echo "as-is";;
         noinfo)
             echo "as-is";;
+        nosource)
+            echo "as-is";;
         collection)
             echo "GPL-2";;
         other-free)

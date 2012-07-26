@@ -1,1 +1,5 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/musixtex/musixflx.lua texmf-dist/scripts/musixtex/musixtex.lua"
+TEXLIVE_MODULE_BINSCRIPTS="
+    texmf-dist/scripts/musixtex/musixflx.lua
+    texmf-dist/scripts/musixtex/musixtex.lua
+    texmf-dist/scripts/m-tx/m-tx.lua
+    "

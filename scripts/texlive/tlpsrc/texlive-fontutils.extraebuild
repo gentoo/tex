@@ -5,7 +5,6 @@ TEXLIVE_MODULE_BINSCRIPTS="
     texmf-dist/scripts/epstopdf/epstopdf.pl
     texmf-dist/scripts/fontools/afm2afm
     texmf-dist/scripts/fontools/autoinst
-    texmf-dist/scripts/fontools/cmap2enc
     texmf-dist/scripts/fontools/font2afm
     texmf-dist/scripts/fontools/ot2kpx
     texmf-dist/scripts/fontools/pfm2kpx

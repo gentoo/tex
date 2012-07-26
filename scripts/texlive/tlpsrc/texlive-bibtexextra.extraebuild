@@ -1,1 +1,4 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/bibexport/bibexport.sh"
+TEXLIVE_MODULE_BINSCRIPTS="
+    texmf-dist/scripts/bibexport/bibexport.sh
+    texmf-dist/scripts/urlbst/urlbst
+"

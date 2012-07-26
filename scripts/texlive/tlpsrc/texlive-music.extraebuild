@@ -2,4 +2,5 @@ TEXLIVE_MODULE_BINSCRIPTS="
     texmf-dist/scripts/musixtex/musixflx.lua
     texmf-dist/scripts/musixtex/musixtex.lua
     texmf-dist/scripts/m-tx/m-tx.lua
+    texmf-dist/scripts/pmx/pmx2pdf.lua
     "

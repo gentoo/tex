@@ -1,1 +1,4 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/luaotfload/mkluatexfontdb.lua"
+TEXLIVE_MODULE_BINSCRIPTS="
+    texmf-dist/scripts/luaotfload/mkluatexfontdb.lua
+    texmf-dist/scripts/checkcites/checkcites.lua
+    "

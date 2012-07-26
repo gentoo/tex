@@ -16,6 +16,11 @@ pkg_setup() {
 	fi
 }
 
+# This comes without +x bit set...
+src_prepare() {
+    chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb
+}
+
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate
 your documents.
 If you plan to use mkIV and its 'context' command to generate your documents,

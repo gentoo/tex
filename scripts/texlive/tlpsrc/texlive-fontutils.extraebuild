@@ -13,4 +13,3 @@ TEXLIVE_MODULE_BINSCRIPTS="
     texmf-dist/scripts/mf2pt1/mf2pt1.pl
     texmf-dist/scripts/dosepsbin/dosepsbin.pl
 "
-PATCHES=( "${FILESDIR}/epstopdf_invocation.patch" )

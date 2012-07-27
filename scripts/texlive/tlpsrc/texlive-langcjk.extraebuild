@@ -1,10 +1,10 @@
 TEXLIVE_MODULE_BINSCRIPTS="
-    texmf-dist/scripts/jfontmaps/updmap-setup-kanji.pl
-    texmf-dist/scripts/uptex/convbkmk.rb
+	texmf-dist/scripts/jfontmaps/updmap-setup-kanji.pl
+	texmf-dist/scripts/uptex/convbkmk.rb
 "
 
 # Avoids collision with app-text/ttf2pk2
 src_prepare() {
-    local i=texmf-dist/source/fonts/zhmetrics/ttfonts.map
-    [ -f "${i}" ] && rm -f "${i}"
+	local i=texmf-dist/source/fonts/zhmetrics/ttfonts.map
+	[ -f "${i}" ] && rm -f "${i}"
 }

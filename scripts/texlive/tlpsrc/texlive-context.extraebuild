@@ -1,9 +1,9 @@
 TL_CONTEXT_UNIX_STUBS="context luatools mtxrun texexec texmfstart"
 
 TEXLIVE_MODULE_BINSCRIPTS="
-    texmf-dist/scripts/context/ruby/ctxtools.rb
-    texmf-dist/scripts/context/ruby/pstopdf.rb
-    texmf-dist/scripts/context/ruby/rlxtools.rb
+	texmf-dist/scripts/context/ruby/ctxtools.rb
+	texmf-dist/scripts/context/ruby/pstopdf.rb
+	texmf-dist/scripts/context/ruby/rlxtools.rb
 "
 
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
@@ -24,9 +24,9 @@ pkg_setup() {
 
 # These comes without +x bit set...
 src_prepare() {
-    chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb \
-             texmf-dist/scripts/context/ruby/pstopdf.rb \
-             texmf-dist/scripts/context/ruby/rlxtools.rb
+	chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb \
+		texmf-dist/scripts/context/ruby/pstopdf.rb \
+		texmf-dist/scripts/context/ruby/rlxtools.rb
 }
 
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate

@@ -1,3 +1,5 @@
+PATCHES=( "${FILESDIR}/luacnfspec.patch" )
+
 TL_CONTEXT_UNIX_STUBS="context luatools mtxrun texexec texmfstart"
 
 TEXLIVE_MODULE_BINSCRIPTS="
@@ -27,6 +29,7 @@ src_prepare() {
 	chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb \
 		texmf-dist/scripts/context/ruby/pstopdf.rb \
 		texmf-dist/scripts/context/ruby/rlxtools.rb
+	base_src_prepare
 }
 
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate

@@ -2,4 +2,5 @@
 # texlive-xetex.installed: EXTRA_REV=-r1
 
 texlive-context.installed: EXTRA_REV=-r1
+texlive-bibtexextra.installed: EXTRA_REV=-r1
 

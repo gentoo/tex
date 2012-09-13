@@ -34,7 +34,7 @@ unpacked : $(FULLDESC:%=%.unpacked)
 	./getlicense.sh $(shell cat $(<:%.tlplic=%.list)) | sort | uniq | tr '\n' ' ' > $@
 
 %.gentoolicense: %.licenselist
-	./cataloguelicense2gentoolicense.sh $(shell cat $<) | sort | uniq | tr '\n' ' ' > $@
+	(./cataloguelicense2gentoolicense.sh $(shell cat $<) ; printf "\nGPL-2\n") | sort | uniq | tr '\n' ' ' > $@
 
 %.desc: %.base
 	grep "shortdesc " $< | sed -e "s/shortdesc //" | sed -e "s/.*/DESCRIPTION=\"TeXLive \0\"/" > $@
@@ -114,7 +114,7 @@ clean:
 	echo "inherit $(EXTRA_INHERIT) texlive-module" >> $@
 	cat $< >> $@
 	echo "" >> $@
-	echo -n "LICENSE=\"GPL-2 " >> $@
+	echo -n "LICENSE=\"" >> $@
 	cat $(@:%.ebuild=%.gentoolicense) >> $@
 	echo "\"" >> $@
 	echo "SLOT=\"0\"" >> $@

@@ -19,20 +19,20 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.3";;
         gfsl)
             echo "LPPL-1.3";;
-        unknown)
-            echo "as-is";;
+        #unknown)
+        #    echo "TeX-unknown";;
         noinfo)
-            echo "as-is";;
+            echo "TeX-noinfo";;
         nosource)
-            echo "as-is";;
+            echo "TeX-nosource";;
         collection)
             echo "GPL-2";;
         other-free)
-            echo "as-is";;            
-        other)
-            echo "as-is";;
+            echo "TeX-other-free";;
+        #other)
+        #    echo "TeX-other";;
         other-nonfree)
-            echo "as-is";;
+            echo "TeX-other-nonfree";;
         lgpl)
             echo "LGPL-2";;
         lgpl2.1)
@@ -53,10 +53,10 @@ while [ $# -gt 0 ] ; do
             echo "FDL-1.1";;
         ofl)
             echo "OFL";;
-        nosell)
-            echo "nosell";;
-        nocommercial)
-            echo "nosell";;
+        #nosell)
+        #    echo "nosell";;
+        #nocommercial)
+        #    echo "nosell";;
         *)
             echo "The $1 license is not mapped yet!"
             exit 1;;

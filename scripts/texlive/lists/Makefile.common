@@ -1,4 +1,0 @@
-
-TEXLIVE_VERSION=2007
-
-include ../common/Makefile.common

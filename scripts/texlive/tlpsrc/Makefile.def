@@ -2,36 +2,25 @@
 # Collections that have to become ebuilds
 
 DESC = texlive-basic texlive-bibtexextra \
-       texlive-context texlive-documentation-arabic texlive-documentation-base \
-       texlive-documentation-bulgarian texlive-documentation-chinese texlive-documentation-czechslovak \
-       texlive-documentation-dutch texlive-documentation-english texlive-documentation-finnish \
-       texlive-documentation-french texlive-documentation-german \
-       texlive-documentation-italian texlive-documentation-japanese texlive-documentation-korean \
-       texlive-documentation-mongolian texlive-documentation-polish texlive-documentation-portuguese \
-       texlive-documentation-russian texlive-documentation-serbian texlive-documentation-slovenian \
-       texlive-documentation-spanish texlive-documentation-thai texlive-documentation-turkish texlive-documentation-ukrainian \
-       texlive-documentation-vietnamese \
        texlive-fontsextra texlive-fontsrecommended texlive-fontutils \
        texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
        texlive-htmlxml texlive-humanities \
-       texlive-langafrican texlive-langarabic texlive-langarmenian \
-       texlive-langcjk texlive-langcroatian texlive-langcyrillic \
-       texlive-langczechslovak texlive-langdanish texlive-langdutch \
+       texlive-langafrican texlive-langarabic \
+       texlive-langcjk texlive-langcyrillic \
+       texlive-langczechslovak \
        texlive-langenglish \
-       texlive-langfinnish texlive-langfrench texlive-langgerman \
-       texlive-langgreek texlive-langhebrew texlive-langhungarian \
-       texlive-langindic texlive-langitalian texlive-langlatin \
-       texlive-langlatvian texlive-langlithuanian \
-       texlive-langmongolian texlive-langnorwegian \
+       texlive-langeuropean \
+       texlive-langfrench texlive-langgerman \
+       texlive-langgreek \
+       texlive-langindic texlive-langitalian \
        texlive-langother texlive-langpolish texlive-langportuguese \
-       texlive-langspanish texlive-langswedish texlive-langtibetan \
-       texlive-langturkmen texlive-langvietnamese \
+       texlive-langspanish \
        texlive-latex texlive-latexextra texlive-latexrecommended \
        texlive-luatex \
        texlive-mathextra texlive-metapost texlive-music texlive-omega \
        texlive-pictures texlive-plainextra \
        texlive-pstricks texlive-publishers \
-       texlive-science texlive-texinfo \
+       texlive-science \
        texlive-xetex \
 
 

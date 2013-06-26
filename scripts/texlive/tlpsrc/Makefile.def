@@ -2,6 +2,7 @@
 # Collections that have to become ebuilds
 
 DESC = texlive-basic texlive-bibtexextra \
+       texlive-context \
        texlive-fontsextra texlive-fontsrecommended texlive-fontutils \
        texlive-formatsextra texlive-games texlive-genericextra texlive-genericrecommended \
        texlive-htmlxml texlive-humanities \

@@ -1,4 +1,4 @@
-PATCHES=( "${FILESDIR}/luacnfspec.patch" )
+PATCHES=( "${FILESDIR}/luacnfspec2013.patch" )
 
 TL_CONTEXT_UNIX_STUBS="context luatools mtxrun texexec texmfstart"
 

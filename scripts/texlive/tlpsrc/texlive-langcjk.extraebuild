@@ -1,5 +1,5 @@
 TEXLIVE_MODULE_BINSCRIPTS="
-	texmf-dist/scripts/uptex/convbkmk.rb
+    texmf-dist/scripts/convbkmk/convbkmk.rb
 "
 
 # Avoids collision with app-text/ttf2pk2

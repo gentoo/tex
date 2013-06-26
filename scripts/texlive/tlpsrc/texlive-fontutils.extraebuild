@@ -8,4 +8,7 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/fontools/ot2kpx
 	texmf-dist/scripts/mf2pt1/mf2pt1.pl
 	texmf-dist/scripts/dosepsbin/dosepsbin.pl
+        texmf-dist/scripts/texlive/fontinst.sh
+        texmf-dist/scripts/texlive/ps2frag.sh
+        texmf-dist/scripts/texlive/pslatex.sh
 "

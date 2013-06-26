@@ -101,7 +101,7 @@ clean:
 
 %.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
 	cat $(PORTDIR)/header.txt > $@
-	printf "EAPI=\"4\"\n\n" >> $@
+	printf "EAPI=\"5\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
 	cat $(@:%.ebuild=%.list) >> $@
 	echo "\"" >> $@

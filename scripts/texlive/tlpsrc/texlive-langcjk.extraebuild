@@ -1,5 +1,4 @@
 TEXLIVE_MODULE_BINSCRIPTS="
-	texmf-dist/scripts/jfontmaps/updmap-setup-kanji.pl
 	texmf-dist/scripts/uptex/convbkmk.rb
 "
 

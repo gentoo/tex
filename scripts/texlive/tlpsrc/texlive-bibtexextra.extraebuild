@@ -2,4 +2,5 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/bibexport/bibexport.sh
 	texmf-dist/scripts/urlbst/urlbst
 	texmf-dist/scripts/listbib/listbib
+        texmf-dist/scripts/multibibliography/multibibliography.pl
 "

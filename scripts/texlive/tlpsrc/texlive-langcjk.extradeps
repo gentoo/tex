@@ -1,3 +1,4 @@
 >=app-text/texlive-core-2010[cjk]
 >=dev-texlive/texlive-latex-2011
 !!<dev-texlive/texlive-langcjk-2012
+!dev-texlive/texlive-documentation-chinese

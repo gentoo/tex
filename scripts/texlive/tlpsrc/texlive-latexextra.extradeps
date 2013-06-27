@@ -10,4 +10,5 @@
 !=dev-texlive/texlive-humanities-2007*
 !<dev-texlive/texlive-mathextra-2010
 !<dev-texlive/texlive-plainextra-2010
+!<dev-texlive/texlive-pictures-2013
 dev-perl/Spreadsheet-ParseExcel

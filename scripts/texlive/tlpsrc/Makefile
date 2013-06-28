@@ -30,6 +30,9 @@ unpacked : $(FULLDESC:%=%.unpacked)
 %.srclist: %.tlpobj
 	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
 
+%.cataloguehtml:
+	wget -O $@ http://www.ctan.org/pkg/$(@:%.cataloguehtml=%)
+
 %.licenselist: %.tlplic
 	./getlicense.sh $(shell cat $(<:%.tlplic=%.list)) | sort | uniq | tr '\n' ' ' > $@
 
@@ -72,6 +75,7 @@ clean:
 	$(RMF) $(DESC:%=%.metadata)
 	$(RMF) *.tlpobj
 	$(RMF) *.tlplic
+	$(RMF) *.cataloguehtml
 	$(RMF) *.unpacked
 	$(RMF) tldir
 

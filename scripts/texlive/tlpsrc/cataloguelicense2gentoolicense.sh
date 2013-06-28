@@ -53,6 +53,8 @@ while [ $# -gt 0 ] ; do
             echo "FDL-1.1";;
         ofl)
             echo "OFL";;
+        opl)
+            echo "OPL";;
         #nosell)
         #    echo "nosell";;
         #nocommercial)

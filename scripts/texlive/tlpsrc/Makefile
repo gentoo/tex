@@ -30,11 +30,8 @@ unpacked : $(FULLDESC:%=%.unpacked)
 %.srclist: %.tlpobj
 	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
 
-%.cataloguehtml:
-	wget -O $@ http://www.ctan.org/pkg/$(@:%.cataloguehtml=%)
-
-%.licenselist: %.tlplic
-	./getlicense.sh $(shell cat $(<:%.tlplic=%.list)) | sort | uniq | tr '\n' ' ' > $@
+%.licenselist: %.cataloguehtml
+	./getlicense.sh $(shell cat $(@:%.licenselist=%.list)) | sort | uniq | tr '\n' ' ' > $@
 
 %.gentoolicense: %.licenselist
 	(./cataloguelicense2gentoolicense.sh $(shell cat $<) ; printf "\nGPL-2\n") | sort | uniq | tr '\n' ' ' > $@
@@ -101,6 +98,10 @@ clean:
 
 %.tlplic: %.list
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlplic
+	touch $@
+
+%.cataloguehtml: %.list
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist cataloguehtml
 	touch $@
 
 %.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense

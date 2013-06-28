@@ -22,6 +22,12 @@ tlplic: $(CONTENTS:%=%.tlplic)
 %.tlpobj: $(TL_TRUNK)/Master/tlpkg/tlpsrc/%.tlpsrc
 	$(TL_TRUNK)/Master/tlpkg/bin/tl-update-tlpdb -master=$(TL_TRUNK)/Master -output=$@ --tlpsrc-from-cmdline $<
 
+%.cataloguehtml:
+	curl -I http://www.ctan.org/pkg/$(@:%.cataloguehtml=%) | grep 404 || wget -O $@ http://www.ctan.org/pkg/$(@:%.cataloguehtml=%)
+	touch $@
+
+cataloguehtml: $(CONTENTS:%=%.cataloguehtml)
+
 tldir:
 	mkdir tlunpackdir
 	touch $@

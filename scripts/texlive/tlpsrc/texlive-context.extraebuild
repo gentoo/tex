@@ -29,6 +29,10 @@ src_prepare() {
 	chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb \
 		texmf-dist/scripts/context/ruby/pstopdf.rb \
 		texmf-dist/scripts/context/ruby/rlxtools.rb
+
+	# No need to install these .exe
+	rm -rf texmf-dist/scripts/context/stubs/mswin || die
+
 	base_src_prepare
 }
 

@@ -12,3 +12,6 @@ TEXLIVE_MODULE_BINSCRIPTS="
         texmf-dist/scripts/texlive/ps2frag.sh
         texmf-dist/scripts/texlive/pslatex.sh
 "
+TEXLIVE_MODULE_BINLINKS="
+    epstopdf:repstopdf
+"

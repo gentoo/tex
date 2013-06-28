@@ -4,5 +4,5 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	"
 
 src_prepare() {
-    rm -rf texmf-dist/scripts/context/stubs/mswin || die
+	rm -rf texmf-dist/scripts/context/stubs/mswin || die
 }

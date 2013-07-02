@@ -1,12 +1,8 @@
 PATCHES=( "${FILESDIR}/luacnfspec2013.patch" )
 
-TL_CONTEXT_UNIX_STUBS="context luatools mtxrun texexec texmfstart"
+TL_CONTEXT_UNIX_STUBS="context ctxtools luatools metatex mtxrun mtxworks pstopdf texexec texmfstart"
 
-TEXLIVE_MODULE_BINSCRIPTS="
-	texmf-dist/scripts/context/ruby/ctxtools.rb
-	texmf-dist/scripts/context/ruby/pstopdf.rb
-	texmf-dist/scripts/context/ruby/rlxtools.rb
-"
+TEXLIVE_MODULE_BINSCRIPTS=""
 
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
 TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
@@ -26,10 +22,6 @@ pkg_setup() {
 
 # These comes without +x bit set...
 src_prepare() {
-	chmod +x texmf-dist/scripts/context/ruby/ctxtools.rb \
-		texmf-dist/scripts/context/ruby/pstopdf.rb \
-		texmf-dist/scripts/context/ruby/rlxtools.rb
-
 	# No need to install these .exe
 	rm -rf texmf-dist/scripts/context/stubs/mswin || die
 

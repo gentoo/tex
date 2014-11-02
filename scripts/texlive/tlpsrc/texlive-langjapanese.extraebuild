@@ -1,0 +1,3 @@
+TEXLIVE_MODULE_BINSCRIPTS="
+	texmf-dist/scripts/convbkmk/convbkmk.rb
+"

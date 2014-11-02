@@ -5,3 +5,4 @@
 !=app-text/texlive-core-2007*
 !<dev-texlive/texlive-xetex-2011
 !dev-texlive/texlive-latex3
+!<dev-texlive/texlive-humanities-2014

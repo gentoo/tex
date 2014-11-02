@@ -1,6 +1,6 @@
 PATCHES=( "${FILESDIR}/luacnfspec2013.patch" )
 
-TL_CONTEXT_UNIX_STUBS="contextjit mtxrunjit mtx run texexec context metatex luatools mtxworks texmfstart"
+TL_CONTEXT_UNIX_STUBS="contextjit mtxrunjit mtxrun texexec context metatex luatools mtxworks texmfstart"
 
 
 TEXLIVE_MODULE_BINSCRIPTS=""

@@ -15,7 +15,8 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langeuropean \
        texlive-langfrench texlive-langgerman \
        texlive-langgreek \
-       texlive-langindic texlive-langitalian \
+       texlive-langindic texlive-langjapanese texlive-langitalian \
+       texlive-langkorean \
        texlive-langother texlive-langpolish texlive-langportuguese \
        texlive-langspanish \
        texlive-latex texlive-latexextra texlive-latexrecommended \

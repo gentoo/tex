@@ -1,6 +1,7 @@
 PATCHES=( "${FILESDIR}/luacnfspec2013.patch" )
 
-TL_CONTEXT_UNIX_STUBS="context ctxtools luatools metatex mtxrun mtxworks pstopdf texexec texmfstart"
+TL_CONTEXT_UNIX_STUBS="contextjit mtxrunjit mtx run texexec context metatex luatools mtxworks texmfstart"
+
 
 TEXLIVE_MODULE_BINSCRIPTS=""
 
@@ -25,7 +26,7 @@ src_prepare() {
 	# No need to install these .exe
 	rm -rf texmf-dist/scripts/context/stubs/mswin || die
 
-	base_src_prepare
+	texlive-module_src_prepare
 }
 
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate

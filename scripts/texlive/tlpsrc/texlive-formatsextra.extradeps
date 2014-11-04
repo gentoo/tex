@@ -1,2 +1,2 @@
 >=dev-texlive/texlive-latex-2008
->=app-text/texlive-core-2014[xetex]
+>=dev-texlive/texlive-xetex

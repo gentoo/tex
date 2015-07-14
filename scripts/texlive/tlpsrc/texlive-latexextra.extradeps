@@ -1,4 +1,4 @@
->=dev-texlive/texlive-fontsrecommended-2008
+>=dev-texlive/texlive-fontsrecommended-2014
 !dev-tex/achemso
 !dev-tex/prosper
 !dev-tex/ha-prosper

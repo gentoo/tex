@@ -47,6 +47,8 @@ while [ $# -gt 0 ] ; do
             echo "Artistic";;
         bsd)
             echo "BSD";;
+        bsd3)
+            echo "BSD";;
         knuth)
             echo "TeX";;
         fdl)

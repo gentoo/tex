@@ -3,4 +3,7 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/urlbst/urlbst
 	texmf-dist/scripts/listbib/listbib
 	texmf-dist/scripts/multibibliography/multibibliography.pl
+	texmf-dist/scripts/crossrefware/ltx2crossrefxml.pl
+	texmf-dist/scripts/crossrefware/bibzbladd.pl
+	texmf-dist/scripts/crossrefware/bibdoiadd.pl
 "

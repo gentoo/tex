@@ -31,7 +31,7 @@ src_prepare() {
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate
 your documents.
 If you plan to use mkIV and its 'context' command to generate your documents,
-you have to run 'luatools --generate' as normal user before first use.
+you have to run 'mtxrun --generate' as normal user before first use.
 
 More information and advanced options on:
 http://wiki.contextgarden.net/TeX_Live_2011"

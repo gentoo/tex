@@ -107,7 +107,10 @@ clean:
 %-post.ebuild:
 	touch $@
 
-%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post.ebuild
+%.extrardepend:
+	touch $@
+
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post.ebuild %.extrardepend
 	cat $(PORTDIR)/header.txt > $@
 	printf "EAPI=\"5\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
@@ -132,7 +135,7 @@ clean:
 	cat $(@:%.ebuild=%.deps) >> $@
 	echo "\"" >> $@
 	echo -n 'RDEPEND="$${DEPEND} ' >> $@
-	-cat $(@:%.ebuild=%.extrardepend) >> $@
+	cat $(@:%.ebuild=%.extrardepend) >> $@
 	echo '"' >> $@
 	cat $(@:%.ebuild=%-post.ebuild) >> $@
 

@@ -15,7 +15,7 @@ lists : $(FULLDESC:%=%.list) $(FULLDESC:%=%.base)
 
 unpacked : $(FULLDESC:%=%.unpacked)
 
-%.base: 
+%.base:
 	$(CPF) $(@:texlive-%.base=$(TL_TRUNK)/Master/tlpkg/tlpsrc/collection-%.tlpsrc) $@
 	-sh $(@:%.base=%.baseexec) $@
 
@@ -104,7 +104,10 @@ clean:
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist cataloguehtml
 	touch $@
 
-%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense
+%.extraebuild:
+	touch $@
+
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %.extraebuild
 	cat $(PORTDIR)/header.txt > $@
 	printf "EAPI=\"5\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
@@ -129,9 +132,9 @@ clean:
 	cat $(@:%.ebuild=%.deps) >> $@
 	echo "\"" >> $@
 	echo -n 'RDEPEND="$${DEPEND} ' >> $@
-	-cat $(@:%.ebuild=%.extrardepend) >> $@ 
+	-cat $(@:%.ebuild=%.extrardepend) >> $@
 	echo '"' >> $@
-	-cat $(@:%.ebuild=%.extraebuild) >> $@ 
+	cat $(@:%.ebuild=%.extraebuild) >> $@
 
 dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips
@@ -143,9 +146,9 @@ ebuildsdir:
 
 ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
-tlpobj: $(DESC:%=%.tlpobj) 
+tlpobj: $(DESC:%=%.tlpobj)
 
-tlpobj: $(DESC:%=%.tlplic) 
+tlpobj: $(DESC:%=%.tlplic)
 
 licenselist: $(DESC:%=%.licenselist) $(EXTRA_DIST:%=%.licenselist)
 

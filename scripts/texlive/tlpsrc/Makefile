@@ -113,7 +113,7 @@ clean:
 %-preinherit.ebuild:
 	touch $@
 
-%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post.ebuild %.extrardepend
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post.ebuild %.extrardepend %-preinherit.ebuild
 	cat $(PORTDIR)/header.txt > $@
 	printf "EAPI=\"5\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@

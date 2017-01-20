@@ -1,2 +1,4 @@
 !<dev-texlive/texlive-latexextra-2015
 !dev-tex/SIunits
+!dev-texlive/texlive-mathextra
+!dev-texlive/texlive-science

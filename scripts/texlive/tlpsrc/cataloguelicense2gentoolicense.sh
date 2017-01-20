@@ -57,6 +57,10 @@ while [ $# -gt 0 ] ; do
             echo "OFL";;
         opl)
             echo "OPL";;
+        mit)
+            echo "MIT";;
+        bsd2)
+            echo "BSD-2";;
         #nosell)
         #    echo "nosell";;
         #nocommercial)

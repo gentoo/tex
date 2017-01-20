@@ -20,7 +20,7 @@ unpacked : $(FULLDESC:%=%.unpacked)
 	-sh $(@:%.base=%.baseexec) $@
 
 %.list: %.base
-	grep "depend " $< | awk '{print $$2}'  | grep -v "collection" | tr '\n' ' ' > $@
+	grep -v "^#" $< | grep "depend " | awk '{print $$2}'  | grep -v "collection" | tr '\n' ' ' > $@
 	-sh $(@:%.list=%.extraexec) $@
 	echo "$(@:texlive-%.list=collection-%)" >> $@
 

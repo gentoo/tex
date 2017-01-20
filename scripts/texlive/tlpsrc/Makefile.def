@@ -22,11 +22,11 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langspanish \
        texlive-latex texlive-latexextra texlive-latexrecommended \
        texlive-luatex \
-       texlive-mathextra texlive-metapost texlive-music texlive-omega \
+       texlive-metapost texlive-music texlive-omega \
        texlive-pictures texlive-plainextra \
        texlive-pstricks texlive-publishers \
-       texlive-science \
        texlive-xetex \
+       texlive-mathscience \
 
 
 

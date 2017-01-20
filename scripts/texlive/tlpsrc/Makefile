@@ -107,7 +107,7 @@ clean:
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist cataloguehtml
 	touch $@
 
-%-post.ebuild:
+%-post-ebuild:
 	touch $@
 
 %.extrardepend:
@@ -116,7 +116,7 @@ clean:
 %-preinherit.ebuild:
 	touch $@
 
-%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post.ebuild %.extrardepend %-preinherit.ebuild
+%.ebuild: %.desc %.deps %.list %.doclist %.srclist %.gentoolicense %-post-ebuild %.extrardepend %-preinherit.ebuild
 	cat $(PORTDIR)/header.txt > $@
 	printf "EAPI=\"5\"\n\n" >> $@
 	echo -n "TEXLIVE_MODULE_CONTENTS=\"" >> $@
@@ -144,7 +144,7 @@ clean:
 	echo -n 'RDEPEND="$${DEPEND} ' >> $@
 	cat $(@:%.ebuild=%.extrardepend) >> $@
 	echo '"' >> $@
-	cat $(@:%.ebuild=%-post.ebuild) >> $@
+	cat $(@:%.ebuild=%-post-ebuild) >> $@
 
 dist: lists $(VERSIONNED_ZIPS) $(EXTRA_DIST:%=%.doclist) $(EXTRA_DIST:%=%.srclist)
 	$(MAKE) CONTENTS="$(EXTRA_ZIP)" -f Makefile-dist versionnedzips

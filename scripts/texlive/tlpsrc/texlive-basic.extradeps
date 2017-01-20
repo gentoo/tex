@@ -2,4 +2,5 @@
 !<dev-texlive/texlive-latexrecommended-2009
 !dev-texlive/texlive-documentation-base
 !!<dev-texlive/texlive-langafrican-2016
+!!<dev-texlive/texlive-langchinese-2016
 >=app-text/texlive-core-2015[luajittex?]

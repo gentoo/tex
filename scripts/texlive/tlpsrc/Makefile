@@ -43,11 +43,14 @@ unpacked : $(FULLDESC:%=%.unpacked)
 	echo '<?xml version="1.0" encoding="UTF-8"?>' > $@
 	echo '<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">' >> $@
 	echo '<pkgmetadata>' >> $@
-	echo '	<herd>tex</herd>' >> $@
-	echo '	<maintainer>' >> $@
+	echo '	<maintainer type="person">' >> $@
 	echo '		<email>aballier@gentoo.org</email>' >> $@
 	echo '		<name>Alexis Ballier</name>' >> $@
 	echo '	</maintainer>' >> $@
+	echo '  <maintainer type="project">' >> $@
+	echo '     <email>tex@gentoo.org</email>' >> $@
+	echo '     <name>Gentoo TeX Project</name>' >> $@
+	echo '  </maintainer>' >> $@
 	echo '<longdescription lang="en">' >> $@
 	grep "longdesc " $< | sed -e "s/longdesc //" >> $@
 	echo '</longdescription>' >> $@

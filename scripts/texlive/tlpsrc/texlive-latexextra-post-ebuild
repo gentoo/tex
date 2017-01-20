@@ -6,5 +6,6 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/vpe/vpe.pl
 	texmf-dist/scripts/authorindex/authorindex
 	texmf-dist/scripts/exceltex/exceltex
+        texmf-dist/scripts/makedtx/makedtx.pl
 "
 PATCHES=( "${FILESDIR}/vpe_invocation.patch" )

@@ -37,6 +37,8 @@ while [ $# -gt 0 ] ; do
             echo "LGPL-2";;
         lgpl2.1)
             echo "LGPL-2.1";;
+        lgpl3)
+            echo "LGPL-3";;
         pd)
             echo "public-domain";;
         apache2)

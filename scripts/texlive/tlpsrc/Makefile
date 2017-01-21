@@ -54,6 +54,7 @@ unpacked : $(FULLDESC:%=%.unpacked)
 	echo '<longdescription lang="en">' >> $@
 	grep "longdesc " $< | sed -e "s/longdesc //" >> $@
 	echo '</longdescription>' >> $@
+	-cat $(@:%.metadata=%-extrametadata) >> $@
 	echo '</pkgmetadata>' >> $@
 
 %.deps: %.base

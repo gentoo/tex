@@ -1,0 +1,3 @@
+  <use>
+    <flag name="luajittex">Add support for LuaJitTeX: LuaTeX based on LuaJIT which is usually faster.</flag>
+  </use>

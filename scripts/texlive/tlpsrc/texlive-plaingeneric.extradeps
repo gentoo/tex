@@ -1,2 +1,5 @@
 !<dev-texlive/texlive-langvietnamese-2009
 !dev-texlive/texlive-texinfo
+!=dev-texlive/texlive-basic-2007*
+!<dev-texlive/texlive-texinfo-2009
+!<dev-texlive/texlive-latexextra-2010

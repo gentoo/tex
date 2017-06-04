@@ -23,7 +23,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-latex texlive-latexextra texlive-latexrecommended \
        texlive-luatex \
        texlive-metapost texlive-music texlive-omega \
-       texlive-pictures texlive-plainextra \
+       texlive-pictures texlive-plaingeneric \
        texlive-pstricks texlive-publishers \
        texlive-xetex \
        texlive-mathscience \

@@ -20,7 +20,7 @@ DESC = texlive-basic texlive-bibtexextra \
        texlive-langspanish \
        texlive-latex texlive-latexextra texlive-latexrecommended \
        texlive-luatex \
-       texlive-metapost texlive-music texlive-omega \
+       texlive-metapost texlive-music \
        texlive-pictures texlive-plaingeneric \
        texlive-pstricks texlive-publishers \
        texlive-xetex \

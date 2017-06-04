@@ -1,7 +1,5 @@
 
 # Collections that have to become ebuilds
-# texlive-htmlxml -> we have everything it provides as its own ebuild as of
-# texlive 2013
 
 DESC = texlive-basic texlive-bibtexextra \
        texlive-context \

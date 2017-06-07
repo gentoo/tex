@@ -15,6 +15,8 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.2";;
         lppl1.3)
             echo "LPPL-1.3";;
+        lppl1.3c)
+            echo "LPPL-1.3c";;
         gfl)
             echo "LPPL-1.3";;
         gfsl)

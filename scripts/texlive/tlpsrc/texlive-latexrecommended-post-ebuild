@@ -1,2 +1,2 @@
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/thumbpdf/thumbpdf.pl"
+TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/thumbpdf/thumbpdf.pl texmf-dist/scripts/lwarp/lwarpmk.lua"
 PATCHES=( "${FILESDIR}/thumbpdf_invocation.patch" )

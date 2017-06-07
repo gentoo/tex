@@ -1,7 +1,7 @@
 !dev-tex/xkeyval
 !dev-tex/memoir
 !dev-tex/listings
-!<dev-texlive/texlive-latexextra-2011
+!<dev-texlive/texlive-latexextra-2017
 !=app-text/texlive-core-2007*
 !<dev-texlive/texlive-xetex-2016
 !dev-texlive/texlive-latex3

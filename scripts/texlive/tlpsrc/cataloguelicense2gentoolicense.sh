@@ -1,6 +1,10 @@
 #!/bin/bash
 while [ $# -gt 0 ] ; do
     case "$1" in
+        cc-by-sa-2)
+            echo "CC-BY-SA-2.0";;
+        cc-by-sa-4)
+            echo "CC-BY-SA-4.0";;
         gpl)
             echo "GPL-1";;
         gpl2)

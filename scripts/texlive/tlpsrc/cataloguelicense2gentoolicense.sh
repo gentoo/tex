@@ -13,6 +13,10 @@ while [ $# -gt 0 ] ; do
             echo "GPL-3";;
         gpl3+)
             echo "GPL-3+";;
+        gpl3+cc-by-sa-4)
+            $0 gpl3+ cc-by-sa-4;;
+        gplofllppl)
+            $0 gpl ofl lppl;;
         lppl1)
             echo "LPPL-1.3";;
         lppl)
@@ -23,6 +27,18 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.3";;
         lppl1.3c)
             echo "LPPL-1.3c";;
+        # Some tlpobj from texlive have this like that. This means both and are
+        # only few of them, so split manually.
+        lppl1.3ofl)
+            $0 lppl1.3 ofl;;
+        lppl1.3lppl1.3)
+            $0 lppl1.3;;
+        lpplgpl)
+            $0 lppl gpl;;
+        lpplgpl2)
+            $0 lppl gpl2;;
+        lppllppl)
+            $0 lppl;;
         gfl)
             echo "LPPL-1.3";;
         gfsl)
@@ -37,6 +53,10 @@ while [ $# -gt 0 ] ; do
             echo "GPL-2";;
         other-free)
             echo "TeX-other-free";;
+        other-freelppl)
+            $0 other-free lppl;;
+        other-freelppl1.3)
+            $0 other-free lppl1.3;;
         #other)
         #    echo "TeX-other";;
         other-nonfree)
@@ -49,6 +69,8 @@ while [ $# -gt 0 ] ; do
             echo "LGPL-3";;
         pd)
             echo "public-domain";;
+        pdgpl3)
+            $0 pd gpl3;;
         apache2)
             echo "Apache-2.0";;
         artistic2)
@@ -65,10 +87,18 @@ while [ $# -gt 0 ] ; do
             echo "FDL-1.1";;
         ofl)
             echo "OFL";;
+        oflapache2lppl1.3)
+            $0 ofl apache2 lppl1.3;;
+        ofllppl)
+            $0 ofl lppl;;
+        ofllppl1.3)
+            $0 ofl lppl1.3;;
         opl)
             echo "OPL";;
         mit)
             echo "MIT";;
+        mitlppl)
+            $0 mit lppl;;
         bsd2)
             echo "BSD-2";;
         #nosell)

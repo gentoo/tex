@@ -159,7 +159,7 @@ ebuilds: dist $(DESC:%=%.desc) $(DESC:%=%.ebuild) $(DESC:%=%.deps)
 
 tlpobj: $(DESC:%=%.tlpobj)
 
-tlpobj: $(DESC:%=%.tlplic)
+tlplic: $(DESC:%=%.tlplic)
 
 licenselist: $(DESC:%=%.licenselist) $(EXTRA_DIST:%=%.licenselist)
 

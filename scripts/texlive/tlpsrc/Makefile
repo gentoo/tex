@@ -30,7 +30,7 @@ unpacked : $(FULLDESC:%=%.unpacked)
 %.srclist: %.tlpobj
 	./gensrc.sh $(shell cat $(<:%.tlpobj=%.list)) > $@
 
-%.licenselist: %.cataloguehtml
+%.licenselist: %.tlplic
 	./getlicense.sh $(shell cat $(@:%.licenselist=%.list)) | sort | uniq | tr '\n' ' ' > $@
 
 %.gentoolicense: %.licenselist
@@ -65,6 +65,7 @@ clean:
 	$(RMF) $(FULLDESC:%=%.list)
 	$(RMF) $(FULLDESC:%=%.srclist)
 	$(RMF) $(FULLDESC:%=%.doclist)
+	$(RMF) $(FULLDESC:%=%.fulllist)
 	$(RMF) $(FULLDESC:%=%.licenselist)
 	$(RMF) $(FULLDESC:%=%.base)
 	$(RMF) $(FULLDESC:%=%.versionnedzips)
@@ -76,7 +77,6 @@ clean:
 	$(RMF) $(DESC:%=%.metadata)
 	$(RMF) *.tlpobj
 	$(RMF) *.tlplic
-	$(RMF) *.cataloguehtml
 	$(RMF) *.unpacked
 	$(RMF) tldir
 
@@ -100,12 +100,11 @@ clean:
 	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlpobj
 	touch $@
 
-%.tlplic: %.list
-	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlplic
-	touch $@
+%.fulllist: %.list %.doclist %.srclist
+	cat $^ | tr '\n' ' ' > $@
 
-%.cataloguehtml: %.list
-	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist cataloguehtml
+%.tlplic: %.fulllist
+	$(MAKE) CONTENTS="$(shell cat $<)" -f Makefile-dist tlplic
 	touch $@
 
 %-post-ebuild:

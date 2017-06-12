@@ -3,3 +3,4 @@
 >=app-text/texlive-core-2010[xetex]
 dev-texlive/texlive-mathscience
 !<dev-texlive/texlive-mathextra-2012
+dev-texlive/texlive-luatex

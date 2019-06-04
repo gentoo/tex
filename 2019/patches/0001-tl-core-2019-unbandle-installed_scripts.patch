@@ -1,19 +1,19 @@
-From 8a5265e35deddd0f6abce60eeec583ed8ed73f68 Mon Sep 17 00:00:00 2001
+From 07f37bc7bde505dd81b4fe35f7a74e8280b3f9ce Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Sun, 2 Jun 2019 12:44:19 +0300
 Subject: [PATCH] tl-core-2019: unbandle installed_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.in | 110 +-----------------------
+ texk/texlive/linked_scripts/Makefile.in | 111 +-----------------------
  texk/texlive/tl_scripts/Makefile.in     |  10 ---
- 2 files changed, 4 insertions(+), 116 deletions(-)
+ 2 files changed, 4 insertions(+), 117 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index 6e8781db..a197dd7d 100644
+index 6e8781db..2dd60a49 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
-@@ -268,144 +268,58 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
+@@ -268,144 +268,57 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
  texmf_scriptsdir = $(datarootdir)/texmf-dist/scripts
  texmf_shell_scripts = \
  	adhocfilelist/adhocfilelist.sh \
@@ -109,7 +109,7 @@ index 6e8781db..a197dd7d 100644
 -	latexdiff/latexdiff.pl \
 -	latexdiff/latexrevise.pl \
  	latexindent/latexindent.pl \
- 	latexmk/latexmk.pl \
+-	latexmk/latexmk.pl \
  	latexpand/latexpand \
 -	lilyglyphs/lily-glyph-commands.py \
 -	lilyglyphs/lily-image-commands.py \
@@ -159,7 +159,7 @@ index 6e8781db..a197dd7d 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -416,31 +330,16 @@ texmf_other_scripts = \
+@@ -416,31 +329,16 @@ texmf_other_scripts = \
  	texlive/fmtutil-sys.sh \
  	texlive/fmtutil-user.sh \
  	texlive/fmtutil.pl \
@@ -194,7 +194,7 @@ index 6e8781db..a197dd7d 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -450,7 +349,6 @@ nobase_dist_texmf_scripts_SCRIPTS = \
+@@ -450,7 +348,6 @@ nobase_dist_texmf_scripts_SCRIPTS = \
  bin_links = \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

@@ -1,0 +1,17 @@
+*.tlplic
+*.cataloguehtml
+*.tlpobj
+*.unpacked
+*versionnedzips
+*.list
+*.ebuild
+*.base
+*.installed
+*.deps
+*.desc
+*.licenselist
+*.gentoolicense
+*.doclist
+*.srclist
+tldir
+tlunpackdir

@@ -1,0 +1,10 @@
+sed -i -e "s/xdvi //" $@
+sed -i -e "s/tetex //" $@
+sed -i -e "s/texlive[.]infra //" $@
+sed -i -e "s/kpathsea //" $@
+sed -i -e "s/hyphen-base //" $@
+sed -i -e "s/texconfig //" $@
+sed -i -e "s/dvips //" $@
+sed -i -e "s/gsftopk //" $@
+sed -i -e "s/glyphlist //" $@
+sed -i -e "s/dvipdfmx //" $@

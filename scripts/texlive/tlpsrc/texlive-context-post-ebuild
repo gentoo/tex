@@ -1,0 +1,37 @@
+PATCHES=( "${FILESDIR}/luacnfspec2016.patch" )
+
+TL_CONTEXT_UNIX_STUBS="contextjit mtxrunjit mtxrun texexec context metatex luatools mtxworks texmfstart"
+
+TEXLIVE_MODULE_BINSCRIPTS=""
+
+for i in ${TL_CONTEXT_UNIX_STUBS} ; do
+TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
+done
+
+# This small hack is needed in order to have a sane upgrade path:
+# the new TeX Live 2009 metapost produces this file but it is not recorded in
+# any package; when running fmtutil (like texmf-update does) this file will be
+# created and cause collisions.
+
+pkg_setup() {
+	if [ -f "${ROOT}/var/lib/texmf/web2c/metapost/metafun.log" ]; then
+		einfo "Removing ${ROOT}/var/lib/texmf/web2c/metapost/metafun.log"
+		rm -f "${ROOT}/var/lib/texmf/web2c/metapost/metafun.log"
+	fi
+}
+
+# These comes without +x bit set...
+src_prepare() {
+	# No need to install these .exe
+	rm -rf texmf-dist/scripts/context/stubs/{mswin,win64} || die
+
+	texlive-module_src_prepare
+}
+
+TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate
+your documents.
+If you plan to use mkIV and its 'context' command to generate your documents,
+you have to run 'mtxrun --generate' as normal user before first use.
+
+More information and advanced options on:
+http://wiki.contextgarden.net/TeX_Live_2011"

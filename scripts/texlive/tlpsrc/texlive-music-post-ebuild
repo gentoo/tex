@@ -1,0 +1,9 @@
+TEXLIVE_MODULE_BINSCRIPTS="
+	texmf-dist/scripts/musixtex/musixflx.lua
+	texmf-dist/scripts/musixtex/musixtex.lua
+	texmf-dist/scripts/m-tx/m-tx.lua
+	texmf-dist/scripts/pmxchords/pmxchords.lua
+	texmf-dist/scripts/lilyglyphs/lily-glyph-commands.py
+	texmf-dist/scripts/lilyglyphs/lily-image-commands.py
+	texmf-dist/scripts/lilyglyphs/lily-rebuild-pdfs.py
+"

@@ -1,0 +1,17 @@
+
+PORTDIR=$(shell portageq portdir)
+DISTDIR=$(shell portageq distdir)
+
+
+TEXLIVE_OVERLAY_LOCATION=~/dev/gentoo-x86
+
+TEXLIVE_LIVE_MOUNTPOINT=/mnt/texlive
+TEXLIVE_INST_MOUNTPOINT=/mnt/texlive-inst
+CTAN_MIRROR=http://ctan.org/tex-archive
+TL_TRUNK=/home/alexis/dev/texlive/trunk
+TUG=ftp://tug.org/texlive
+
+MKDIRP=mkdir -p
+RMF=rm -f
+RMDIR=rmdir
+CPF=cp -f

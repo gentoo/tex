@@ -1,0 +1,7 @@
+sed -i -e "s/detex //" $@
+sed -i -e "s/xindy //" $@
+sed -i -e "s/chktex //" $@
+sed -i -e "s/dvisvgm //" $@
+sed -i -e "s/latexdiff //" $@
+sed -i -e "s/latexmk //" $@
+sed -i -e "s/pdfjam //" $@

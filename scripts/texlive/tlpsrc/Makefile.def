@@ -1,0 +1,57 @@
+
+# Collections that have to become ebuilds
+
+DESC = texlive-basic texlive-bibtexextra \
+       texlive-context \
+       texlive-fontsextra texlive-fontsrecommended texlive-fontutils \
+       texlive-formatsextra texlive-games \
+       texlive-humanities \
+       texlive-langarabic \
+       texlive-langchinese \
+       texlive-langcjk texlive-langcyrillic \
+       texlive-langczechslovak \
+       texlive-langenglish \
+       texlive-langeuropean \
+       texlive-langfrench texlive-langgerman \
+       texlive-langgreek \
+       texlive-langjapanese texlive-langitalian \
+       texlive-langkorean \
+       texlive-langother texlive-langpolish texlive-langportuguese \
+       texlive-langspanish \
+       texlive-latex texlive-latexextra texlive-latexrecommended \
+       texlive-luatex \
+       texlive-metapost texlive-music \
+       texlive-pictures texlive-plaingeneric \
+       texlive-pstricks texlive-publishers \
+       texlive-xetex \
+       texlive-mathscience \
+
+
+
+EXTRA_ZIP = tetex tetex.doc texlive.infra texlive.infra.doc \
+    kpathsea kpathsea.doc hyphen-base dvips dvips.doc \
+    texconfig texconfig.doc gsftopk gsftopk.doc
+#bin-aleph bin-omega
+
+# Collections that just need to be distfiles
+EXTRA_DIST = texlive-binextra
+# texlive-basicbin
+
+# those ones are provided by texlive & friends
+       
+       
+# Only for windows
+# texlive-wintools 
+# Should go with texworks
+# texlive-texworks
+
+# It's a perl install... better
+# to depend on perl-related packages
+# texlive-perl
+       
+# freetype1 provides most of it
+# texlive-ttfutils 
+       
+# Does not provide anything besides what
+# dvipng does.
+# texlive-graphicstools 

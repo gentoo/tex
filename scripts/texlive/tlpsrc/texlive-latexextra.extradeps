@@ -1,0 +1,14 @@
+>=dev-texlive/texlive-fontsrecommended-2014
+!dev-tex/achemso
+!dev-tex/prosper
+!dev-tex/ha-prosper
+!dev-tex/texpower
+!dev-tex/cdcover
+!dev-tex/ppower4
+!=dev-texlive/texlive-latexrecommended-2007*
+!=dev-texlive/texlive-latex3-2007*
+!<dev-texlive/texlive-humanities-2014
+!<dev-texlive/texlive-mathextra-2010
+!<dev-texlive/texlive-plainextra-2010
+!<dev-texlive/texlive-pictures-2013
+dev-perl/Spreadsheet-ParseExcel

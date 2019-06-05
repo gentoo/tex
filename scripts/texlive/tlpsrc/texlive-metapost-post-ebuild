@@ -1,0 +1,12 @@
+
+# This small hack is needed in order to have a sane upgrade path:
+# the new TeX Live 2009 metapost produces this file but it is not recorded in
+# any package; when running fmtutil (like texmf-update does) this file will be
+# created and cause collisions.
+
+pkg_setup() {
+	if [ -f "${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem" ]; then
+		einfo "Removing ${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"
+		rm -f "${ROOT%/}${EPREFIX}/var/lib/texmf/web2c/metapost/mplib-luatex.mem"
+	fi
+}

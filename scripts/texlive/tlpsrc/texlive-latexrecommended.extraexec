@@ -1,2 +1,1 @@
-sed -i -e "s/xcolor//" $@
 sed -i -e "s/beamer//" $@

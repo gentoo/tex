@@ -1,0 +1,338 @@
+--- a/texk/web2c/luatexdir/font/luatexfont.h
++++ b/texk/web2c/luatexdir/font/luatexfont.h
+@@ -128,8 +128,8 @@
+ void replace_packet_fonts(internal_font_number f, int *old_fontid, int *new_fontid, int count);
+ int *packet_local_fonts(internal_font_number f, int *num);
+ 
+-int packet_cur_s;               /* current |do_vf_packet()| recursion level */
+-int packet_stack_ptr;           /* pointer into |packet_stack| */
++extern int packet_cur_s;               /* current |do_vf_packet()| recursion level */
++extern int packet_stack_ptr;           /* pointer into |packet_stack| */
+ vf_struct *new_vfstruct(void);
+ 
+ /* writecff.c */
+--- a/texk/web2c/luatexdir/font/vfpacket.c
++++ b/texk/web2c/luatexdir/font/vfpacket.c
+@@ -29,6 +29,9 @@
+ 
+ */
+ 
++int packet_cur_s;
++int packet_stack_ptr;
++
+ #define packet_number(fw) {    \
+     fw = *(vfp++);             \
+     fw = fw * 256 + *(vfp++);  \
+--- a/texk/web2c/luatexdir/image/writeimg.h
++++ b/texk/web2c/luatexdir/image/writeimg.h
+@@ -26,7 +26,7 @@
+ #  include "pdf/pdfpage.h"
+ 
+ typedef image_dict *idict_entry;
+-idict_entry *idict_array;
++extern idict_entry *idict_array;
+ 
+ void new_img_pdfstream_struct(image_dict *);
+ image *new_image(void);
+--- a/texk/web2c/luatexdir/pdf/pdftables.c
++++ b/texk/web2c/luatexdir/pdf/pdftables.c
+@@ -31,7 +31,6 @@
+ int pdf_last_link;
+ int pdf_last_obj;
+ int pdf_retval;
+-int pdf_cur_form;
+ 
+ /*tex
+ 
+--- a/texk/web2c/luatexdir/pdf/pdftables.h
++++ b/texk/web2c/luatexdir/pdf/pdftables.h
+@@ -21,7 +21,7 @@
+ #ifndef PDFTABLES_H
+ #  define PDFTABLES_H
+ 
+-const char *pdf_obj_typenames[PDF_OBJ_TYPE_MAX + 1];
++extern const char *pdf_obj_typenames[PDF_OBJ_TYPE_MAX + 1];
+ 
+ typedef enum {
+     union_type_int,
+--- a/texk/web2c/luatexdir/tex/textoken.c
++++ b/texk/web2c/luatexdir/tex/textoken.c
+@@ -76,7 +76,7 @@
+ 
+ /*tex how much memory is in use */
+ 
+-int var_used, dyn_used;
++int dyn_used;
+ 
+ /*tex head of the list of available one-word nodes */
+ 
+--- a/texk/web2c/mplibdir/mp.w
++++ b/texk/web2c/mplibdir/mp.w
+@@ -2958,12 +2958,15 @@
+ }
+ 
+ @ @<Internal library declarations@>=
+-int mp_snprintf_res ;
++extern int mp_snprintf_res ;
+ /* Some compilers (i.e. gcc 8.2.0 ) complained with the old */
+ /* #define mp_snprintf (void)snprintf                       */
+ /* about truncation. For the moment we store the result.    */
+ #  define mp_snprintf mp_snprintf_res=snprintf
+ 
++@ @c
++int mp_snprintf_res ;
++
+ @* Dynamic memory allocation.
+ 
+ The \MP\ system does nearly all of its own memory allocation, so that it
+--- a/utils/autosp/autosp-src/autosp.c
++++ b/utils/autosp/autosp-src/autosp.c
+@@ -82,6 +82,16 @@
+ 
+ # include "autosp.h"
+ 
++bool debug;
++bool dottedbeamnotes;
++
++char infilename[SHORT_LEN];
++char *infilename_n;
++char outfilename[SHORT_LEN];
++char *outfilename_n;
++char logfilename[SHORT_LEN];
++char *logfilename_n;
++FILE *infile, *outfile, *logfile;
+ 
+ PRIVATE void
+ usage ()
+--- a/utils/autosp/autosp-src/autosp.h
++++ b/utils/autosp/autosp-src/autosp.h
+@@ -25,16 +25,16 @@
+ 
+ # define SHORT_LEN 256
+ 
+-bool debug;
+-bool dottedbeamnotes;          /* dotted beam notes ignored?        */
++extern bool debug;
++extern bool dottedbeamnotes;          /* dotted beam notes ignored?        */
+ 
+-char infilename[SHORT_LEN];
+-char *infilename_n;
+-char outfilename[SHORT_LEN];
+-char *outfilename_n;
+-char logfilename[SHORT_LEN];
+-char *logfilename_n;
+-FILE *infile, *outfile, *logfile;
++extern char infilename[SHORT_LEN];
++extern char *infilename_n;
++extern char outfilename[SHORT_LEN];
++extern char *outfilename_n;
++extern char logfilename[SHORT_LEN];
++extern char *logfilename_n;
++extern FILE *infile, *outfile, *logfile;
+ 
+ 
+ void process_score ();
+--- a/utils/autosp/autosp-src/process_command.c
++++ b/utils/autosp/autosp-src/process_command.c
+@@ -1,5 +1,43 @@
+ # include "process_command.h"
+ 
++char terminator[MAX_STAFFS];
++
++char *notes[MAX_STAFFS];
++char *current[MAX_STAFFS];
++
++int spacings[MAX_STAFFS];
++
++int vspacing[MAX_STAFFS];
++bool vspacing_active[MAX_STAFFS];
++
++bool nonvirtual_notes;
++
++int cspacing[MAX_STAFFS];
++char collective[MAX_STAFFS][SHORT_LEN];
++bool first_collective[MAX_STAFFS];
++
++char deferred_bar[SHORT_LEN];
++
++int beaming[MAX_STAFFS];
++int new_beaming;
++int semiauto_beam_notes[MAX_STAFFS];
++
++int beamingi;  
++char *currenti;
++int cspacingi;
++int vspacingi;
++char collectivei[SHORT_LEN];
++bool first_collectivei;
++
++int xtuplet[MAX_STAFFS];
++
++bool appoggiatura;
++
++char outstrings[MAX_STAFFS][LINE_LEN];  
++
++char *n_outstrings[MAX_STAFFS];
++
++int global_skip;  
+ 
+ void process_xtuplet (void);
+ 
+--- a/utils/autosp/autosp-src/process_command.h
++++ b/utils/autosp/autosp-src/process_command.h
+@@ -8,47 +8,47 @@
+ # define NOTEsp  "\\vnotes9.52\\elemskip"
+ # define APPOGG_NOTES "\\vnotes1.45\\elemskip"
+ 
+-char terminator[MAX_STAFFS];    /* one of '&' "|', '$'                */
++extern char terminator[MAX_STAFFS];    /* one of '&' "|', '$'                */
+ 
+-char *notes[MAX_STAFFS];        /* note segment for ith staff         */
+-char *current[MAX_STAFFS];
++extern char *notes[MAX_STAFFS];        /* note segment for ith staff         */
++extern char *current[MAX_STAFFS];
+ 
+-int spacings[MAX_STAFFS];       /* spacing for ith staff              */
++extern int spacings[MAX_STAFFS];       /* spacing for ith staff              */
+ 
+-int vspacing[MAX_STAFFS];       /* virtual-note (skip) spacing        */
+-bool vspacing_active[MAX_STAFFS]; /* virtual-note spacing active?       */
++extern int vspacing[MAX_STAFFS];       /* virtual-note (skip) spacing        */
++extern bool vspacing_active[MAX_STAFFS]; /* virtual-note spacing active?       */
+                       /* used to preclude unnecessary pre-accidental skips    */
+ 
+-bool nonvirtual_notes;          /* used to preclude output of *only* virtual notes */
++extern bool nonvirtual_notes;          /* used to preclude output of *only* virtual notes */
+ 
+-int cspacing[MAX_STAFFS];       /* nominal collective-note spacing    */
+-char collective[MAX_STAFFS][SHORT_LEN];
++extern int cspacing[MAX_STAFFS];       /* nominal collective-note spacing    */
++extern char collective[MAX_STAFFS][SHORT_LEN];
+                                     /* prefixes for collective note sequences */
+-bool first_collective[MAX_STAFFS];
++extern bool first_collective[MAX_STAFFS];
+ 
+-char deferred_bar[SHORT_LEN];   /* deferred \bar (or \endpiece etc.)  */
++extern char deferred_bar[SHORT_LEN];   /* deferred \bar (or \endpiece etc.)  */
+ 
+-int beaming[MAX_STAFFS];        /* spacing for beamed notes           */
+-int new_beaming;
+-int semiauto_beam_notes[MAX_STAFFS]; /* semi-automatic beam notes     */
++extern int beaming[MAX_STAFFS];        /* spacing for beamed notes           */
++extern int new_beaming;
++extern int semiauto_beam_notes[MAX_STAFFS]; /* semi-automatic beam notes     */
+ 
+ /* save-restore state for a staff; used in process_xtuplet */
+-int beamingi;  
+-char *currenti;
+-int cspacingi;
+-int vspacingi;
+-char collectivei[SHORT_LEN];
+-bool first_collectivei;
++extern int beamingi;  
++extern char *currenti;
++extern int cspacingi;
++extern int vspacingi;
++extern char collectivei[SHORT_LEN];
++extern bool first_collectivei;
+ 
+-int xtuplet[MAX_STAFFS];        /* x for xtuplet in staff i          */
++extern int xtuplet[MAX_STAFFS];        /* x for xtuplet in staff i          */
+ 
+-bool appoggiatura;
++extern bool appoggiatura;
+ 
+-char outstrings[MAX_STAFFS][LINE_LEN];  
++extern char outstrings[MAX_STAFFS][LINE_LEN];  
+                                      /* accumulate commands to be output    */
+-char *n_outstrings[MAX_STAFFS];
++extern char *n_outstrings[MAX_STAFFS];
+ 
+-int global_skip;  
++extern int global_skip;  
+    /* = 1, 2, 3, or 4 for (non-standard) commands \QQsk \HQsk \TQsk \Qsk    */
+    /* = 5 for five commas and double-flat accidental spacing                */
+    /* = 6 for six commas                                                    */
+--- a/utils/autosp/autosp-src/process_score.c
++++ b/utils/autosp/autosp-src/process_score.c
+@@ -1,5 +1,21 @@
+ # include "process_score.h"
+ 
++int staffs[MAX_STAFFS];
++bool active[MAX_STAFFS];
++bool bar_rest[MAX_STAFFS];
++int spacing;
++int restbars;
++char global_skip_str[7][16];   
++int ninstr;
++int nstaffs;
++int nastaffs;
++int old_spacing;
++bool Changeclefs;
++char TransformNotes2[SHORT_LEN];
++bool TransformNotesDefined;
++
++char line[LINE_LEN];
++
+ void process_line ()
+ {
+   char  *ln; 
+--- a/utils/autosp/autosp-src/process_score.h
++++ b/utils/autosp/autosp-src/process_score.h
+@@ -6,21 +6,21 @@
+ # define SP(note) (SMALL_NOTE/note)  
+ /* note = { 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 }  */
+ # define MAX_SPACING 2*SP(1)
+-int staffs[MAX_STAFFS]; /* number of staffs for ith instrument*/
+-bool active[MAX_STAFFS];        /* is staff i active?                 */
+-bool bar_rest[MAX_STAFFS];
+-int spacing;                    /* spacing for current notes          */
+-int restbars;
+-char global_skip_str[7][16];   
+-int ninstr;                 /* number of instruments              */
+-int nstaffs;                /* number of staffs                   */
+-int nastaffs;               /* number of active staffs;           */
+-int old_spacing;
+-bool Changeclefs;               /* output \Changeclefs after \def\atnextbar */
+-char TransformNotes2[SHORT_LEN];      /* 2nd argument of \TransformNotes    */
+-bool TransformNotesDefined;
++extern int staffs[MAX_STAFFS]; /* number of staffs for ith instrument*/
++extern bool active[MAX_STAFFS];        /* is staff i active?                 */
++extern bool bar_rest[MAX_STAFFS];
++extern int spacing;                    /* spacing for current notes          */
++extern int restbars;
++extern char global_skip_str[7][16];   
++extern int ninstr;                 /* number of instruments              */
++extern int nstaffs;                /* number of staffs                   */
++extern int nastaffs;               /* number of active staffs;           */
++extern int old_spacing;
++extern bool Changeclefs;               /* output \Changeclefs after \def\atnextbar */
++extern char TransformNotes2[SHORT_LEN];      /* 2nd argument of \TransformNotes    */
++extern bool TransformNotesDefined;
+ 
+-char line[LINE_LEN];            /* line of input                      */
++extern char line[LINE_LEN];            /* line of input                      */
+ 
+ void process_line ();
+ 
+--- a/utils/autosp/autosp-src/utils.c
++++ b/utils/autosp/autosp-src/utils.c
+@@ -24,6 +24,8 @@
+ 
+ # include "utils.h"
+ 
++int lineno;
++
+ void
+ warning (const char msg[])    /* output warning message msg to stderr                 */
+ {
+--- a/utils/autosp/autosp-src/utils.h
++++ b/utils/autosp/autosp-src/utils.h
+@@ -61,6 +61,6 @@
+ extern bool prefix (const char *cs, const char *ct); /* is string cs[] a prefix of ct[]?  */
+ extern bool suffix (const char *cs, const char *ct); /* is string cs[] a suffix of ct[]?  */
+ 
+-int lineno;
++extern int lineno;
+ extern void error (const char msg[]);	/* abort with stderr message msg */
+ extern void warning (const char msg[]); /* output warning message msg to stderr  */

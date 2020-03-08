@@ -1,17 +1,18 @@
-From 1203f6d9d51d6bedf11e36509f3a56638b1c816e Mon Sep 17 00:00:00 2001
+From 15e3bef2a1ec72007706705a31d9bd4c8eae53b1 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
-Date: Fri, 6 Mar 2020 13:31:24 +0000
+Date: Sun, 8 Mar 2020 10:05:15 +0000
 Subject: [PATCH] poppler-0.86 compat
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- pdftoepdf.cc | 308 ++++++++++++++++++++++++++-------------------------
- pdftosrc.cc  |  76 ++++++-------
- utils.c      |   1 -
- 3 files changed, 192 insertions(+), 193 deletions(-)
+ texk/web2c/pdftexdir/pdftoepdf.cc | 308 +++++++++++++++---------------
+ texk/web2c/pdftexdir/pdftosrc.cc  |  76 ++++----
+ texk/web2c/pdftexdir/utils.c      |   1 -
+ texk/web2c/xetexdir/XeTeX_ext.c   |   3 +
+ 4 files changed, 195 insertions(+), 193 deletions(-)
 
-diff --git a/pdftoepdf.cc b/pdftoepdf.cc
-index 4db0c90..d13293e 100644
+diff --git a/texk/web2c/pdftexdir/pdftoepdf.cc b/texk/web2c/pdftexdir/pdftoepdf.cc
+index 4db0c90a..d13293e9 100644
 --- a/texk/web2c/pdftexdir/pdftoepdf.cc
 +++ b/texk/web2c/pdftexdir/pdftoepdf.cc
 @@ -1,5 +1,5 @@
@@ -629,8 +630,8 @@ index 4db0c90..d13293e 100644
 -        delete globalParams;
      }
  }
-diff --git a/pdftosrc.cc b/pdftosrc.cc
-index 67be229..b6700fd 100644
+diff --git a/texk/web2c/pdftexdir/pdftosrc.cc b/texk/web2c/pdftexdir/pdftosrc.cc
+index 67be229e..b6700fd6 100644
 --- a/texk/web2c/pdftexdir/pdftosrc.cc
 +++ b/texk/web2c/pdftexdir/pdftosrc.cc
 @@ -16,6 +16,14 @@ GNU General Public License for more details.
@@ -803,8 +804,8 @@ index 67be229..b6700fd 100644
      delete doc;
 -    delete globalParams;
  }
-diff --git a/utils.c b/utils.c
-index c93a878..6f866e7 100644
+diff --git a/texk/web2c/pdftexdir/utils.c b/texk/web2c/pdftexdir/utils.c
+index c93a8781..6f866e76 100644
 --- a/texk/web2c/pdftexdir/utils.c
 +++ b/texk/web2c/pdftexdir/utils.c
 @@ -33,7 +33,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -815,6 +816,21 @@ index c93a878..6f866e7 100644
  #define xpdfVersion POPPLER_VERSION
  #define xpdfString "poppler"
  #else
+diff --git a/texk/web2c/xetexdir/XeTeX_ext.c b/texk/web2c/xetexdir/XeTeX_ext.c
+index 4968ee41..0aee4ee3 100644
+--- a/texk/web2c/xetexdir/XeTeX_ext.c
++++ b/texk/web2c/xetexdir/XeTeX_ext.c
+@@ -38,7 +38,10 @@ authorization from the copyright holders.
+ 
+ #include <w2c/config.h>
+ 
++#ifndef POPPLER_VERSION
+ #include <poppler-config.h>
++#endif
++
+ #include <png.h>
+ #include <zlib.h>
+ #include <graphite2/Font.h>
 -- 
 2.24.1
 

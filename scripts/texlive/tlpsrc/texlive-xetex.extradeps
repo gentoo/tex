@@ -1,6 +1,5 @@
-!=app-text/texlive-core-2007*
+>=dev-texlive/texlive-basic-2019
 >=dev-texlive/texlive-latexextra-2010
 >=app-text/texlive-core-2010[xetex]
 dev-texlive/texlive-mathscience
-!<dev-texlive/texlive-mathextra-2012
 dev-texlive/texlive-luatex

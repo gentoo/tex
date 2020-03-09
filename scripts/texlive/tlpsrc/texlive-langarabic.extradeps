@@ -1,5 +1,2 @@
-!<dev-texlive/texlive-xetex-2016
-!<dev-texlive/texlive-publishers-2013
-!dev-texlive/texlive-documentation-arabic
-!<dev-texlive/texlive-latexextra-2013
-!<dev-texlive/texlive-basic-2016
+>=dev-texlive/texlive-basic-2019
+!~dev-texlive/texlive-luatex-2017

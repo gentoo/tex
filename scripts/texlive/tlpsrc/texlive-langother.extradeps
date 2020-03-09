@@ -1,11 +1,5 @@
-!<dev-texlive/texlive-basic-2009
-!dev-texlive/texlive-documentation-vietnamese
-!dev-texlive/texlive-langvietnamese
+>=dev-texlive/texlive-basic-2019
 !<dev-texlive/texlive-langcjk-2013
-!dev-texlive/texlive-langhebrew
-!dev-texlive/texlive-documentation-thai
-!dev-texlive/texlive-langturkmen
-!dev-texlive/texlive-langtibetan
 !<dev-texlive/texlive-basic-2016
 !<dev-texlive/texlive-langafrican-2017
 !<dev-texlive/texlive-langindic-2017

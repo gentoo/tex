@@ -1,2 +1,3 @@
-!dev-texlive/texlive-documentation-polish
+>=dev-texlive/texlive-latex-2019
+>=dev-texlive/texlive-basic-2019
 !<dev-texlive/texlive-basic-2016

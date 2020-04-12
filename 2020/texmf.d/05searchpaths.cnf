@@ -3,17 +3,13 @@
 % This is the parent directory of our several trees, i.e.,
 % /usr/local/texlive/YYYY in the original TeX Live distribution.
 %
-% The path definitions here assume the directories are organized
-% according to the TeX Directory Structure (http://tug.org/tds).
+% All trees must be organized according to the TeX Directory Structure
+% (http://tug.org/tds), or files may not be found.
 %
 % Redistributors will probably want $SELFAUTODIR/share, i.e., /usr/share.
-% Kpathsea sets (in kpathsea/progname.c):
-% SELFAUTOLOC (directory of the binary=/usr/local/texlive/YYYY/bin/i386-linux),
-% SELFAUTODIR (its parent = /usr/local/texlive/YYYY/bin), 
-% SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
-% SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).
-% Sorry for the off-by-one-generation names.
-TEXMFROOT = $SELFAUTOPARENT/usr
+% Kpathsea sets SELFAUTOLOC (the directory with the binary),
+% SELFAUTODIR (its parent), and SELFAUTOPARENT (its grandparent).
+TEXMFROOT = $SELFAUTODIR/share
 
 % The main tree of distributed packages and programs:
 TEXMFDIST = $TEXMFROOT/texmf-dist
@@ -29,10 +25,10 @@ TEXMFSITE = $TEXMFROOT/texmf-site
 TEXMFLOCAL = $TEXMFROOT/../local/share/texmf
 
 % TEXMFSYSVAR, where *-sys store cached runtime data.
-TEXMFSYSVAR = $TEXMFROOT/var/lib/texmf
+TEXMFSYSVAR = $SELFAUTOPARENT/var/lib/texmf
 
 % TEXMFSYSCONFIG, where *-sys store configuration data.
-TEXMFSYSCONFIG = $TEXMFROOT/etc/texmf
+TEXMFSYSCONFIG = $SELFAUTOPARENT/etc/texmf
 
 % Per-user texmf tree(s) -- organized per the TDS, as usual.  To define
 % more than one per-user tree, set this to a list of directories in
@@ -65,21 +61,21 @@ TEXMFAUXTREES = {}
 % The odd-looking $TEXMFAUXTREES$TEXMF... construct is so that if no auxtree is
 % ever defined (the 99% common case), no extra elements will be added to
 % the search paths. tlmgr takes care to end any value with a trailing comma.
-TEXMF = {$TEXMFAUXTREES$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDIST}
+TEXMF = {$TEXMFAUXTREES$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFSITE,!!$TEXMFDIST}
 
-% Where to look for, and where mktexlsr creates, ls-R files. By default,
-% this is all and only the !! elements of TEXMF, so that mktexlsr does not
-% create ls-R files in the non-!! elements -- because if an ls-R is
-% present, it will be used, and the disk will not (usually) be searched,
-% regardless of !!.  Although in principle a directory listed here need
-% not contain an ls-R file, in practice they all should.
-TEXMFDBS = {!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDIST}
+% Where to look for ls-R files.  There need not be an ls-R in the
+% directories in this path, but if there is one, Kpathsea will use it.
+% By default, this is only the !! elements of TEXMF, so that mktexlsr
+% does not create ls-R files in the non-!! elements -- because if an
+% ls-R is present, it will be used, and the disk will not be searched.
+% This is arguably a bug in kpathsea.
+TEXMFDBS = {!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFSITE,!!$TEXMFDIST}
 
 % The system trees.  These are the trees that are shared by all users.
 % If a tree appears in this list, the mktex* scripts will use
 % VARTEXFONTS for generated files, if the original tree isn't writable;
 % otherwise the current working directory is used.
-SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFDIST
+SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFSITE;$TEXMFDIST
 
 % First writable tree here is used by Lua(La)TeX for the font cache.
 % LuaLaTeX uses the value here, while ConTeXt uses the same variable but
@@ -87,10 +83,14 @@ SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFDIST
 % (As should everything else in texmf.cnf <-> texmfcnf.lua.)
 TEXMFCACHE = $TEXMFSYSVAR;$TEXMFVAR
 
+% We use GLOBALVARTEXFONTS in order to always be able to search in the global
+% font cache even if VARTEXFONTS is overridden.
+GLOBALVARTEXFONTS = $SELFAUTOPARENT/var/cache/fonts
+
 % Where generated fonts may be written.  This tree is used when the sources
 % were found in a system tree and either that tree wasn't writable, or the
 % varfonts feature was enabled in MT_FEATURES in mktex.cnf.
-VARTEXFONTS = $TEXMFVAR/fonts
+VARTEXFONTS = $GLOBALVARTEXFONTS
 
 % On some systems, there will be a system tree which contains all the font
 % files that may be created as well as the formats.  For example

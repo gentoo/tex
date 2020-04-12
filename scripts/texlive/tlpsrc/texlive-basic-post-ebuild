@@ -1,2 +1,1 @@
-PATCHES=( "${FILESDIR}/texmfcnflua2017.patch" )
-TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/simpdftex/simpdftex texmf-dist/scripts/texlive/rungs.tlu"
+TEXLIVE_MODULE_BINSCRIPTS="texmf-dist/scripts/simpdftex/simpdftex"

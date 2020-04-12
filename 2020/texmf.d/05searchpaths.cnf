@@ -13,7 +13,7 @@
 % SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
 % SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).
 % Sorry for the off-by-one-generation names.
-TEXMFROOT = $SELFAUTOPARENT
+TEXMFROOT = $SELFAUTOPARENT/usr
 
 % The main tree of distributed packages and programs:
 TEXMFDIST = $TEXMFROOT/texmf-dist

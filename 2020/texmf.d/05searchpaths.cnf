@@ -26,13 +26,13 @@ TEXMFMAIN = $TEXMFDIST
 TEXMFSITE = $TEXMFROOT/texmf-site
 
 % Local additions to the distribution trees.
-TEXMFLOCAL = $SELFAUTOGRANDPARENT/texmf-local
+TEXMFLOCAL = $TEXMFROOT/../local/share/texmf
 
 % TEXMFSYSVAR, where *-sys store cached runtime data.
-TEXMFSYSVAR = $TEXMFROOT/texmf-var
+TEXMFSYSVAR = $TEXMFROOT/var/lib/texmf
 
 % TEXMFSYSCONFIG, where *-sys store configuration data.
-TEXMFSYSCONFIG = $TEXMFROOT/texmf-config
+TEXMFSYSCONFIG = $TEXMFROOT/etc/texmf
 
 % Per-user texmf tree(s) -- organized per the TDS, as usual.  To define
 % more than one per-user tree, set this to a list of directories in
@@ -41,10 +41,10 @@ TEXMFSYSCONFIG = $TEXMFROOT/texmf-config
 TEXMFHOME = ~/texmf
 
 % TEXMFVAR, where texconfig/updmap/fmtutil store cached runtime data.
-TEXMFVAR = ~/.texlive2020/texmf-var
+TEXMFVAR = ~/.texlive/texmf-var
 
 % TEXMFCONFIG, where texconfig/updmap/fmtutil store configuration data.
-TEXMFCONFIG = ~/.texlive2020/texmf-config
+TEXMFCONFIG = ~/.texlive/texmf-config
 
 % This is the value manipulated by tlmgr's auxtrees subcommand in the
 % root texmf.cnf. Kpathsea warns about a literally empty string for a

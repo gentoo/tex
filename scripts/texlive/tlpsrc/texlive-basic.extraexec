@@ -8,3 +8,4 @@ sed -i -e "s/dvips //" $@
 sed -i -e "s/gsftopk //" $@
 sed -i -e "s/glyphlist //" $@
 sed -i -e "s/dvipdfmx //" $@
+sed -i -e "s/texlive-scripts //" $@

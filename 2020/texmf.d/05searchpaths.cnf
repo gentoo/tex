@@ -22,6 +22,9 @@ TEXMFDIST = $TEXMFROOT/texmf-dist
 % Keep the variable name.
 TEXMFMAIN = $TEXMFDIST
 
+% The Gentoo site tree
+TEXMFSITE = $TEXMFROOT/texmf-site
+
 % Local additions to the distribution trees.
 TEXMFLOCAL = $SELFAUTOGRANDPARENT/texmf-local
 

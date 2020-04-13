@@ -1,3 +1,4 @@
 TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/texlive-extra/rumakeindex.sh
+	texmf-dist/scripts/texlive-extra/rubibtex.sh
 	"

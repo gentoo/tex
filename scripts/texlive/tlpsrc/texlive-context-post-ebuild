@@ -1,11 +1,9 @@
-PATCHES=( "${FILESDIR}/luacnfspec2016.patch" )
-
 TL_CONTEXT_UNIX_STUBS="contextjit mtxrunjit mtxrun texexec context metatex luatools mtxworks texmfstart"
 
 TEXLIVE_MODULE_BINSCRIPTS=""
 
 for i in ${TL_CONTEXT_UNIX_STUBS} ; do
-TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/$i"
+TEXLIVE_MODULE_BINSCRIPTS="${TEXLIVE_MODULE_BINSCRIPTS} texmf-dist/scripts/context/stubs/unix/${i}"
 done
 
 # This small hack is needed in order to have a sane upgrade path:
@@ -22,6 +20,7 @@ pkg_setup() {
 
 # These comes without +x bit set...
 src_prepare() {
+	default
 	# No need to install these .exe
 	rm -rf texmf-dist/scripts/context/stubs/{mswin,win64} || die
 

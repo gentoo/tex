@@ -1,17 +1,17 @@
 certificate version 0.1
-pusher Mikle Kolyada <zlogene@gentoo.org> 1586807978 +0300
+pusher Mikle Kolyada <zlogene@gentoo.org> 1586810151 +0300
 pushee git+ssh://git.gentoo.org/proj/tex.git
-nonce 1586807978-4587715b7c5e1d252f1e086a222f8999919025c7
+nonce 1586810151-70123588bbf0767afcc56398bcefdb296c78e509
 
-e199bd1f5a0ecc1cb83209fe6f79758cc537b5ac c61ca1b70c83ac4d4ec098952f5501abbfb68359 refs/heads/master
+c61ca1b70c83ac4d4ec098952f5501abbfb68359 b9e84cf1e837668266dece185f1531d196135103 refs/heads/master
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAABCAAxFiEEWmyBGnI+Eihw6dN8HICQJIqVl8cFAl6UxKoTHHpsb2dlbmVA
-Z2VudG9vLm9yZwAKCRAcgJAkipWXx+p+B/0eYehhAef8txcbmRQkDw39gudm2KO3
-+mLDERnzaCl47YlG8z4/lUFfh19RP8MUOFo+vPs2Z/FVNUFvbTVC62v/DBgJHzSA
-gdj6wCE3BeW0BtjLnFkwTK4O44XXrtD6ZwjeGQ8D4CcYcY1Hw2T/tuY42XppdZ+x
-JgX71KMZfMIreh3gk+pchrhooQs1qiMnhlp0BCHSDLkEQ+AaqR8RyEdXHcqFyerc
-EgIVdqRgWn4oZ69Y8nyiqfifVbG525nHsT770A0XDemKzvcLQ/584hGcInFLIWtQ
-FlyRjO0jtt4DuRVl0hv+/BRhKze3q6cva+YAWEFrNkxNXnNa/PY06X0b
-=/RYP
+iQFHBAABCAAxFiEEWmyBGnI+Eihw6dN8HICQJIqVl8cFAl6UzScTHHpsb2dlbmVA
+Z2VudG9vLm9yZwAKCRAcgJAkipWXxwpGB/9M7gWpujBTtMaj+h4IegQRKXqgz6NU
+tAO15ahwx6QNy+aDEkfCgM+Rix+6O5/lFPb5QL/xNtZCYAAx2eh502xVz3bdKnDA
+vA7uJcTpNEPQt/GdBOUg71UW7IvC07uwAVjTt6tdpRh7S/iftKFtyGJXZI95IZdz
+ekSbjldO7DKRQ6VwaHY/ox9f7spSPTPru4FPw9v3JUJqIzfNTcC467+mAqy03x9o
+sQAGcmnpoyoQcWWT3B7l+06kbLlKBBfgwZvPucfX9/zfkmYyBxgndZQMsLCwXzw5
+frkyJDP/lzdKSWqbSWCxaobH4Ho4hGzGs+sMCW2lroB/vhwcCiiGYjt1
+=IjEv
 -----END PGP SIGNATURE-----

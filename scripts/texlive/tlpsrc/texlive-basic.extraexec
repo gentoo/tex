@@ -1,5 +1,4 @@
 sed -i -e "s/xdvi //" $@
-sed -i -e "s/tetex //" $@
 sed -i -e "s/texlive[.]infra //" $@
 sed -i -e "s/kpathsea //" $@
 sed -i -e "s/hyphen-base //" $@

@@ -24,7 +24,6 @@ src_prepare() {
 	# No need to install these .exe
 	rm -rf texmf-dist/scripts/context/stubs/{mswin,win64} || die
 
-	texlive-module_src_prepare
 }
 
 TL_MODULE_INFORMATION="For using ConTeXt mkII simply use 'texexec' to generate

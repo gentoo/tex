@@ -1,4 +1,4 @@
-From cc8501e87a978e256a20405aa953282f37365ffe Mon Sep 17 00:00:00 2001
+From 745cab700ea5905fb749721f905013ba97e05fe0 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Mon, 13 Apr 2020 15:48:05 +0300
 Subject: [PATCH] patch1
@@ -6,8 +6,8 @@ Subject: [PATCH] patch1
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
  texk/texlive/linked_scripts/Makefile.am |  4 --
- texk/texlive/linked_scripts/Makefile.in | 78 +------------------------
- 2 files changed, 2 insertions(+), 80 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 85 +------------------------
+ 2 files changed, 2 insertions(+), 87 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.am b/texk/texlive/linked_scripts/Makefile.am
 index 92c8629d..9810d679 100644
@@ -46,7 +46,7 @@ index 92c8629d..9810d679 100644
  	urlbst/urlbst \
  	vpe/vpe.pl \
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index 5bf620be..38bcd566 100644
+index 5bf620be..66dd7c24 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
 @@ -269,32 +269,25 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
@@ -147,13 +147,17 @@ index 5bf620be..38bcd566 100644
  	latex-git-log/latex-git-log \
  	latex-papersize/latex-papersize.py \
  	latex2man/latex2man \
-@@ -373,46 +333,30 @@ texmf_other_scripts = \
- 	lilyglyphs/lily-image-commands.py \
- 	lilyglyphs/lily-rebuild-pdfs.py \
+@@ -369,50 +329,27 @@ texmf_other_scripts = \
+ 	latexindent/latexindent.pl \
+ 	latexmk/latexmk.pl \
+ 	latexpand/latexpand \
+-	lilyglyphs/lily-glyph-commands.py \
+-	lilyglyphs/lily-image-commands.py \
+-	lilyglyphs/lily-rebuild-pdfs.py \
  	ltximg/ltximg.pl \
 -	luaotfload/luaotfload-tool.lua \
 -	lwarp/lwarpmk.lua \
- 	m-tx/m-tx.lua \
+-	m-tx/m-tx.lua \
 -	makedtx/makedtx.pl \
  	make4ht/make4ht \
  	match_parens/match_parens \
@@ -163,8 +167,8 @@ index 5bf620be..38bcd566 100644
  	mkjobtexmf/mkjobtexmf.pl \
 -	mkpic/mkpic \
 -	multibibliography/multibibliography.pl \
- 	musixtex/musixflx.lua \
- 	musixtex/musixtex.lua \
+-	musixtex/musixflx.lua \
+-	musixtex/musixtex.lua \
  	pax/pdfannotextractor.pl \
  	pdfcrop/pdfcrop.pl \
  	pdflatexpicscale/pdflatexpicscale.pl \
@@ -175,7 +179,7 @@ index 5bf620be..38bcd566 100644
  	pfarrei/pfarrei.tlu \
  	pkfix-helper/pkfix-helper \
  	pkfix/pkfix.pl \
- 	pmxchords/pmxchords.lua \
+-	pmxchords/pmxchords.lua \
 -	pst2pdf/pst2pdf.pl \
  	ptex-fontmaps/kanji-config-updmap-sys.sh \
  	ptex-fontmaps/kanji-config-updmap-user.sh \
@@ -194,7 +198,7 @@ index 5bf620be..38bcd566 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -428,7 +372,6 @@ texmf_other_scripts = \
+@@ -428,7 +365,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -202,7 +206,7 @@ index 5bf620be..38bcd566 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -436,24 +379,8 @@ texmf_other_scripts = \
+@@ -436,24 +372,8 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -228,7 +232,7 @@ index 5bf620be..38bcd566 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -464,7 +391,6 @@ bin_links = \
+@@ -464,7 +384,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

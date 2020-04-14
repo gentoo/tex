@@ -1,4 +1,4 @@
-From 745cab700ea5905fb749721f905013ba97e05fe0 Mon Sep 17 00:00:00 2001
+From eeeb8457f722abba934b053dbd159ea7b4858a04 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Mon, 13 Apr 2020 15:48:05 +0300
 Subject: [PATCH] patch1
@@ -6,8 +6,8 @@ Subject: [PATCH] patch1
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
  texk/texlive/linked_scripts/Makefile.am |  4 --
- texk/texlive/linked_scripts/Makefile.in | 85 +------------------------
- 2 files changed, 2 insertions(+), 87 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 90 +------------------------
+ 2 files changed, 2 insertions(+), 92 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.am b/texk/texlive/linked_scripts/Makefile.am
 index 92c8629d..9810d679 100644
@@ -46,7 +46,7 @@ index 92c8629d..9810d679 100644
  	urlbst/urlbst \
  	vpe/vpe.pl \
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index 5bf620be..66dd7c24 100644
+index 5bf620be..e762b72a 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
 @@ -269,32 +269,25 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
@@ -147,7 +147,7 @@ index 5bf620be..66dd7c24 100644
  	latex-git-log/latex-git-log \
  	latex-papersize/latex-papersize.py \
  	latex2man/latex2man \
-@@ -369,50 +329,27 @@ texmf_other_scripts = \
+@@ -369,50 +329,22 @@ texmf_other_scripts = \
  	latexindent/latexindent.pl \
  	latexmk/latexmk.pl \
  	latexpand/latexpand \
@@ -181,11 +181,11 @@ index 5bf620be..66dd7c24 100644
  	pkfix/pkfix.pl \
 -	pmxchords/pmxchords.lua \
 -	pst2pdf/pst2pdf.pl \
- 	ptex-fontmaps/kanji-config-updmap-sys.sh \
- 	ptex-fontmaps/kanji-config-updmap-user.sh \
- 	ptex-fontmaps/kanji-config-updmap.pl \
- 	ptex-fontmaps/kanji-fontmap-creator.pl \
- 	ptex2pdf/ptex2pdf.lua \
+-	ptex-fontmaps/kanji-config-updmap-sys.sh \
+-	ptex-fontmaps/kanji-config-updmap-user.sh \
+-	ptex-fontmaps/kanji-config-updmap.pl \
+-	ptex-fontmaps/kanji-fontmap-creator.pl \
+-	ptex2pdf/ptex2pdf.lua \
  	purifyeps/purifyeps \
 -	pygmentex/pygmentex.py \
  	pythontex/depythontex.py \
@@ -198,7 +198,7 @@ index 5bf620be..66dd7c24 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -428,7 +365,6 @@ texmf_other_scripts = \
+@@ -428,7 +360,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -206,7 +206,7 @@ index 5bf620be..66dd7c24 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -436,24 +372,8 @@ texmf_other_scripts = \
+@@ -436,24 +367,8 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -232,7 +232,7 @@ index 5bf620be..66dd7c24 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -464,7 +384,6 @@ bin_links = \
+@@ -464,7 +379,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

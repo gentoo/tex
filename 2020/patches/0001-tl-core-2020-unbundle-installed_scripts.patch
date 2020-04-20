@@ -1,13 +1,13 @@
-From 102c159bb6c468929c06942e9ca8740aa8594bc7 Mon Sep 17 00:00:00 2001
+From 8b8326b3fce8a44694ecfaee212c4706b419d493 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
-Date: Mon, 13 Apr 2020 15:48:05 +0300
-Subject: [PATCH] patch1
+Date: Mon, 20 Apr 2020 15:08:06 +0300
+Subject: [PATCH] tl-core-2020: unbundle installed_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.am |  4 --
- texk/texlive/linked_scripts/Makefile.in | 91 +------------------------
- 2 files changed, 2 insertions(+), 93 deletions(-)
+ texk/texlive/linked_scripts/Makefile.am |  4 -
+ texk/texlive/linked_scripts/Makefile.in | 97 +------------------------
+ 2 files changed, 2 insertions(+), 99 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.am b/texk/texlive/linked_scripts/Makefile.am
 index 92c8629d..9810d679 100644
@@ -46,10 +46,10 @@ index 92c8629d..9810d679 100644
  	urlbst/urlbst \
  	vpe/vpe.pl \
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index 5bf620be..703bee70 100644
+index 5bf620be..4cfe0e11 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
-@@ -269,32 +269,25 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
+@@ -269,32 +269,24 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
  texmf_scriptsdir = $(datarootdir)/texmf-dist/scripts
  texmf_shell_scripts = \
  	adhocfilelist/adhocfilelist.sh \
@@ -63,7 +63,7 @@ index 5bf620be..703bee70 100644
  	listings-ext/listings-ext.sh \
  	ltxfileinfo/ltxfileinfo \
  	pdfbook2/pdfbook2 \
- 	pdfjam/pdfjam \
+-	pdfjam/pdfjam \
  	pdftex-quiet/pdftex-quiet \
  	pdfxup/pdfxup \
 -	pst-pdf/ps4pdf \
@@ -82,7 +82,7 @@ index 5bf620be..703bee70 100644
  	texlive-extra/texconfig-dialog.sh \
  	texlive-extra/texconfig-sys.sh \
  	texlive-extra/texconfig.sh \
-@@ -302,63 +295,29 @@ texmf_shell_scripts = \
+@@ -302,117 +294,50 @@ texmf_shell_scripts = \
  	texosquery/texosquery.sh \
  	texosquery/texosquery-jre5.sh \
  	texosquery/texosquery-jre8.sh \
@@ -136,7 +136,7 @@ index 5bf620be..703bee70 100644
 -	fontools/ot2kpx \
  	fragmaster/fragmaster.pl \
 -	getmap/getmapdl.lua \
- 	glossaries/makeglossaries \
+-	glossaries/makeglossaries \
  	glossaries/makeglossaries-lite.lua \
 -	jfmutil/jfmutil.pl \
  	ketcindy/ketcindy.pl \
@@ -147,9 +147,12 @@ index 5bf620be..703bee70 100644
  	latex-git-log/latex-git-log \
  	latex-papersize/latex-papersize.py \
  	latex2man/latex2man \
-@@ -369,50 +328,22 @@ texmf_other_scripts = \
+ 	latex2nemeth/latex2nemeth \
+-	latexdiff/latexdiff-vc.pl \
+-	latexdiff/latexdiff.pl \
+-	latexdiff/latexrevise.pl \
  	latexindent/latexindent.pl \
- 	latexmk/latexmk.pl \
+-	latexmk/latexmk.pl \
  	latexpand/latexpand \
 -	lilyglyphs/lily-glyph-commands.py \
 -	lilyglyphs/lily-image-commands.py \
@@ -198,7 +201,7 @@ index 5bf620be..703bee70 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -428,7 +359,6 @@ texmf_other_scripts = \
+@@ -428,7 +353,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -206,7 +209,7 @@ index 5bf620be..703bee70 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -436,24 +366,8 @@ texmf_other_scripts = \
+@@ -436,24 +360,8 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -232,7 +235,7 @@ index 5bf620be..703bee70 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -464,7 +378,6 @@ bin_links = \
+@@ -464,7 +372,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

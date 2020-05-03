@@ -3,16 +3,16 @@ include Makefile.common
 
 CONTENTS=YOU_NEED_TO_SET_CONTENTS_VARIABLE_TO_GENERATE_VERSIONNED_LZMA_FILES
 
-$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz:
-	wget $(CTAN_MIRROR)/systems/texlive/tlnet/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz=%.tar.xz) -O $@
+$(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz:
+	wget $(CTAN_MIRROR)/systems/texlive/tlnet/archive/$(@:$(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz=%.tar.xz) -O $@
 
-#wget $(TUG)/tlnet/archive/$(@:$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz=%.tar.xz) -O $@
+#wget $(TUG)/tlnet/archive/$(@:$(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz=%.tar.xz) -O $@
 
-$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.lzma: $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz
+$(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.lzma: $(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz
 	xz -d $<
 	lzma $(<:%.xz=%)
 
-versionnedzips: $(CONTENTS:%=$(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz)
+versionnedzips: $(CONTENTS:%=$(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz)
 
 %.tlplic: %.unpacked
 	cp $(@:%.tlplic=tlunpackdir/tlpkg/tlpobj/%.tlpobj) $@
@@ -26,7 +26,7 @@ tldir:
 	mkdir tlunpackdir
 	touch $@
 
-%.unpacked: $(DISTDIR)/texlive-module-%-$(TEXLIVE_VERSION).tar.xz tldir
+%.unpacked: $(DISTDIR)/tl-%-$(TEXLIVE_VERSION).tar.xz tldir
 	xz -dc $< | tar xof - -C tlunpackdir
 	touch $@
 

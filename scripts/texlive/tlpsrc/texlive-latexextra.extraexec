@@ -1,6 +1,5 @@
 sed -i -e "s/translator //" $@
 sed -i -e "s/glossaries //" $@
-sed -i -e "s/leaflet //" $@
 sed -i -e "s/currvita //" $@
 sed -i -e "s/g-brief //" $@
 sed -i -e "s/envlab //" $@

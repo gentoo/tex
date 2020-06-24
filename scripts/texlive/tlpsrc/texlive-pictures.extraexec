@@ -1,3 +1,2 @@
 sed -i -e "s/pgf / /" $1
-sed -i -e "s/dot2texi//" $1
 sed -i -e "s/epspdf / /" $1

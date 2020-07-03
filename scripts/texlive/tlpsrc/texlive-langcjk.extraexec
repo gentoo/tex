@@ -1,2 +1,0 @@
-sed -i -e "s/cjk //" $1
-sed -i -e "s/cjkutils //" $1

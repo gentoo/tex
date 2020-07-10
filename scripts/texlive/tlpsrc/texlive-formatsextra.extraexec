@@ -1,4 +1,3 @@
 sed -i -e "s/jadetex//" $1
 sed -i -e "s/tex4ht//" $1
-sed -i -e "s/xmltex//" $1
 sed -i -e "s/passivetex //" $1

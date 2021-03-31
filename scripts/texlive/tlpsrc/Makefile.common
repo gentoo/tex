@@ -1,4 +1,4 @@
 
-TEXLIVE_VERSION=2020
+TEXLIVE_VERSION=2021
 
 include ../common/Makefile.common

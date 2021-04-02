@@ -5,6 +5,8 @@ while [ $# -gt 0 ] ; do
             echo "CC-BY-SA-2.0";;
         cc-by-sa-4)
             echo "CC-BY-SA-4.0";;
+        cc-by-4)
+            echo "CC-BY-4.0";;
         gpl)
             echo "GPL-1";;
         gpl2)

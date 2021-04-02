@@ -9,6 +9,8 @@ while [ $# -gt 0 ] ; do
             echo "GPL-1";;
         gpl2)
             echo "GPL-2";;
+        gpl2+)
+            echo "GPL-2+";;
         gpl3)
             echo "GPL-3";;
         gpl3+)

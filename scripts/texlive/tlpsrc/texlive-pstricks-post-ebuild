@@ -2,4 +2,3 @@ TEXLIVE_MODULE_BINSCRIPTS="
 	texmf-dist/scripts/pst2pdf/pst2pdf.pl
 	texmf-dist/scripts/pedigree-perl/pedigree.pl
 "
-PATCHES=( "${FILESDIR}/pedigreeloc.patch" )

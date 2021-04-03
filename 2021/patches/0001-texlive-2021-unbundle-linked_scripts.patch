@@ -1,15 +1,15 @@
-From cc5e81aabfd5a188877ceb74d0e8b8679b8c3208 Mon Sep 17 00:00:00 2001
+From a0d78e432a6691798257fc649569ee255ae68fc2 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Sat, 3 Apr 2021 09:58:56 +0300
 Subject: [PATCH] texlive-2021: unbundle linked_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.in | 94 +------------------------
- 1 file changed, 2 insertions(+), 92 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 96 +------------------------
+ 1 file changed, 2 insertions(+), 94 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index e64e3117..f54e0c23 100644
+index e64e3117..6c9b3f8b 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
 @@ -269,14 +269,12 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
@@ -46,7 +46,7 @@ index e64e3117..f54e0c23 100644
  	texlive-extra/texconfig-dialog.sh \
  	texlive-extra/texconfig-sys.sh \
  	texlive-extra/texconfig.sh \
-@@ -303,122 +297,55 @@ texmf_shell_scripts = \
+@@ -303,122 +297,53 @@ texmf_shell_scripts = \
  	texosquery/texosquery.sh \
  	texosquery/texosquery-jre5.sh \
  	texosquery/texosquery-jre8.sh \
@@ -143,7 +143,7 @@ index e64e3117..f54e0c23 100644
  	pax/pdfannotextractor.pl \
  	pdfcrop/pdfcrop.pl \
  	pdflatexpicscale/pdflatexpicscale.pl \
- 	pedigree-perl/pedigree.pl \
+-	pedigree-perl/pedigree.pl \
 -	perltex/perltex.pl \
 -	petri-nets/pn2pdf \
  	pfarrei/a5toa4.tlu \
@@ -151,7 +151,7 @@ index e64e3117..f54e0c23 100644
  	pkfix-helper/pkfix-helper \
  	pkfix/pkfix.pl \
 -	pmxchords/pmxchords.lua \
- 	pst2pdf/pst2pdf.pl \
+-	pst2pdf/pst2pdf.pl \
 -	ptex-fontmaps/kanji-config-updmap-sys.sh \
 -	ptex-fontmaps/kanji-config-updmap-user.sh \
 -	ptex-fontmaps/kanji-config-updmap.pl \
@@ -170,7 +170,7 @@ index e64e3117..f54e0c23 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -434,7 +361,6 @@ texmf_other_scripts = \
+@@ -434,7 +359,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -178,7 +178,7 @@ index e64e3117..f54e0c23 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -442,24 +368,9 @@ texmf_other_scripts = \
+@@ -442,24 +366,9 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -204,7 +204,7 @@ index e64e3117..f54e0c23 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -470,7 +381,6 @@ bin_links = \
+@@ -470,7 +379,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

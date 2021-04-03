@@ -4,8 +4,6 @@ Date: Sat, 3 Apr 2021 09:58:56 +0300
 Subject: [PATCH] texlive-2021: unbundle linked_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
-
-Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
  texk/texlive/linked_scripts/Makefile.in | 97 +------------------------
  1 file changed, 2 insertions(+), 95 deletions(-)

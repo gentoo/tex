@@ -1,15 +1,15 @@
-From 36b9eeb0737257645fbe1c6abfd9ea6d2f6d307c Mon Sep 17 00:00:00 2001
+From 1bc7417b4d4ec0fd89d7c0ba8771098b096191da Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Sat, 3 Apr 2021 12:13:29 +0300
 Subject: [PATCH] unbundle linked_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.in | 97 +------------------------
- 1 file changed, 2 insertions(+), 95 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 98 +------------------------
+ 1 file changed, 2 insertions(+), 96 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index e64e3117..4ebadb2b 100644
+index e64e3117..be75c7bc 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
 @@ -269,33 +269,26 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
@@ -178,14 +178,14 @@ index e64e3117..4ebadb2b 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -442,24 +365,9 @@ texmf_other_scripts = \
+@@ -442,24 +365,8 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
 -	thumbpdf/thumbpdf.pl \
  	tlcockpit/tlcockpit.sh \
 -	tlshell/tlshell.tcl \
- 	ulqda/ulqda.pl \
+-	ulqda/ulqda.pl \
 -	urlbst/urlbst \
 -	vpe/vpe.pl \
 -	webquiz/webquiz.py \
@@ -204,7 +204,7 @@ index e64e3117..4ebadb2b 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -470,7 +378,6 @@ bin_links = \
+@@ -470,7 +377,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

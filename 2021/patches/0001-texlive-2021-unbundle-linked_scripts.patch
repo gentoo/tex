@@ -1,18 +1,20 @@
-From a0d78e432a6691798257fc649569ee255ae68fc2 Mon Sep 17 00:00:00 2001
+From ceba4c9a919cf50c70a08178078698c7cd309daf Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Sat, 3 Apr 2021 09:58:56 +0300
 Subject: [PATCH] texlive-2021: unbundle linked_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
+
+Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.in | 96 +------------------------
- 1 file changed, 2 insertions(+), 94 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 97 +------------------------
+ 1 file changed, 2 insertions(+), 95 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index e64e3117..6c9b3f8b 100644
+index e64e3117..4ebadb2b 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
-@@ -269,14 +269,12 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
+@@ -269,33 +269,26 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
  texmf_scriptsdir = $(datarootdir)/texmf-dist/scripts
  texmf_shell_scripts = \
  	adhocfilelist/adhocfilelist.sh \
@@ -27,10 +29,10 @@ index e64e3117..6c9b3f8b 100644
  	listings-ext/listings-ext.sh \
  	ltxfileinfo/ltxfileinfo \
  	pdfbook2/pdfbook2 \
-@@ -284,18 +282,14 @@ texmf_shell_scripts = \
+ 	pdfjam/pdfjam \
  	pdftex-quiet/pdftex-quiet \
  	pdfxup/pdfxup \
- 	pst-pdf/ps4pdf \
+-	pst-pdf/ps4pdf \
 -	simpdftex/simpdftex \
  	texlive-extra/allcm.sh \
  	texlive-extra/allneeded.sh \
@@ -46,7 +48,7 @@ index e64e3117..6c9b3f8b 100644
  	texlive-extra/texconfig-dialog.sh \
  	texlive-extra/texconfig-sys.sh \
  	texlive-extra/texconfig.sh \
-@@ -303,122 +297,53 @@ texmf_shell_scripts = \
+@@ -303,122 +296,53 @@ texmf_shell_scripts = \
  	texosquery/texosquery.sh \
  	texosquery/texosquery-jre5.sh \
  	texosquery/texosquery-jre8.sh \
@@ -170,7 +172,7 @@ index e64e3117..6c9b3f8b 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -434,7 +359,6 @@ texmf_other_scripts = \
+@@ -434,7 +358,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -178,7 +180,7 @@ index e64e3117..6c9b3f8b 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -442,24 +366,9 @@ texmf_other_scripts = \
+@@ -442,24 +365,9 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -204,7 +206,7 @@ index e64e3117..6c9b3f8b 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -470,7 +379,6 @@ bin_links = \
+@@ -470,7 +378,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

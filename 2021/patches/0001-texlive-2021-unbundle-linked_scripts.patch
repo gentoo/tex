@@ -1,15 +1,15 @@
-From 1bc7417b4d4ec0fd89d7c0ba8771098b096191da Mon Sep 17 00:00:00 2001
+From f8190e0bd0e04467b65b424c8bb1e10dd5988cf2 Mon Sep 17 00:00:00 2001
 From: Mikle Kolyada <zlogene@gentoo.org>
 Date: Sat, 3 Apr 2021 12:13:29 +0300
 Subject: [PATCH] unbundle linked_scripts
 
 Signed-off-by: Mikle Kolyada <zlogene@gentoo.org>
 ---
- texk/texlive/linked_scripts/Makefile.in | 98 +------------------------
- 1 file changed, 2 insertions(+), 96 deletions(-)
+ texk/texlive/linked_scripts/Makefile.in | 99 +------------------------
+ 1 file changed, 2 insertions(+), 97 deletions(-)
 
 diff --git a/texk/texlive/linked_scripts/Makefile.in b/texk/texlive/linked_scripts/Makefile.in
-index e64e3117..be75c7bc 100644
+index e64e3117..277cb6c5 100644
 --- a/texk/texlive/linked_scripts/Makefile.in
 +++ b/texk/texlive/linked_scripts/Makefile.in
 @@ -269,33 +269,26 @@ EXTRA_DIST = scripts.lst context/stubs/unix/ctxtools \
@@ -46,7 +46,7 @@ index e64e3117..be75c7bc 100644
  	texlive-extra/texconfig-dialog.sh \
  	texlive-extra/texconfig-sys.sh \
  	texlive-extra/texconfig.sh \
-@@ -303,122 +296,53 @@ texmf_shell_scripts = \
+@@ -303,122 +296,52 @@ texmf_shell_scripts = \
  	texosquery/texosquery.sh \
  	texosquery/texosquery-jre5.sh \
  	texosquery/texosquery-jre8.sh \
@@ -140,7 +140,7 @@ index e64e3117..be75c7bc 100644
 -	multibibliography/multibibliography.pl \
 -	musixtex/musixflx.lua \
 -	musixtex/musixtex.lua \
- 	pax/pdfannotextractor.pl \
+-	pax/pdfannotextractor.pl \
  	pdfcrop/pdfcrop.pl \
  	pdflatexpicscale/pdflatexpicscale.pl \
 -	pedigree-perl/pedigree.pl \
@@ -170,7 +170,7 @@ index e64e3117..be75c7bc 100644
  	tex4ebook/tex4ebook \
  	texcount/texcount.pl \
  	texdef/texdef.pl \
-@@ -434,7 +358,6 @@ texmf_other_scripts = \
+@@ -434,7 +357,6 @@ texmf_other_scripts = \
  	texlive/mktexpk \
  	texlive/mktextfm \
  	texlive/rungs.tlu \
@@ -178,7 +178,7 @@ index e64e3117..be75c7bc 100644
  	texlive/updmap-sys.sh \
  	texlive/updmap-user.sh \
  	texlive/updmap.pl \
-@@ -442,24 +365,8 @@ texmf_other_scripts = \
+@@ -442,24 +364,8 @@ texmf_other_scripts = \
  	texliveonfly/texliveonfly.py \
  	texloganalyser/texloganalyser \
  	texplate/texplate.sh \
@@ -204,7 +204,7 @@ index e64e3117..be75c7bc 100644
  
  nobase_dist_texmf_scripts_SCRIPTS = \
  	$(texmf_shell_scripts) \
-@@ -470,7 +377,6 @@ bin_links = \
+@@ -470,7 +376,6 @@ bin_links = \
  	allcm:allec \
  	cluttex:clxelatex \
  	cluttex:cllualatex \

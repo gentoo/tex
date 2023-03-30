@@ -1,5 +1,5 @@
 
-PORTDIR=$(shell portageq portdir)
+PORTDIR=$(shell portageq get_repo_path / gentoo)
 DISTDIR=$(shell portageq distdir)
 
 

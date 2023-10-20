@@ -49,10 +49,10 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.3";;
         #unknown)
         #    echo "TeX-unknown";;
-        noinfo)
-            echo "TeX-noinfo";;
-        nosource)
-            echo "TeX-nosource";;
+        #noinfo)
+        #    echo "TeX-noinfo";;
+        #nosource)
+        #    echo "TeX-nosource";;
         collection)
             echo "GPL-2";;
         other-free)
@@ -63,8 +63,8 @@ while [ $# -gt 0 ] ; do
             $0 other-free lppl1.3;;
         #other)
         #    echo "TeX-other";;
-        other-nonfree)
-            echo "TeX-other-nonfree";;
+        #other-nonfree)
+        #    echo "TeX-other-nonfree";;
         lgpl)
             echo "LGPL-2";;
         lgpl2.1)

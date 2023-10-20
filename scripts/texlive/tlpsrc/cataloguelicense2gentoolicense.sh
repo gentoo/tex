@@ -5,9 +5,13 @@ while [ $# -gt 0 ] ; do
             echo "CC-BY-SA-2.0";;
         cc-by-sa-4)
             echo "CC-BY-SA-4.0";;
+        cc-by-1)
+            echo "CC-BY-1.0";;
         cc-by-4)
             echo "CC-BY-4.0";;
         gpl)
+            echo "GPL-1";;
+        gpl1)
             echo "GPL-1";;
         gpl2)
             echo "GPL-2";;
@@ -29,6 +33,8 @@ while [ $# -gt 0 ] ; do
             echo "LPPL-1.2";;
         lppl1.3)
             echo "LPPL-1.3";;
+        lppl1.3a)
+            echo "LPPL-1.3a";;
         lppl1.3c)
             echo "LPPL-1.3c";;
         # Some tlpobj from texlive have this like that. This means both and are

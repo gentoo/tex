@@ -12,5 +12,7 @@ fi
 	
 export DISTDIR
 
+export USE="doc source"
+
 find "${TEX_OVERLAY_PATH}" -type f -name '*.ebuild' -print0 |\
 	xargs --null -I {} ebuild {} fetch

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+TEXLIVE_2021_PKGS=(
+	=app-text/texlive-2021-r1
+	=app-text/texlive-core-2021-r7
+	=dev-libs/kpathsea-6.3.3_p20210325-r1
+	=dev-libs/ptexenc-1.3.9_p20210325-r1
+	=dev-tex/biber-2.16-r1
+	=dev-tex/biblatex-3.16
+	=dev-tex/bibtexu-3.71_p20210325
+	=dev-tex/latex-beamer-3.68
+)
+
+TEXLIVE_2023_PKGS=(
+	=app-text/texlive-2023
+	=app-text/texlive-core-2023
+	=dev-libs/kpathsea-6.3.5_p20230311
+	=dev-libs/ptexenc-1.4.3_p20230311
+	=dev-tex/biber-2.19
+	=dev-tex/biblatex-3.19
+	=dev-tex/bibtexu-4.00_p20230311
+	=dev-tex/latex-beamer-3.70
+)
+
+EMERGE_OPTS=(
+	--oneshot
+	--verbose
+	--tree
+)
+
+
+if [[ ! -v NO_UPDATE ]]; then
+	EMERGE_OPTS+=(--update)
+fi
+
+TEXLIVE_VERSION="$1"
+shift
+
+case ${TEXLIVE_VERSION} in
+	21)
+		emerge \
+			${EMERGE_OPTS[*]} \
+			--usepkg ${USEPKG:-y} \
+			$* \
+			${TEXLIVE_2021_PKGS[@]}
+		;;
+	23)
+		ACCEPT_KEYWORDS="~amd64" \
+					   emerge \
+					   ${EMERGE_OPTS[*]} \
+					   --usepkg ${USEPKG:-n} \
+					   --buildpkg ${BUILDPKG:-n} \
+					   $* \
+					   ${TEXLIVE_2023_PKGS[@]}
+		;;
+esac

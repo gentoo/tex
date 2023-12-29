@@ -4,11 +4,30 @@ set -eu
 GENTOO_REPO_DIR=$(portageq get_repo_path / gentoo)
 TEX_REPO_DIR=$(portageq get_repo_path / tex-overlay)
 
+diff_package() {
+	local pkg="${1}"
+	local cat="${pkg%%/*}"
+
+	local max_gentoo_repo_version=$(pquery --max -r gentoo ${pkg})
+	max_gentoo_repo_version="${max_gentoo_repo_version##${cat}}"
+
+	local max_tex_repo_version=$(pquery --max -r tex-overlay ${pkg})
+	max_tex_repo_version="${max_tex_repo_version##${cat}}"
+
+	local max_gentoo_repo_ebuild="${GENTOO_REPO_DIR}/${pkg}/${max_gentoo_repo_version}.ebuild"
+	local max_tex_repo_ebuild="${TEX_REPO_DIR}/${pkg}/${max_tex_repo_version}.ebuild"
+
+	diff -u \
+		 "${max_gentoo_repo_ebuild}" \
+		 "${max_tex_repo_ebuild}"
+}
+
 case "${1}" in
+	biblatex)
+		diff_package dev-tex/biblatex
+		;;
 	core)
-		diff -u \
-			 "${GENTOO_REPO_DIR}/app-text/texlive-core/texlive-core-2021-r7.ebuild" \
-			 "${TEX_REPO_DIR}/app-text/texlive-core/texlive-core-2023.ebuild"
+		diff_package app-text/texlive-core
 		;;
 	eclass)
 		diff -u \

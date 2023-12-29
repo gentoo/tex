@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -eu
+
+GENTOO_REPO_DIR=$(portageq get_repo_path / gentoo)
+TEX_REPO_DIR=$(portageq get_repo_path / tex-overlay)
+
+case "${1}" in
+	core)
+		diff -u \
+			 "${GENTOO_REPO_DIR}/app-text/texlive-core/texlive-core-2021-r7.ebuild" \
+			 "${TEX_REPO_DIR}/app-text/texlive-core/texlive-core-2023.ebuild"
+		;;
+	eclass)
+		diff -u \
+			 "${GENTOO_REPO_DIR}/eclass/texlive-common.eclass" \
+			 "${TEX_REPO_DIR}/eclass/texlive-common.eclass"
+		diff -u \
+			 "${GENTOO_REPO_DIR}/eclass/texlive-module.eclass" \
+			 "${TEX_REPO_DIR}/eclass/texlive-module.eclass"
+		;;
+esac	

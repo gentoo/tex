@@ -18,4 +18,4 @@ case "${1}" in
 			 "${GENTOO_REPO_DIR}/eclass/texlive-module.eclass" \
 			 "${TEX_REPO_DIR}/eclass/texlive-module.eclass"
 		;;
-esac	
+esac

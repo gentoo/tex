@@ -1,25 +1,27 @@
 #!/usr/bin/env bash
 set -eu
 
-GENTOO_REPO_DIR=$(portageq get_repo_path / gentoo)
-TEX_REPO_DIR=$(portageq get_repo_path / tex-overlay)
-
 diff_package() {
 	local pkg="${1}"
-	local cat="${pkg%%/*}"
 
-	local max_gentoo_repo_version=$(pquery --max -r gentoo ${pkg})
-	max_gentoo_repo_version="${max_gentoo_repo_version##${cat}}"
-
-	local max_tex_repo_version=$(pquery --max -r tex-overlay ${pkg})
-	max_tex_repo_version="${max_tex_repo_version##${cat}}"
-
-	local max_gentoo_repo_ebuild="${GENTOO_REPO_DIR}/${pkg}/${max_gentoo_repo_version}.ebuild"
-	local max_tex_repo_ebuild="${TEX_REPO_DIR}/${pkg}/${max_tex_repo_version}.ebuild"
+	local max_gentoo_repo_ebuild=$(pquery --max --one-attr path -r gentoo ${pkg})
+	local max_tex_repo_ebuild=$(pquery    --max --one-attr path -r tex-overlay ${pkg})
 
 	diff -u \
 		 "${max_gentoo_repo_ebuild}" \
 		 "${max_tex_repo_ebuild}"
+}
+
+diff_eclass() {
+	local gentoo_repo_dir=$(portageq get_repo_path / gentoo)
+	local tex_repo_dir=$(portageq get_repo_path / tex-overlay)
+
+	diff -u \
+		 "${gentoo_repo_dir}/eclass/texlive-common.eclass" \
+		 "${tex_repo_dir}/eclass/texlive-common.eclass"
+	diff -u \
+		 "${gentoo_repo_dir}/eclass/texlive-module.eclass" \
+		 "${tex_repo_dir}/eclass/texlive-module.eclass"
 }
 
 case "${1}" in
@@ -30,11 +32,6 @@ case "${1}" in
 		diff_package app-text/texlive-core
 		;;
 	eclass)
-		diff -u \
-			 "${GENTOO_REPO_DIR}/eclass/texlive-common.eclass" \
-			 "${TEX_REPO_DIR}/eclass/texlive-common.eclass"
-		diff -u \
-			 "${GENTOO_REPO_DIR}/eclass/texlive-module.eclass" \
-			 "${TEX_REPO_DIR}/eclass/texlive-module.eclass"
+		diff_eclass
 		;;
 esac

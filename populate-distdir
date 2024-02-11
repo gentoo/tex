@@ -3,8 +3,8 @@ set -euo pipefail
 
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
-: ${TEX_OVERLAY_PATH:=$(portageq get_repo_path / tex-overlay)}
-: ${DISTDIR:="${SCRIPT_DIR}/distdir"}
+: "${TEX_OVERLAY_PATH:=$(portageq get_repo_path / tex-overlay)}"
+: "${DISTDIR:="${SCRIPT_DIR}/distdir"}"
 
 if [[ ! -d "${DISTDIR}" ]]; then
 	mkdir "${DISTDIR}"

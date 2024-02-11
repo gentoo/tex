@@ -8,6 +8,8 @@ SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
 if [[ ! -d "${DISTDIR}" ]]; then
 	mkdir "${DISTDIR}"
+	# https://bford.info/cachedir/
+	echo "Signature: 8a477f597d28d172789f06886806bc55" > "${DISTDIR}/CACHEDIR.TAG"
 fi
 	
 export DISTDIR

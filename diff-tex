@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -eu
+
+diff_package() {
+	local pkg="${1}"
+
+	local max_gentoo_repo_ebuild=$(pquery --max --one-attr path -r gentoo ${pkg})
+	local max_tex_repo_ebuild=$(pquery    --max --one-attr path -r tex-overlay ${pkg})
+
+	diff -u \
+		 "${max_gentoo_repo_ebuild}" \
+		 "${max_tex_repo_ebuild}"
+}
+
+diff_eclass() {
+	local gentoo_repo_dir=$(portageq get_repo_path / gentoo)
+	local tex_repo_dir=$(portageq get_repo_path / tex-overlay)
+
+	diff -u \
+		 "${gentoo_repo_dir}/eclass/texlive-common.eclass" \
+		 "${tex_repo_dir}/eclass/texlive-common.eclass"
+	diff -u \
+		 "${gentoo_repo_dir}/eclass/texlive-module.eclass" \
+		 "${tex_repo_dir}/eclass/texlive-module.eclass"
+}
+
+case "${1}" in
+	biblatex)
+		diff_package dev-tex/biblatex
+		;;
+	core)
+		diff_package app-text/texlive-core
+		;;
+	eclass)
+		diff_eclass
+		;;
+esac

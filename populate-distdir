@@ -3,14 +3,18 @@ set -euo pipefail
 
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
-: ${TEX_OVERLAY_PATH:=$(portageq get_repo_path / tex-overlay)
-: ${DISTDIR:="${SCRIPT_DIR}/distdir"}
+: "${TEX_OVERLAY_PATH:=$(portageq get_repo_path / tex-overlay)}"
+: "${DISTDIR:=$(portageq distdir)}"
 
 if [[ ! -d "${DISTDIR}" ]]; then
 	mkdir "${DISTDIR}"
+	# https://bford.info/cachedir/
+	echo "Signature: 8a477f597d28d172789f06886806bc55" > "${DISTDIR}/CACHEDIR.TAG"
 fi
 	
 export DISTDIR
+
+export USE="doc source"
 
 find "${TEX_OVERLAY_PATH}" -type f -name '*.ebuild' -print0 |\
 	xargs --null -I {} ebuild {} manifest fetch

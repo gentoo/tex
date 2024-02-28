@@ -13,7 +13,7 @@ pushd tex4ht-svn
 TEX4HT_SVN_VERSION=$(svnversion)
 popd
 if [[ ! -d texmf-dist ]]; then
-    wget wget https://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ht.tar.xz
+    wget https://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ht.tar.xz
     unp tex4ht.tar.xz
 fi
 if [[ ! -d bin ]]; then

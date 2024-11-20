@@ -3,8 +3,29 @@ set -euo pipefail
 
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
+DISTDIR="$(portageq distdir)"
+EBUILD_ACTION="fetch"
+
+while getopts em OPT; do
+	case $OPT in
+		e)
+			DISTDIR="${SCRIPT_DIR}/distdir"
+			;;
+		m)
+			EBUILD_ACTION="manifest"
+			;;
+		*)
+			echo "usage: ${0##*/} [-e] [-m]"
+			echo -e "\t-e -- extra distdir"
+			echo -e "\t-m -- generate manifest (instead of fetching distfiles)"
+			echo -e "\t      will populate DISTDIR only with distfiles not yet in manifest"
+			exit 2
+	esac
+done
+shift $(( OPTIND - 1 ))
+OPTIND=1
+
 : "${TEX_OVERLAY_PATH:=$(portageq get_repo_path / tex-overlay)}"
-: "${DISTDIR:="${SCRIPT_DIR}/distdir"}"
 
 if [[ ! -d "${DISTDIR}" ]]; then
 	mkdir "${DISTDIR}"
@@ -17,4 +38,4 @@ export DISTDIR
 export USE="doc source"
 
 find "${TEX_OVERLAY_PATH}" -type f -name '*.ebuild' -print0 |\
-	xargs --null -I {} ebuild {} fetch
+	xargs --null -I {} ebuild {} "${EBUILD_ACTION}"

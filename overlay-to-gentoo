@@ -18,10 +18,13 @@ PACKAGES=(
 	dev-tex/latexmk
 	dev-tex/glossaries
 	dev-tex/tex4ht
-	dev-tex/minted
 	dev-tex/bibtexu
 	dev-tex/pgf
 	dev-tex/latex-beamer
+
+	dev-python/latexrestricted
+	dev-tex/latex2pydata
+	dev-tex/minted
 
 	app-text/texlive-core
 

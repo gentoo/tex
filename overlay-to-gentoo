@@ -76,7 +76,11 @@ GENTOO_DIR="$(portageq get_repo_path / gentoo)"
 TEX_OVERLAY_DIR="$(portageq get_repo_path / tex-overlay)"
 
 for PACKAGE in "${PACKAGES[@]}"; do
+	echo "Handling $PACKAGE"
+
 	SOURCE="${TEX_OVERLAY_DIR}/${PACKAGE}"
+	[[ ! -d ${SOURCE} ]] && continue
+
 	DEST="${GENTOO_DIR}/${PACKAGE}"
 
 	[[ ! -d "${DEST}" ]] && mkdir "${DEST}"

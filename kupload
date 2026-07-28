@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -eu
+
+if [[ ! -d ${1} ]]; then
+	>&2 echo "ERROR: First argument most be a directory"
+	exit 1
+fi
+
+BASE_URL="https://distfiles.gentoo.org/pub/proj/tex/"
+
+cd "${1}"
+for FILE in ./*; do
+	if [[ ! -f ${FILE} ]]; then
+		continue
+	fi
+
+	if [[ "${FILE}" == *.sig ]]; then
+		continue
+	fi
+
+	FILENAME="${FILE#./}"
+	LOCAL_SIZE=$(stat -c %s "${FILE}")
+
+	# Fetch the remote file size via an HTTP HEAD request.
+	# -f ensures curl fails silently on HTTP 404 (Not Found).
+	REMOTE_SIZE=$(curl -s -I -f "${BASE_URL}${FILENAME}" 2>/dev/null | awk -v IGNORECASE=1 '/^content-length:/ {print $2}' | tr -d '\r' || true)
+
+	if [[ "${LOCAL_SIZE}" == "${REMOTE_SIZE}" ]]; then
+		echo "Skipping ${FILENAME}: already exists on target with matching size (${LOCAL_SIZE} bytes)."
+		continue
+	fi
+
+	FILE_SIG="${FILE}".sig
+	if [[ ! -f ${FILE_SIG} ]]; then
+		gpg --detach --sign --output ${FILE_SIG} ${FILE}
+	fi
+
+	# XXX: It seems that "kup putraw" does not return a non-zero exit
+	# status on failure :(
+	# XXX: It would be great if putraw could check if the file already
+	# exists and not do the put if it's the same file we are going to
+	# put(raw)
+	echo "Uploading ${FILENAME}..."
+	kup putraw ${FILE} ${FILE_SIG} /pub/proj/tex/
+done

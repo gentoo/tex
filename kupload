@@ -1,38 +1,38 @@
 #!/usr/bin/env bash
 set -eu
 
-if [[ ! -d ${1} ]]; then
-	>&2 echo "ERROR: First argument most be a directory"
+if [[ $# -lt 1 ]]; then
+	>&2 echo "Usage: $0 <file|directory>"
 	exit 1
 fi
 
+TARGET="$1"
 BASE_URL="https://distfiles.gentoo.org/pub/proj/tex/"
 
-cd "${1}"
-for FILE in ./*; do
-	if [[ ! -f ${FILE} ]]; then
-		continue
+upload_file() {
+	local file="$1"
+
+	if [[ ! -f "${file}" ]] || [[ "${file}" == *.sig ]]; then
+		return 0
 	fi
 
-	if [[ "${FILE}" == *.sig ]]; then
-		continue
-	fi
-
-	FILENAME="${FILE#./}"
-	LOCAL_SIZE=$(stat -c %s "${FILE}")
+	local filename="${file#./}"
+	local local_size
+	local_size=$(stat -c %s "${file}")
 
 	# Fetch the remote file size via an HTTP HEAD request.
 	# -f ensures curl fails silently on HTTP 404 (Not Found).
-	REMOTE_SIZE=$(curl -s -I -f "${BASE_URL}${FILENAME}" 2>/dev/null | awk -v IGNORECASE=1 '/^content-length:/ {print $2}' | tr -d '\r' || true)
+	local remote_size
+	remote_size=$(curl -s -I -f "${BASE_URL}${filename}" 2>/dev/null | awk -v IGNORECASE=1 '/^content-length:/ {print $2}' | tr -d '\r' || true)
 
-	if [[ "${LOCAL_SIZE}" == "${REMOTE_SIZE}" ]]; then
-		echo "Skipping ${FILENAME}: already exists on target with matching size (${LOCAL_SIZE} bytes)."
-		continue
+	if [[ "${local_size}" == "${remote_size}" ]]; then
+		echo "Skipping ${filename}: already exists on target with matching size (${local_size} bytes)."
+		return 0
 	fi
 
-	FILE_SIG="${FILE}".sig
-	if [[ ! -f ${FILE_SIG} ]]; then
-		gpg --detach --sign --output ${FILE_SIG} ${FILE}
+	local file_sig="${file}.sig"
+	if [[ ! -f "${file_sig}" ]]; then
+		gpg --detach --sign --output "${file_sig}" "${file}"
 	fi
 
 	# XXX: It seems that "kup putraw" does not return a non-zero exit
@@ -40,6 +40,20 @@ for FILE in ./*; do
 	# XXX: It would be great if putraw could check if the file already
 	# exists and not do the put if it's the same file we are going to
 	# put(raw)
-	echo "Uploading ${FILENAME}..."
-	kup putraw ${FILE} ${FILE_SIG} /pub/proj/tex/
-done
+	echo "Uploading ${filename}..."
+	kup putraw "${file}" "${file_sig}" /pub/proj/tex/
+}
+
+if [[ -f "${TARGET}" ]]; then
+	# cd to the file's parent directory so basename and relative paths remain consistent
+	cd "$(dirname "${TARGET}")"
+	upload_file "$(basename "${TARGET}")"
+elif [[ -d "${TARGET}" ]]; then
+	cd "${TARGET}"
+	for FILE in ./*; do
+		upload_file "${FILE}"
+	done
+else
+	>&2 echo "ERROR: First argument must be a valid file or directory."
+	exit 1
+fi
